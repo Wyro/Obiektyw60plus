@@ -1,64 +1,63 @@
 ﻿// Prints the name of the object camera is directly looking at
 using UnityEngine;
 using System.Collections;
-using UnityEditor.Experimental.UIElements.GraphView;
-using System.Reflection;
+using UnityEditor.Experimental.UIElements.GraphView;   
+using System.Collections.Generic;
 
+    
 public class GetRaycastHit : MonoBehaviour
 {
-     Ray ray;
-     RaycastHit hit;
-     Transform p0 = null;
-     Transform p1 = null;
-     Vector3 h0;
-     Vector3 h1;
-     int i = 0;
-     Transform container;
-     float distance;
-     string label = "";
-     
-     void Start()
-     {
-         container = new GameObject("Lines").transform;
-     }
-     
-     void Update()
-     {
-         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-         
-         if(Physics.Raycast(ray, out hit))
-         {
-             if(!p0 && !p1)
-             {
-                 p0 = hit.transform;
-                 h0 = hit.point;
-                 return;
-             }
-             
-             if(p0 && !p1)
-             {
-                 p1 = hit.transform;
-                 h1 = hit.point;
-             }
-                 
-             if(p0 && p1)
-             {
-                 LineRenderer line = new GameObject("Line " + i.ToString()).AddComponent<LineRenderer>();
-                 line.transform.parent = container;
-                 line.SetWidth(0.025F, 0.025F);
-                 line.SetColors(Color.red, Color.green);
-                 line.SetVertexCount(2);
-                 line.SetPosition(0, h0);
-                 line.SetPosition (1, h1);
-                 distance = Vector3.Distance(h0, h1);
-                 label = "Distance between hit point 0 of " + p0.name + " and hit point 1 of " + p1.name + " = " + distance.ToString();
-                 p1 = null;
-                 p0 = null;
-             }
+    private bool canHover = false;
+    public float distanceOfRay = (float)1.0;
+    //public GameObject pickupObjcet;
+    //public List<GameObject> pickupObjects;
 
-            Debug.Log("I'm looking at......" + hit.transform.name);
-         }
+    void Start()
+    {
+        //pickupObjects = new List<GameObject>();
+    }
 
-        Debug.Log("Im looking at nothing :(");
-     }
+    void Update()
+    {
+        //Vector3 forward = transform.TransformDirection(Vector3.forward);
+        RaycastHit hit;
+        Ray ray;
+
+        ray = new Ray(transform.position, transform.forward * distanceOfRay);
+        Debug.DrawRay(transform.position, transform.forward *distanceOfRay, Color.red);
+
+        if (Physics.Raycast(ray, out hit)) //(Physics.Raycast(transform.position, transform.forward, out hit, (float)2))
+        {
+            
+            if (hit.distance <= 3.0 && hit.collider.gameObject.tag == "pickup")
+            {
+                //Debug.Log("Nacisnij \"Space\"");
+
+                hit.transform.SendMessage("DettectedByRay");
+                canHover = true;
+                //if(Input.GetKeyDown(KeyCode.Space))
+                //{
+                //    //Destroy(pickupObjcet);
+                //}
+            }
+
+            else
+            {
+                canHover = false;
+            }
+        }
+    }
+
+    private void OnGUI()
+    {
+        if(canHover == true)
+        {
+            string stringContent = "'O' - maximalizing" + System.Environment.NewLine + "'P' - minimalizing" + System.Environment.NewLine + "'U, J, K, L' - moving";
+            GUIContent guiContent = new GUIContent(stringContent);
+            GUIStyle guiStyle = new GUIStyle();
+            GUI.Box(UnityEngine.Rect.MinMaxRect(Screen.width / 2 - 100, Screen.height / 2 - 100, 20, 200), stringContent, GUIStyle.none);
+        }
+        
+    }
+
 }
