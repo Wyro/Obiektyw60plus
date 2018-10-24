@@ -7,6 +7,8 @@ public class WandHolder : MonoBehaviour {
     public bool[] IsSlotOccupied;
     public int SlotsNum = 5;
 
+    Collider equipmentSpace;
+
     // Use this for initialization
     void Start()
     {
@@ -21,6 +23,26 @@ public class WandHolder : MonoBehaviour {
 		
 	}
 
+    void OnTriggerEnter(Collider otherCollider)
+    {
+        int firstEmpty = CheckFirstEmptySlot();
+        if (firstEmpty != SlotsNum)
+        {
+            IsSlotOccupied[firstEmpty] = true;
+        }
+        DistanceGrabbable dg = otherCollider.GetComponentInChildren<DistanceGrabbable>();
+        if (dg)
+        {
+            dg.InRange = true;
+        }
+
+    }
+
+    void OnTriggerExit(Collider otherCollider)
+    {
+
+    }
+
     public int OccupyFirstEmptySlot(GameObject gameObject)
     {
         for (int i = 0; i < SlotsNum; i++)
@@ -28,9 +50,6 @@ public class WandHolder : MonoBehaviour {
             if (IsSlotOccupied[i] == false)
             {
                 GameObject wandHolderChild = transform.GetChild(i).gameObject;
-                gameObject.transform.position = wandHolderChild.transform.position;
-                Vector3 rotate90 = new Vector3(0, 0, 90f);
-                gameObject.transform.Rotate(rotate90); 
                 return i;
                 
             }
