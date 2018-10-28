@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Handles steering the wheelchair via keyboard input
-/// Intented for nonVR use but can be used in VR as long as keyboard is available
-public class wheelchair_movement_nonVR : MonoBehaviour {
+// Handles simple steering of the wheelchair via keyboard or VR controllers
+/// Currently only reads input from left VR controller
+public class wheelchair_movement : MonoBehaviour {
 
     // Parameters, editable in the component view
-    public float speed; // rate of forward/backwards motion, 2.5 is good
+    public float speed; // rate of forward/backwards motion, 1.25 is good
     public float maneuverability; // rate of left/right rotation, 20 is good
 
     private Rigidbody rb; // Unity's physics component
@@ -26,8 +26,8 @@ public class wheelchair_movement_nonVR : MonoBehaviour {
     void Update()
     {
         // Get user input
-        movement_input = Input.GetAxis("Vertical"); // W, S
-        turn_input = Input.GetAxis("Horizontal"); // A, D
+        movement_input = Input.GetAxis("Vertical"); // W, S; moving joystick up or down
+        turn_input = Input.GetAxis("Horizontal"); // A, D; moving joystick left or right
     }
 
     // FixedUpdate is called once per frame to calculate the physics
