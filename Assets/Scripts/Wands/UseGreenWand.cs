@@ -6,11 +6,14 @@ public class UseGreenWand : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        OVRDebugConsole.Log("green wand");
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        print("using green");
+        if (OVRInput.GetDown(OVRInput.Button.One))//A key
+        {
+            OVRDebugConsole.Log("using green wand");
+        }
     }
 }

@@ -20,7 +20,7 @@ public class EquipmentManager : MonoBehaviour {
 
     #endregion
     public bool IsItemEquipped = false;
-    public Item ActiveItem;
+    public Item ActiveItem = null;
     ItemHolder itemHolder;
     WandHolder wandHolder;
 
@@ -39,7 +39,7 @@ public class EquipmentManager : MonoBehaviour {
 
     public void ToggleScript(Item item, bool IsActive)
     {
-        IsItemEquipped = true;
+        
         ActiveItem = item;
 
         switch (item.name)

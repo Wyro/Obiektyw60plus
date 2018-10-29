@@ -12,7 +12,7 @@ public class Initialise : MonoBehaviour {
     void Start()
     {
         //deactivate all the scripts that should be run when weapons are used
-
+        //ZP
         wandRed.GetComponent<UseRedWand>().enabled = false;
         wandGreen.GetComponent<UseGreenWand>().enabled = false;
         wandPurple.GetComponent<UsePurpleWand>().enabled = false;
