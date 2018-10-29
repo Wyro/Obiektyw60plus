@@ -11,6 +11,9 @@ public class UsePurpleWand : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        print("using purple");
+        if (OVRInput.GetDown(OVRInput.Button.One))//A key
+        {
+            print("using purple wand");
+        }
     }
 }
