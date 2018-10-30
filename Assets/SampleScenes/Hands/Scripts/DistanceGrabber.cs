@@ -82,10 +82,6 @@ namespace OVRTouchSample
 
         OVRCameraRig m_camera;
 
-        //ZP EquipmentManager is used for activating/ deactivating the current item's script to use the item
-        EquipmentManager equipmentManager;
-
-
         protected override void Start()
         {
             base.Start();
@@ -111,19 +107,12 @@ namespace OVRTouchSample
             }
             Debug.Assert(m_otherHand != null);
             m_camera = GameObject.Find("OVRCameraRig").GetComponent<OVRCameraRig>();
-
-            //ZP
-            equipmentManager = EquipmentManager.instance;
-
-            OVRDebugConsole.Log("message from DistanceGrabber");
         }
-        
 
         void Update()
         {
             DistanceGrabbable target;
             Collider targetColl;
-            
             FindTarget(out target, out targetColl);
 
             if (target != m_target)
@@ -141,54 +130,10 @@ namespace OVRTouchSample
                     m_target.Targeted = true;
                 }
             }
-            //if (target != null)
-            //{
-            //    print(target.isGrabbed);
-            //}
-            //ZP
-            //if (m_target != null)
-            //{
-            //    //activate the script when the object is grabbed and is equipped
-            //    if (m_target.isGrabbed)
-            //    {
-            //        if (equipmentManager.IsItemEquipped != true)
-            //        {
-            //            OVRDebugConsole.Log("object grabbed");                                
-            //                equipmentManager.ToggleScript(m_target.itemGrabbed, true); //activate the script, which the item uses
-            //            equipmentManager.IsItemEquipped = true;
-            //        }
-
-            //    }
-            //    else
-            //    {
-            //        //deactivate the script when the object isn't grabbed and is equipped
-
-            //        if (equipmentManager.IsItemEquipped != false)
-            //        {
-            //            OVRDebugConsole.Log("object released");
-            //            equipmentManager.ToggleScript(equipmentManager.ActiveItem, false);
-            //            equipmentManager.IsItemEquipped = false;
-            //        }
-            //    }
-            //}
-
-            if (m_target != null)
-            {
-                if (m_target.isGrabbed)
-                {
-                    OVRDebugConsole.Log("object grabbed");
-                }
-                else
-                {
-                    OVRDebugConsole.Log("object released");
-                }
-            }
-
         }
 
         protected override void GrabBegin()
         {
-
             DistanceGrabbable closestGrabbable = m_target;
             Collider closestGrabbableCollider = m_targetCollider;
 

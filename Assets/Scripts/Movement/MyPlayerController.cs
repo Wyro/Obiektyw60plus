@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class MyPlayerController : MonoBehaviour {
 
-
-
+    public Interactable focus;
+    Camera cam;
     EquipmentManager equipmentManager;
-
-
+    PlayerBody playerBody;
 
 	// Use this for initialization
 	void Start () {
-
+       cam = Camera.main;
        equipmentManager = EquipmentManager.instance;
-        //TODO find currently grabbed object
+       GameObject playerBodyObject = GameObject.Find("Player");
+        //playerBody = playerBodyObject.GetComponent<PlayerBody>();
+        //playerBody.transform.position = transform.position;
     }
 	
 	// Update is called once per frame
@@ -27,8 +28,6 @@ public class MyPlayerController : MonoBehaviour {
         {
             return;
         }
-
-
 
         //left mouse button
         if (Input.GetKeyDown(KeyCode.G))
@@ -64,50 +63,50 @@ public class MyPlayerController : MonoBehaviour {
             //    }
             //}
             //right mouse button
-        //    if (Input.GetMouseButtonDown(1))
-        //{
-        //    if (!cam)
-        //    {
-        //        Debug.Log("no cam");
-        //    }
-        //    Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        //    RaycastHit hit;
+            if (Input.GetMouseButtonDown(1))
+        {
+            if (!cam)
+            {
+                Debug.Log("no cam");
+            }
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
-        //    if (Physics.Raycast(ray, out hit, 100))
-        //    {
-        //        //Debug.Log("we hit" + hit.collider.name + " " + hit.point);
-        //        Interactable interactable = hit.collider.GetComponent<Interactable>();
-        //        //Check if we hit an interractable
-        //        if(interactable != null)
-        //        {
-        //            SetFocus(interactable);
-        //        }
-        //    }
+            if (Physics.Raycast(ray, out hit, 100))
+            {
+                //Debug.Log("we hit" + hit.collider.name + " " + hit.point);
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
+                //Check if we hit an interractable
+                if(interactable != null)
+                {
+                    SetFocus(interactable);
+                }
+            }
 
-        //}
+        }
 
 
 
 
     }
-    //void SetFocus(Interactable newInteractable)
-    //{
-    //    //if we have a new focus
-    //    if(newInteractable != focus)
-    //    {
-    //        if(focus != null) focus.OnDefocused();
-    //        focus = newInteractable;
-    //        //motor.FollowTarget(newFocus);
-    //    }
+    void SetFocus(Interactable newInteractable)
+    {
+        //if we have a new focus
+        if(newInteractable != focus)
+        {
+            if(focus != null) focus.OnDefocused();
+            focus = newInteractable;
+            //motor.FollowTarget(newFocus);
+        }
 
-    //    newInteractable.OnFocused(transform);
+        newInteractable.OnFocused(transform);
 
-    //}
+    }
 
-    //void RemoveFocus()
-    //{
-    //    if (focus != null) focus.OnDefocused();
-    //    focus = null;
-    //    //motor.stopFollowingTarget();
-    //}
+    void RemoveFocus()
+    {
+        if (focus != null) focus.OnDefocused();
+        focus = null;
+        //motor.stopFollowingTarget();
+    }
 }

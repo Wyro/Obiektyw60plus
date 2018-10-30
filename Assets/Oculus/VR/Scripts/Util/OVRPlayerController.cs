@@ -137,9 +137,6 @@ public class OVRPlayerController : MonoBehaviour
 	protected CharacterController Controller = null;
 	protected OVRCameraRig CameraRig = null;
 
-    //ZP
-    protected MyPlayerController myPlayerController = null;
-
 	private float MoveScale = 1.0f;
 	private Vector3 MoveThrottle = Vector3.zero;
 	private float FallSpeed = 0.0f;
@@ -170,14 +167,9 @@ public class OVRPlayerController : MonoBehaviour
 		if(Controller == null)
 			Debug.LogWarning("OVRPlayerController: No CharacterController attached.");
 
-        //ZP
-        myPlayerController = gameObject.GetComponent<MyPlayerController>();
-        if(myPlayerController == null)
-            Debug.LogWarning("OVRPlayerController: No MyPlayerController attached.");
-
-        // We use OVRCameraRig to set rotations to cameras,
-        // and to be influenced by rotation
-        OVRCameraRig[] CameraRigs = gameObject.GetComponentsInChildren<OVRCameraRig>();
+		// We use OVRCameraRig to set rotations to cameras,
+		// and to be influenced by rotation
+		OVRCameraRig[] CameraRigs = gameObject.GetComponentsInChildren<OVRCameraRig>();
 
 		if(CameraRigs.Length == 0)
 			Debug.LogWarning("OVRPlayerController: No OVRCameraRig attached.");
@@ -211,9 +203,8 @@ public class OVRPlayerController : MonoBehaviour
 
 	void Update()
 	{
-
-        //Use keys to ratchet rotation
-        if (Input.GetKeyDown(KeyCode.Q))
+		//Use keys to ratchet rotation
+		if (Input.GetKeyDown(KeyCode.Q))
 			buttonRotation -= RotationRatchet;
 
 		if (Input.GetKeyDown(KeyCode.E))

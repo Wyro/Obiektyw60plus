@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UseGreenWand : MonoBehaviour {
+public class PlayerBody : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -11,6 +11,6 @@ public class UseGreenWand : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        print("using green");
-    }
+		
+	}
 }
