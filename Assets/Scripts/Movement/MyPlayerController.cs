@@ -7,13 +7,13 @@ public class MyPlayerController : MonoBehaviour {
     public Interactable focus;
     Camera cam;
     EquipmentManager equipmentManager;
-    PlayerBody playerBody;
+
 
 	// Use this for initialization
 	void Start () {
        cam = Camera.main;
        equipmentManager = EquipmentManager.instance;
-       GameObject playerBodyObject = GameObject.Find("Player");
+
         //playerBody = playerBodyObject.GetComponent<PlayerBody>();
         //playerBody.transform.position = transform.position;
     }
