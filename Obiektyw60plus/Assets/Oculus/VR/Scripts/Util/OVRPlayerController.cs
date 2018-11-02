@@ -138,7 +138,7 @@ public class OVRPlayerController : MonoBehaviour
 	protected OVRCameraRig CameraRig = null;
 
     //ZP
-    protected MyPlayerController myPlayerController = null;
+    //protected MyPlayerController myPlayerController = null;
 
 	private float MoveScale = 1.0f;
 	private Vector3 MoveThrottle = Vector3.zero;
@@ -171,9 +171,9 @@ public class OVRPlayerController : MonoBehaviour
 			Debug.LogWarning("OVRPlayerController: No CharacterController attached.");
 
         //ZP
-        myPlayerController = gameObject.GetComponent<MyPlayerController>();
-        if(myPlayerController == null)
-            Debug.LogWarning("OVRPlayerController: No MyPlayerController attached.");
+        //myPlayerController = gameObject.GetComponent<MyPlayerController>();
+        //if(myPlayerController == null)
+        //    Debug.LogWarning("OVRPlayerController: No MyPlayerController attached.");
 
         // We use OVRCameraRig to set rotations to cameras,
         // and to be influenced by rotation
