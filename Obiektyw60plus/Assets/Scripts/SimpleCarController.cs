@@ -22,8 +22,24 @@ public class SimpleCarController : MonoBehaviour
             }
             if (axleInfo.motor)
             {
-                axleInfo.leftWheel.motorTorque = motor;
-                axleInfo.rightWheel.motorTorque = motor;
+                if (steering == steering)
+                {
+                    axleInfo.leftWheel.motorTorque = motor;
+                    axleInfo.rightWheel.motorTorque = motor;
+                }
+                else
+                {
+                    if (steering > 0)
+                    {
+                        axleInfo.leftWheel.motorTorque = motor;
+                        axleInfo.rightWheel.motorTorque = -2*motor;
+                    }
+                    else
+                    {
+                        axleInfo.leftWheel.motorTorque = -2*motor;
+                        axleInfo.rightWheel.motorTorque = motor;
+                    }
+                }
             }
         }
     }
