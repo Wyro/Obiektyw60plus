@@ -41,7 +41,7 @@ public class wheelchair_movement : MonoBehaviour {
     private void Move()
     {
         Vector3 movement; // vector of forward/backwards motion
-        movement = transform.forward * movement_input * speed * Time.deltaTime; // Time.deltaTime ensures fluid motion
+        movement = transform.forward * movement_input * speed * Time.deltaTime; // Time.deltaTime allows for parameter to be speed in meters per second instead of meters per frame
 
         rb.MovePosition(rb.position + movement); // transforms object's position
     }
@@ -49,7 +49,7 @@ public class wheelchair_movement : MonoBehaviour {
     // Left/right turning
     private void Turn()
     {
-        float turn = turn_input * maneuverability * Time.deltaTime; // Time.deltaTime ensures fluid motion
+        float turn = turn_input * maneuverability * Time.deltaTime; // Time.deltaTime allows for parameter to be speed in meters per second instead of meters per frame
 
         Quaternion rotation; // quaternion of left/right rotation
         rotation = Quaternion.Euler(0f, turn, 0f); // we can only turn left/right, rotating around the Y axis
