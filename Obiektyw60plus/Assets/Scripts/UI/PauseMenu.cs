@@ -5,10 +5,12 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour {
 
     public GameObject pausePanel;
+    private AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () {
         pausePanel.SetActive(false);
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -18,11 +20,13 @@ public class PauseMenu : MonoBehaviour {
         {
             if (!pausePanel.activeInHierarchy)
             {
+                audioSource.Play();
                 PauseGame();
             }
             if (pausePanel.activeInHierarchy)
             {
                 ContinueGame();
+                audioSource.Stop();
             }
         }
     }
