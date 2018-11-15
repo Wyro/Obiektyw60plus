@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Unity Multiple Language Support</title>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<meta name="author" content="Adam T. Ryder">
+<style type="text/css">
+/*----------Text Styles----------*/
+.ws6 {font-size: 8px;}
+.ws7 {font-size: 9.3px;}
+.ws8 {font-size: 11px;}
+.ws9 {font-size: 12px;}
+.ws10 {font-size: 13px;}
+.ws11 {font-size: 15px;}
+.ws12 {font-size: 16px;}
+.ws14 {font-size: 19px;}
+.ws16 {font-size: 21px;}
+.ws18 {font-size: 24px;}
+.ws20 {font-size: 27px;}
+.ws22 {font-size: 29px;}
+.ws24 {font-size: 32px;}
+.ws26 {font-size: 35px;}
+.ws28 {font-size: 37px;}
+.ws36 {font-size: 48px;}
+.ws48 {font-size: 64px;}
+.ws72 {font-size: 96px;}
+.wpmd {font-size: 13px;font-family: Arial,Helvetica,Sans-Serif;font-style: normal;font-weight: normal;}
+/*----------Para Styles----------*/
+DIV,UL,OL /* Left */
+{
+ margin-top: 0px;
+ margin-bottom: 0px;
+}
+</style>
+
+<style type="text/css">
+a.style1:link{color:#3366FF;text-decoration: none;}
+a.style1:visited{color:#3366FF;text-decoration: none;}
+a.style1:hover{color:#FF9900;text-decoration: underline;}
+a.style1:active{color:#FF9900;}
+</style>
+
+<style type="text/css">
+div#container
+{
+	position:relative;
+	width: 800px;
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align:left; 
+}
+body {text-align:center;margin:0}
+</style>
+
+</head>
+<body>
+<div id="container">
+<div id="text1" style="position:absolute; overflow:hidden; left:0px; top:17px; width:800px; height:67px; z-index:0">
+<div class="wpmd">
+<div align=center><font color="#3366FF" class="ws22">Unity Multiple Language Support</font></div>
+</div></div>
+
+<div id="text2" style="position:absolute; overflow:hidden; left:80px; top:103px; width:640px; height:3800px; z-index:1">
+<div class="wpmd">
+<div><font color="#969696" class="ws12">Add support for multiple languages to your Unity projects by storing strings with multiple translations in one or more XML files and referencing those strings with a common string identifier.&nbsp; Simply place the Lang.js file under your project's Assets folder or any subfolder thereof then create an XML file containing all necessary strings, along with their translations, and save it to your Assets folder as-well.&nbsp; Your XML document should have the following format:</font></div>
+<div><font color="#969696" class="ws12"><BR></font></div>
+<div><font color="#CC99FF" class="ws12">&lt;?xml </font><font color="#3366FF" class="ws12">version=</font><font color="#FF99CC" class="ws12">"1.0"</font><font color="#CC99FF" class="ws12"> </font><font color="#3366FF" class="ws12">encoding=</font><font color="#FF99CC" class="ws12">"utf-8"</font><font color="#CC99FF" class="ws12">?&gt;</font></div>
+<div><font color="#33CCCC" class="ws12">&lt;languages&gt;</font></div>
+<div><font color="#969696" class="ws12">&nbsp;&nbsp;&nbsp; </font><font color="#33CCCC" class="ws12">&lt;English&gt;</font></div>
+<div><font color="#969696" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#33CCCC" class="ws12">&lt;string </font><font color="#3366FF" class="ws12">name=</font><font color="#FF99CC" class="ws12">"app_name"</font><font color="#33CCCC" class="ws12">&gt;</font><font color="#969696" class="ws12">Some Game</font><font color="#33CCCC" class="ws12">&lt;/string&gt;</font></div>
+<div><font color="#969696" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#33CCCC" class="ws12">&lt;string </font><font color="#3366FF" class="ws12">name=</font><font color="#FF99CC" class="ws12">"score_text"</font><font color="#33CCCC" class="ws12">&gt;</font><font color="#969696" class="ws12">Score: </font><font color="#33CCCC" class="ws12">&lt;/string&gt;</font></div>
+<div><font color="#969696" class="ws12">&nbsp;&nbsp;&nbsp; </font><font color="#33CCCC" class="ws12">&lt;/English&gt;</font></div>
+<div><font color="#969696" class="ws12"><BR></font></div>
+<div><font color="#969696" class="ws12">&nbsp;&nbsp;&nbsp; </font><font color="#33CCCC" class="ws12">&lt;French&gt;</font></div>
+<div><font color="#969696" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#33CCCC" class="ws12">&lt;string </font><font color="#3366FF" class="ws12">name=</font><font color="#FF99CC" class="ws12">"app_name"</font><font color="#33CCCC" class="ws12">&gt;</font><font color="#969696" class="ws12">Certains Jeux</font><font color="#33CCCC" class="ws12">&lt;/string&gt;</font></div>
+<div><font color="#969696" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#33CCCC" class="ws12">&lt;string </font><font color="#3366FF" class="ws12">name=</font><font color="#FF99CC" class="ws12">"score_text"</font><font color="#33CCCC" class="ws12">&gt;</font><font color="#969696" class="ws12">Score: </font><font color="#33CCCC" class="ws12">&lt;/string&gt;</font></div>
+<div><font color="#969696" class="ws12">&nbsp;&nbsp;&nbsp; </font><font color="#33CCCC" class="ws12">&lt;/French&gt;</font></div>
+<div><font color="#969696" class="ws12"><BR></font></div>
+<div><font color="#969696" class="ws12">&nbsp;&nbsp;&nbsp; </font><font color="#33CCCC" class="ws12">&lt;German&gt;</font></div>
+<div><font color="#969696" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#33CCCC" class="ws12">&lt;string </font><font color="#3366FF" class="ws12">name=</font><font color="#FF99CC" class="ws12">"app_name"</font><font color="#33CCCC" class="ws12">&gt;</font><font color="#969696" class="ws12">Einige Spiele</font><font color="#33CCCC" class="ws12">&lt;/string&gt;</font></div>
+<div><font color="#969696" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#33CCCC" class="ws12">&lt;string </font><font color="#3366FF" class="ws12">name=</font><font color="#FF99CC" class="ws12">"score_text"</font><font color="#33CCCC" class="ws12">&gt;</font><font color="#969696" class="ws12">Ergebnis: </font><font color="#33CCCC" class="ws12">&lt;/string&gt;</font></div>
+<div><font color="#969696" class="ws12">&nbsp;&nbsp;&nbsp; </font><font color="#33CCCC" class="ws12">&lt;/German&gt;</font></div>
+<div><font color="#33CCCC" class="ws12">&lt;/languages&gt;</font></div>
+<div><font color="#33CCCC" class="ws12"><BR></font></div>
+<div><font color="#969696" class="ws12">Each language is referenced by the names of the Root Node's children, in this example languages would be referenced with "English" "French" or "German".&nbsp; Within each language node you will list out your strings each with an identifier that is unique within it's own language node, but identical to the same string in another language.&nbsp; In this example strings are referenced with the identifiers "app_name" and "score_text".</font></div>
+<div><font color="#969696" class="ws12"><BR></font></div>
+<div><font color="#3366FF" class="ws12">Note:</font></div>
+<div><font color="#969696" class="ws12">Using a single XML file is probably fine for smaller games, but you may find that RAM usage can be decreased on larger games by using multiple XML files such as LVL_01.xml, LVL_02.xml, etc...</font></div>
+<div><font color="#969696" class="ws12"><BR></font></div>
+<div><font color="#969696" class="ws12"><BR></font></div>
+<div align=center><font color="#3366FF" class="ws22">Using the Lang Class</font></div>
+<div align=center><font color="#3366FF" class="ws12"><BR></font></div>
+<div><font color="#969696" class="ws12">The Lang class can be used in conjunction with locally stored XML resources or XML resources stored on the internet such as would be the case with web-player games.</font></div>
+<div><font color="#969696" class="ws12"><BR></font></div>
+<div><font color="#3366FF" class="ws14">Constructor:</font></div>
+<div><font color="#FF9900" class="ws12">Lang( path : String, language : String, web : boolean )</font></div>
+<div><font color="#969696" class="ws12">path:&nbsp; String.&nbsp; File path to the XML resource if locally stored, XML resource text if web based</font></div>
+<div><font color="#969696" class="ws12">language:&nbsp; String.&nbsp; Language to be used</font></div>
+<div><font color="#969696" class="ws12">web:&nbsp; Boolean.&nbsp; False if XML resource is stored locally otherwise true</font></div>
+<div><font color="#969696" class="ws12"><BR></font></div>
+<div><font color="#3366FF" class="ws12">Usage (JavaScript, local XML resource):</font></div>
+<div><font color="#FF9900" class="ws12">import System.IO;</font></div>
+<div><font color="#FF9900" class="ws12"><BR></font></div>
+<div><font color="#FF9900" class="ws12">var langClass : Lang;</font></div>
+<div><font color="#3366FF" class="ws12"><BR></font></div>
+<div><font color="#FF9900" class="ws12">function Start () {</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp; langClass = new Lang(Path.Combine(Application.dataPath, "lang.xml"), "English", false);</font></div>
+<div><font color="#FF9900" class="ws12">}</font></div>
+<div><font color="#FF9900" class="ws12"><BR></font></div>
+<div><font color="#3366FF" class="ws12">Usage (JavaScript, web XML resource):</font></div>
+<div><font color="#FF9900" class="ws12">import System.IO;</font></div>
+<div><font color="#FF9900" class="ws12"><BR></font></div>
+<div><font color="#FF9900" class="ws12">var langClass : Lang;</font></div>
+<div><font color="#3366FF" class="ws12"><BR></font></div>
+<div><font color="#FF9900" class="ws12">function Start () {</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp; var wwwXML : WWW = new WWW("http://www.exampleURL.com/lang.xml");</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp; yield wwwXML;</font></div>
+<div><font color="#FF9900" class="ws12"><BR></font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp; langClass = new Lang(wwwXML.text, "English", true);</font></div>
+<div><font color="#FF9900" class="ws12">}</font></div>
+<div><font color="#FF9900" class="ws12"><BR></font></div>
+<div><font color="#3366FF" class="ws14">Methods:</font></div>
+<div><font color="#3366FF" class="ws14">setLanguage:</font></div>
+<div><font color="#FF9900" class="ws12">setLanguage( path : String, language : String )</font></div>
+<div><font color="#969696" class="ws12">path:&nbsp; String.&nbsp; File path to the XML resource</font></div>
+<div><font color="#969696" class="ws12">language:&nbsp; String.&nbsp; Language to be used</font></div>
+<div><font color="#969696" class="ws12">Use the setLanguage function to switch the current language selection after having initialized the class such as from an options screen.&nbsp; This function is automatically called when the Lang class is initialized.&nbsp; Used with local XML resources.</font></div>
+<div><font color="#3366FF" class="ws12"><BR></font></div>
+<div><font color="#3366FF" class="ws12">Usage (JavaScript, local XML resource):</font></div>
+<div><font color="#FF9900" class="ws12">import System.IO;</font></div>
+<div><font color="#FF9900" class="ws12"><BR></font></div>
+<div><font color="#FF9900" class="ws12">var langClass : Lang;</font></div>
+<div><font color="#FF9900" class="ws12">var currentLang : String = "English";</font></div>
+<div><font color="#3366FF" class="ws12"><BR></font></div>
+<div><font color="#FF9900" class="ws12">function Start () {</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp; langClass = new Lang(Path.Combine(Application.dataPath, "lang.xml"), currentLang, false);</font></div>
+<div><font color="#FF9900" class="ws12">}</font></div>
+<div><font color="#FF9900" class="ws12"><BR></font></div>
+<div><font color="#FF9900" class="ws12">function OnGUI () {</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp; if (GUI.Button(Rect(0, 450 - 24, 800, 24), "Language:&nbsp; " + currentLang)) {</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (currentLang == "English") {</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; currentLang = "French";</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else if (currentLang == "French") {</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; currentLang = "German";</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; currentLang = "English";</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; langClass.setLanguage(Path.Combine(Application.dataPath, "lang.xml"), currentLang);</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp; }</font></div>
+<div><font color="#FF9900" class="ws12">}</font></div>
+<div><font color="#FF9900" class="ws12"><BR></font></div>
+<div><font color="#3366FF" class="ws14">setLanguageWeb:</font></div>
+<div><font color="#FF9900" class="ws12">setLanguageWeb( xmlText : String, language : String )</font></div>
+<div><font color="#969696" class="ws12">path:&nbsp; String.&nbsp; XML resource as text</font></div>
+<div><font color="#969696" class="ws12">language:&nbsp; String.&nbsp; Language to be used</font></div>
+<div><font color="#969696" class="ws12">Use the setLanguageWeb function to switch the current language selection after having initialized the class such as from an options screen.&nbsp; This function is automatically called when the Lang class is initialized.&nbsp; Used with web based XML resources.</font></div>
+<div><font color="#969696" class="ws12"><BR></font></div>
+<div><font color="#3366FF" class="ws12">Usage (JavaScript, web XML resource):</font></div>
+<div><font color="#FF9900" class="ws12">import System.IO;</font></div>
+<div><font color="#FF9900" class="ws12"><BR></font></div>
+<div><font color="#FF9900" class="ws12">var langClass : Lang;</font></div>
+<div><font color="#FF9900" class="ws12">var currentLang : String = "English";</font></div>
+<div><font color="#3366FF" class="ws12"><BR></font></div>
+<div><font color="#FF9900" class="ws12">function Start () {</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp; var wwwXML : WWW = new WWW("http://www.exampleURL.com/lang.xml");</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp; yield wwwXML;</font></div>
+<div><font color="#FF9900" class="ws12"><BR></font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp; langClass = new Lang(wwwXML.text, "English", true);</font></div>
+<div><font color="#FF9900" class="ws12">}</font></div>
+<div><font color="#FF9900" class="ws12"><BR></font></div>
+<div><font color="#FF9900" class="ws12">function OnGUI () {</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp; if (GUI.Button(Rect(0, 450 - 24, 800, 24), "Language:&nbsp; " + currentLang)) {</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (currentLang == "English") {</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; currentLang = "French";</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else if (currentLang == "French") {</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; currentLang = "German";</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; currentLang = "English";</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var wwwXML : WWW = new WWW("http://www.exampleURL.com/lang.xml");</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; yield wwwXML;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></div>
+<div><font color="#FF9900" class="ws12"><BR></font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; langClass.setLanguage(wwwXML.text, currentLang);</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp; }</font></div>
+<div><font color="#FF9900" class="ws12">}</font></div>
+<div><font color="#FF9900" class="ws12"><BR></font></div>
+<div><font color="#3366FF" class="ws14">getString:</font></div>
+<div><font color="#FF9900" class="ws12">getString( name : String ) : String</font></div>
+<div><font color="#969696" class="ws12">name:&nbsp; String.&nbsp; Unique string identifier</font></div>
+<div><font color="#969696" class="ws12">Returns:&nbsp; String associated with the XML "name" identifier in the currently set language.</font></div>
+<div><font color="#969696" class="ws12">Use the getString function to access a desired string in the currently selected language.</font></div>
+<div><font color="#969696" class="ws12"><BR></font></div>
+<div><font color="#3366FF" class="ws12">Usage (JavaScript):</font></div>
+<div><font color="#FF9900" class="ws12">import System.IO;</font></div>
+<div><font color="#FF9900" class="ws12"><BR></font></div>
+<div><font color="#FF9900" class="ws12">var langClass : Lang;</font></div>
+<div><font color="#FF9900" class="ws12">var currentLang : String = "English";</font></div>
+<div><font color="#FF9900" class="ws12"><BR></font></div>
+<div><font color="#FF9900" class="ws12">var Score : int = 0;</font></div>
+<div><font color="#FF9900" class="ws12">var scoreText : String;</font></div>
+<div><font color="#3366FF" class="ws12"><BR></font></div>
+<div><font color="#FF9900" class="ws12">function Start () {</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp; langClass = new Lang(Path.Combine(Application.dataPath, "lang.xml"), currentLang, false);</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp; scoreText = langClass.getString("score_text") + "0";</font></div>
+<div><font color="#FF9900" class="ws12">}</font></div>
+<div><font color="#FF9900" class="ws12"><BR></font></div>
+<div><font color="#FF9900" class="ws12">function scoreChange ( newScore : int ) {</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp; Score = newScore;</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp; scoreText = langClass.getString("score_text") + newScore.ToString();</font></div>
+<div><font color="#FF9900" class="ws12">}</font></div>
+<div><font color="#FF9900" class="ws12"><BR></font></div>
+<div><font color="#FF9900" class="ws12">function OnGUI () {</font></div>
+<div><font color="#FF9900" class="ws12">&nbsp;&nbsp;&nbsp; GUI.Label(Rect(0, 0, 192, 450), langClass.getString("app_name") + "\n" + scoreText);</font></div>
+<div><font color="#FF9900" class="ws12">}</font></div>
+<div><font color="#FF9900" class="ws12"><BR></font></div>
+<div><font color="#FF9900" class="ws12"><BR></font></div>
+<div><font color="#969696" class="ws12"><BR></font></div>
+<div><font color="#969696" class="ws12"><BR></font></div>
+<div align=center><font color="#969696" class="ws12">Adam T. Ryder</font></div>
+<div align=center><font class="ws12"><a href="http://1337atr.weebly.com" title="1337 Gallery" target="_blank" class="style1">http://1337atr.weebly.com</a></font></div>
+</div></div>
+
+</div>
+
+</body>
+</html>
