@@ -14,9 +14,9 @@ public class MainMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        mainPanel.SetActive(true);
-        optionsPanel.SetActive(false);
-        aboutPanel.SetActive(false);
+        //mainPanel.SetActive(true);
+        //optionsPanel.SetActive(false);
+        //aboutPanel.SetActive(false);
         audioSource = gameObject.GetComponent<AudioSource>();
     }
 	
