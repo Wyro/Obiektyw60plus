@@ -42,11 +42,11 @@ public class ItemPickup : Interactable {
                 //free the slot occupied by the item equipped
                 if (SlotOccupied != wandHolder.SlotsNum) wandHolder.IsSlotOccupied[SlotOccupied] = false;
 
-                //activate the script, which the item uses
-                equipmentManager.ToggleScript(item, true);
+                ////activate the script, which the item uses
+                //equipmentManager.ToggleScript(item, true);
 
-                //equip the item
-                equipmentManager.EquipActiveItem();
+                ////equip the item
+                //equipmentManager.EquipActiveItem();
 
                 //deactivate this script
                 gameObject.GetComponent<ItemPickup>().enabled = false; //this isn't doing anything

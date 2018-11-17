@@ -33,23 +33,23 @@ public class MyPlayerController : MonoBehaviour {
         //left mouse button
         if (Input.GetKeyDown(KeyCode.G))
         {
-            print("dropping"+ equipmentManager.ActiveItem.name);
-            //Unequip the item, if it is equipped
-            if (equipmentManager.IsItemEquipped)
-            {
-                //deactivate script, which the item uses
-                equipmentManager.ToggleScript(equipmentManager.ActiveItem, false);
-                //TODO change item's position to previous, use WandHolder class
-                equipmentManager.UnEquipActiveItem();
-                //activate ItemPickup's script
-                GameObject pickUp = GameObject.Find(equipmentManager.ActiveItem.name);
-                pickUp.GetComponent<ItemPickup>().enabled = true;
-            }
-            else
-            {
-                print("nothing to unequip");
-            }
-            equipmentManager.IsItemEquipped = false;
+            //print("dropping"+ equipmentManager.ActiveItem.name);
+            ////Unequip the item, if it is equipped
+            //if (equipmentManager.IsItemEquipped)
+            //{
+            //    //deactivate script, which the item uses
+            //    equipmentManager.ToggleScript(equipmentManager.ActiveItem, false);
+            //    //TODO change item's position to previous, use WandHolder class
+            //    equipmentManager.UnEquipActiveItem();
+            //    //activate ItemPickup's script
+            //    GameObject pickUp = GameObject.Find(equipmentManager.ActiveItem.name);
+            //    pickUp.GetComponent<ItemPickup>().enabled = true;
+            //}
+            //else
+            //{
+            //    print("nothing to unequip");
+            //}
+            //equipmentManager.IsItemEquipped = false;
         }
             //    Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             //    RaycastHit hit;
