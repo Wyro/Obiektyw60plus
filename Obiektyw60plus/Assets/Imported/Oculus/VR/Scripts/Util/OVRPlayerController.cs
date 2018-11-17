@@ -78,7 +78,7 @@ public class OVRPlayerController : MonoBehaviour
 	/// <summary>
 	/// If true, tracking data from a child OVRCameraRig will update the direction of movement.
 	/// </summary>
-	public bool HmdRotatesY = true;
+	public bool HmdRotatesY = false;
 
 	/// <summary>
 	/// Modifies the strength of gravity.
@@ -165,15 +165,12 @@ public class OVRPlayerController : MonoBehaviour
 
 	void Awake()
 	{
+        Debug.Log("OVRPlayerController awakes");
 		Controller = gameObject.GetComponent<CharacterController>();
 
 		if(Controller == null)
 			Debug.LogWarning("OVRPlayerController: No CharacterController attached.");
 
-        //ZP
-        //myPlayerController = gameObject.GetComponent<MyPlayerController>();
-        //if(myPlayerController == null)
-        //    Debug.LogWarning("OVRPlayerController: No MyPlayerController attached.");
 
         // We use OVRCameraRig to set rotations to cameras,
         // and to be influenced by rotation

@@ -26,8 +26,7 @@ using OVRTouchSample;
 public class DistanceGrabbable : ColorGrabbable
 {
     public string m_materialColorField;
-    //ZP
-    public Item itemGrabbed;
+
 
     GrabbableCrosshair m_crosshair;
     GrabManager m_crosshairManager;
