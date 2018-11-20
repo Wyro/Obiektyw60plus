@@ -14,15 +14,16 @@ public class wheelchair_movement : MonoBehaviour {
     public float max_rotation_speed; // maximum turning rate of wheelchair, 20 is good
     public float rotation_decceleration; // rate of losing turning speed on its own, 25 is good
 
-    private float movement_speed = 0; // rate of forward/backwards motion
-    private float rotation_speed = 0; // rate of left/right rotation, 20 is good
-
-    private Rigidbody rb; // Unity's physics component
-
     // Variables for holding user input
     private float movement_input;
     private float rotation_input;
     private float break_input;
+
+    // Variables for holding speed
+    private float movement_speed = 0; // rate of forward/backwards motion
+    private float rotation_speed = 0; // rate of left/right rotation
+
+    private Rigidbody rb; // Unity's physics component
 
     // Awake is run once, when game starts
     void Awake()
@@ -134,5 +135,14 @@ public class wheelchair_movement : MonoBehaviour {
         rotation = Quaternion.Euler(0f, turn, 0f); // we can only turn left/right, rotating around the Y axis
 
         rb.MoveRotation(rb.rotation * rotation); // transforms objects' rotation
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name != "Corridor")
+        {
+            movement_speed = 0;
+            rotation_speed = 0;
+        }
     }
 }
