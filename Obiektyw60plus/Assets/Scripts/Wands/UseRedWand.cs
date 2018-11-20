@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UseRedWand : MonoBehaviour {
 
+    
     ParticleSystem particleSystem;
     DistanceGrabbable distanceGrabbable;
     bool UsingItem = false;
@@ -18,8 +19,12 @@ public class UseRedWand : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown("f"))
+        {
+            SetTargetEnemy();
+            print("B pressed");
 
-
+        }
 
         if (distanceGrabbable.isGrabbed)
         {
@@ -33,6 +38,8 @@ public class UseRedWand : MonoBehaviour {
                     particleSystem.Play();
                     UsingItem = true;
                 }
+
+
             }
         }
         if (UsingItem && !distanceGrabbable.isGrabbed)
@@ -43,6 +50,23 @@ public class UseRedWand : MonoBehaviour {
             StopCoroutine(UseWand());
             particleSystem.Stop();
             print("stopped using wand");
+        }
+    }
+
+    private void SetTargetEnemy()
+    {
+        RaycastHit objectHit;
+        Vector3 rotate90 = new Vector3(0, 0, 90f);
+        Vector3 realforward = transform.forward+rotate90;
+
+        //realforward = transform.forward * 10000f + rotate90;
+       
+        Debug.DrawRay(transform.position, realforward, Color.blue, 2);
+        // Shoot raycast
+        if (Physics.Raycast(transform.position, realforward, out objectHit, 50))
+        {
+            Debug.Log("Raycast hitted to: " + objectHit.collider);
+            //targetEnemy = objectHit.collider.gameObject;
         }
     }
 
