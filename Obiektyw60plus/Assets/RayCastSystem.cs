@@ -7,8 +7,9 @@ public class RayCastSystem : MonoBehaviour
 {
 
     private RaycastHit hit_Info;
-    public Canvas colorMenu;
-    public Canvas lampSwitch;
+    public Canvas Menu;
+    public GameObject lampSwitch;
+    public Button onOffButton;
     public Button redButton;
     public Button blueButton;
     public Button greenButton;
@@ -25,6 +26,7 @@ public class RayCastSystem : MonoBehaviour
         yellowButton.onClick.AddListener(delegate { ChangeColor(Color.yellow); });
         whiteButton.onClick.AddListener(delegate { ChangeColor(Color.white); });
         blackButton.onClick.AddListener(delegate { ChangeColor(Color.black); });
+        onOffButton.onClick.AddListener(SwitchLight);
     }
 
     // Update is called once per frame
@@ -36,17 +38,10 @@ public class RayCastSystem : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit_Info, 10f))
         {
-            Debug.Log("wall");
-            if (hit_Info.collider.tag == "Wall")
+            if (hit_Info.collider.tag == "IsInteractable")
             {
                 Debug.Log(hit_Info.collider);
-                colorMenu.gameObject.SetActive(true);
-            }
-
-            if (hit_Info.collider.tag == "Lamp")
-            {
-                Debug.Log(hit_Info.collider);
-                lampSwitch.gameObject.SetActive(true);
+                Menu.gameObject.SetActive(true);
             }
         }
     }
@@ -55,6 +50,11 @@ public class RayCastSystem : MonoBehaviour
     {
         hit_Info.transform.gameObject.GetComponent<Renderer>().material.color = hit_Info.transform.gameObject.GetComponent<Renderer>().material.color = color;
         //hit_Info.transform.gameObject.GetComponent<Renderer>().material.color = Color.LerpUnclamped(hit_Info.transform.gameObject.GetComponent<Renderer>().material.color, color, Mathf.PingPong(Time.time * 0.005f, 1));
+    }
+
+    void SwitchLight()
+    {
+        hit_Info.transform.gameObject.GetComponentInChildren<Light>().gameObject.SetActive(true);
     }
 }
 
