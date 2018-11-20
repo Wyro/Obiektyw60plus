@@ -139,10 +139,10 @@ public class wheelchair_movement : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name != "Corridor")
+        if (collision.gameObject.name != "Floor")
         {
-            movement_speed = 0;
-            rotation_speed = 0;
+            //movement_speed = 0;
+            //rotation_speed = 0;
         }
     }
 }
