@@ -14,6 +14,8 @@ public class wheelchair_movement : MonoBehaviour {
     public float max_rotation_speed; // maximum turning rate of wheelchair, 20 is good
     public float rotation_decceleration; // rate of losing turning speed on its own, 25 is good
 
+    public GameObject Remote; // remote controlling the wheelchair
+
     // Variables for holding user input
     private float movement_input;
     private float rotation_input;
@@ -24,20 +26,26 @@ public class wheelchair_movement : MonoBehaviour {
     private float rotation_speed = 0; // rate of left/right rotation
 
     private Rigidbody rb; // Unity's physics component
+    private DistanceGrabbable dg; // Distance Grabbable script
 
     // Awake is run once, when game starts
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        
+        dg = Remote.GetComponent<DistanceGrabbable>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Get user input
-        movement_input = Input.GetAxis("Vertical"); // W, S; moving joystick up or down
-        rotation_input = Input.GetAxis("Horizontal"); // A, D; moving joystick left or right
-        break_input = Input.GetAxis("Break"); // space
+        // If Remote is in hand, get user input
+        if (dg.isGrabbed)
+        {
+            movement_input = Input.GetAxis("Vertical"); // W, S; moving joystick up or down
+            rotation_input = Input.GetAxis("Horizontal"); // A, D; moving joystick left or right
+            break_input = Input.GetAxis("Break"); // space
+        }
     }
 
     // FixedUpdate is called once per frame to calculate the physics
