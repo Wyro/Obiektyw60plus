@@ -143,7 +143,6 @@ Transform:
   - {fileID: 1363930629}
   - {fileID: 707344126}
   - {fileID: 2018165546}
-  - {fileID: 783628113}
   - {fileID: 826097306}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -2239,7 +2238,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 266523494a1d98248ac50ee5a422bd33, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.525
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2868,7 +2867,7 @@ Mesh:
     channels: []
     fullWeights: []
   m_BindPose: []
-  m_BoneNameHashes: 
+  m_BoneNameHashes:
   m_RootBoneNameHash: 0
   m_MeshCompression: 0
   m_IsReadable: 1
@@ -2943,32 +2942,25 @@ Mesh:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_UV:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_Normals:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
 <<<<<<< HEAD
-<<<<<<< HEAD
       m_Data: 
 =======
       m_Data:
-=======
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
->>>>>>> 0b4ec0b570ee0b7a84a597afc984db7975b530b6
       m_NumItems: 0
       m_Start: 0
 <<<<<<< HEAD
-<<<<<<< HEAD
       m_Data: 
       m_BitSize: 0
     m_Weights:
@@ -2984,33 +2976,25 @@ Mesh:
       m_Data: 
 =======
       m_Data:
-=======
-      m_Data: 
->>>>>>> 0b4ec0b570ee0b7a84a597afc984db7975b530b6
       m_BitSize: 0
     m_Weights:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_NormalSigns:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_TangentSigns:
       m_NumItems: 0
-<<<<<<< HEAD
       m_Data:
 >>>>>>> 8eae7902d0c6131ced3f1ade1d0b8783640a60ae
-=======
-      m_Data: 
->>>>>>> 0b4ec0b570ee0b7a84a597afc984db7975b530b6
       m_BitSize: 0
     m_FloatColors:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
 <<<<<<< HEAD
-<<<<<<< HEAD
       m_Data: 
       m_BitSize: 0
     m_BoneIndices:
@@ -3022,22 +3006,15 @@ Mesh:
       m_Data: 
 =======
       m_Data:
-=======
-      m_Data: 
->>>>>>> 0b4ec0b570ee0b7a84a597afc984db7975b530b6
       m_BitSize: 0
     m_BoneIndices:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_Triangles:
       m_NumItems: 0
-<<<<<<< HEAD
       m_Data:
 >>>>>>> 8eae7902d0c6131ced3f1ade1d0b8783640a60ae
-=======
-      m_Data: 
->>>>>>> 0b4ec0b570ee0b7a84a597afc984db7975b530b6
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
@@ -3045,17 +3022,12 @@ Mesh:
     m_Extent: {x: 0.02592091, y: 0.026054516, z: 0.21236204}
   m_MeshUsageFlags: 0
 <<<<<<< HEAD
-<<<<<<< HEAD
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
 =======
   m_BakedConvexCollisionMesh:
   m_BakedTriangleCollisionMesh:
 >>>>>>> 8eae7902d0c6131ced3f1ade1d0b8783640a60ae
-=======
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
->>>>>>> 0b4ec0b570ee0b7a84a597afc984db7975b530b6
   m_MeshMetrics[0]: 1
   m_MeshMetrics[1]: 1
   m_MeshOptimized: 0
@@ -7902,12 +7874,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 3309972, guid: 2b46cc393735f634f89cb88a9e97aaa7, type: 2}
       propertyPath: m_Mesh
-<<<<<<< HEAD
       value:
 >>>>>>> 8eae7902d0c6131ced3f1ade1d0b8783640a60ae
-=======
-      value: 
->>>>>>> 0b4ec0b570ee0b7a84a597afc984db7975b530b6
       objectReference: {fileID: 687529680}
     - target: {fileID: 2302796, guid: 2b46cc393735f634f89cb88a9e97aaa7, type: 2}
       propertyPath: m_SelectedEditorRenderState
@@ -8312,12 +8280,8 @@ Transform:
   m_LocalScale: {x: -0.03602, y: 0.03001, z: 0.37019}
   m_Children: []
   m_Father: {fileID: 11804215}
-<<<<<<< HEAD
   m_RootOrder: 5
 >>>>>>> 8eae7902d0c6131ced3f1ade1d0b8783640a60ae
-=======
-  m_RootOrder: 6
->>>>>>> 0b4ec0b570ee0b7a84a597afc984db7975b530b6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &826097307
 MonoBehaviour:
@@ -8329,17 +8293,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3fe0e96e8bfd58469b0c10ae0027bbb, type: 3}
 <<<<<<< HEAD
-<<<<<<< HEAD
   m_Name: 
   m_EditorClassIdentifier: 
 =======
   m_Name:
   m_EditorClassIdentifier:
 >>>>>>> 8eae7902d0c6131ced3f1ade1d0b8783640a60ae
-=======
-  m_Name: 
-  m_EditorClassIdentifier: 
->>>>>>> 0b4ec0b570ee0b7a84a597afc984db7975b530b6
 --- !u!114 &826097308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8350,17 +8309,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bde54dcb87096948a4f258cd458bbc8, type: 3}
 <<<<<<< HEAD
-<<<<<<< HEAD
   m_Name: 
   m_EditorClassIdentifier: 
 =======
   m_Name:
   m_EditorClassIdentifier:
 >>>>>>> 8eae7902d0c6131ced3f1ade1d0b8783640a60ae
-=======
-  m_Name: 
-  m_EditorClassIdentifier: 
->>>>>>> 0b4ec0b570ee0b7a84a597afc984db7975b530b6
   m_allowOffhandGrab: 1
   m_snapPosition: 0
   m_snapOrientation: 0
@@ -8368,14 +8322,10 @@ MonoBehaviour:
   m_grabPoints:
   - {fileID: 826097309}
 <<<<<<< HEAD
-<<<<<<< HEAD
   m_materialColorField: 
 =======
   m_materialColorField:
 >>>>>>> 8eae7902d0c6131ced3f1ade1d0b8783640a60ae
-=======
-  m_materialColorField: 
->>>>>>> 0b4ec0b570ee0b7a84a597afc984db7975b530b6
 --- !u!65 &826097309
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9398,15 +9348,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.928
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.082
+      value: 0.462
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalRotation.x
@@ -10074,12 +10024,7 @@ MonoBehaviour:
   m_snapPosition: 0
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
-<<<<<<< HEAD
   m_grabPoints: []
-=======
-  m_grabPoints:
-  - {fileID: 1363930631}
->>>>>>> 0b4ec0b570ee0b7a84a597afc984db7975b530b6
   m_materialColorField: 
 --- !u!65 &1363930631
 BoxCollider:
@@ -10238,7 +10183,6 @@ MonoBehaviour:
   rotation_acceleration: 10
   max_rotation_speed: 20
   rotation_decceleration: 25
-  nonVRMode: 0
   Remote: {fileID: 1363930628}
 --- !u!65 &1380658524
 BoxCollider:
@@ -15952,7 +15896,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1659299472}
   m_Mesh: {fileID: 4300032, guid: 7c25a85a8f6e3e948b7ee2a915133b74, type: 3}
-<<<<<<< HEAD
 --- !u!43 &1661907497
 Mesh:
   m_ObjectHideFlags: 0
@@ -16157,8 +16100,6 @@ Mesh:
   m_MeshMetrics[0]: 1
   m_MeshMetrics[1]: 1
   m_MeshOptimized: 0
-=======
->>>>>>> 0b4ec0b570ee0b7a84a597afc984db7975b530b6
 --- !u!1 &1669710424
 GameObject:
   m_ObjectHideFlags: 0

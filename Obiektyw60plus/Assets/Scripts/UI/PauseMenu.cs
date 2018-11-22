@@ -18,7 +18,7 @@ public class PauseMenu : MonoBehaviour {
         // Pause game
         if (OVRInput.Get(OVRInput.Button.Two))
         {
-            /*if (!pausePanel.activeInHierarchy)
+            if (!pausePanel.activeInHierarchy)
             {
                 audioSource.Play();
                 PauseGame();
@@ -27,8 +27,7 @@ public class PauseMenu : MonoBehaviour {
             {
                 ContinueGame();
                 audioSource.Stop();
-            }*/
-            Debug.Log("B");
+            }
         }
     }
 
