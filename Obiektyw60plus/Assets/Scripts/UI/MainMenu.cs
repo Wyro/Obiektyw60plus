@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour {
 
@@ -15,11 +16,18 @@ public class MainMenu : MonoBehaviour {
     
     public GameObject pauseCanvas;
     public GameObject playerController;
+
+    public Toggle toggleYellowing;
     
 
     // Use this for initialization
     void Start() {
         BackToMainPanel();
+
+        toggleYellowing.onValueChanged.AddListener(delegate {
+            ToggleValueChanged(toggleYellowing);
+        });
+
     }
 
     // Update is called once per frame
@@ -88,10 +96,6 @@ public class MainMenu : MonoBehaviour {
         confirmQuitPanel.SetActive(false);
     }
 
-    public void ToggleYellowing()
-    {
-
-    }
 
 
     // 
