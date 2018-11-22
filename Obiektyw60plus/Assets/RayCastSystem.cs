@@ -54,7 +54,7 @@ public class RayCastSystem : MonoBehaviour
 
     void SwitchLight()
     {
-        hit_Info.transform.gameObject.GetComponentInChildren<Light>().gameObject.SetActive(true);
+        hit_Info.transform.gameObject.GetComponent<TurnOnAndOff>().SwitchLight();
     }
 }
 
