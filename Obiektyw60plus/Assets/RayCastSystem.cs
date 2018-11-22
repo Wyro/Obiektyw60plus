@@ -20,13 +20,13 @@ public class RayCastSystem : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        redButton.onClick.AddListener(delegate { ChangeColor(Color.red); });
-        blueButton.onClick.AddListener(delegate { ChangeColor(Color.blue); });
-        greenButton.onClick.AddListener(delegate { ChangeColor(Color.green); });
-        yellowButton.onClick.AddListener(delegate { ChangeColor(Color.yellow); });
-        whiteButton.onClick.AddListener(delegate { ChangeColor(Color.white); });
-        blackButton.onClick.AddListener(delegate { ChangeColor(Color.black); });
-        onOffButton.onClick.AddListener(SwitchLight);
+        redButton.onClick.AddListener(delegate { UIManager(Color.red); });
+        blueButton.onClick.AddListener(delegate { UIManager(Color.blue); });
+        greenButton.onClick.AddListener(delegate { UIManager(Color.green); });
+        yellowButton.onClick.AddListener(delegate { UIManager(Color.yellow); });
+        whiteButton.onClick.AddListener(delegate { UIManager(Color.white); });
+        blackButton.onClick.AddListener(delegate { UIManager(Color.black); });
+        onOffButton.onClick.AddListener(UIManager);
     }
 
     // Update is called once per frame
@@ -38,23 +38,30 @@ public class RayCastSystem : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit_Info, 10f))
         {
-            if (hit_Info.collider.tag == "IsInteractable")
+            if (hit_Info.collider)
             {
                 Debug.Log(hit_Info.collider);
                 Menu.gameObject.SetActive(true);
             }
+            else
+            {
+                Menu.gameObject.SetActive(false);
+            }
         }
     }
 
-    void ChangeColor(Color color)
+    void UIManager(Color color)
     {
-        hit_Info.transform.gameObject.GetComponent<Renderer>().material.color = hit_Info.transform.gameObject.GetComponent<Renderer>().material.color = color;
-        //hit_Info.transform.gameObject.GetComponent<Renderer>().material.color = Color.LerpUnclamped(hit_Info.transform.gameObject.GetComponent<Renderer>().material.color, color, Mathf.PingPong(Time.time * 0.005f, 1));
+        if(hit_Info.collider.tag == "Wall")
+            hit_Info.transform.gameObject.GetComponent<Renderer>().material.color = hit_Info.transform.gameObject.GetComponent<Renderer>().material.color = color;
+        else
+            hit_Info.transform.gameObject.GetComponent<ChangeLight>().SwitchLight(color);
     }
 
-    void SwitchLight()
+    void UIManager()
     {
-        hit_Info.transform.gameObject.GetComponent<TurnOnAndOff>().SwitchLight();
+            hit_Info.transform.gameObject.GetComponent<ChangeLight>().SwitchLight();
     }
+
 }
 

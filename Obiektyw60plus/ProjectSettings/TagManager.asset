@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - IsInteractable
+  - Wall
+  - Light
   layers:
   - Default
   - TransparentFX
