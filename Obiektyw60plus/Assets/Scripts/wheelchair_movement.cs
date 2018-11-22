@@ -14,6 +14,7 @@ public class wheelchair_movement : MonoBehaviour {
     public float max_rotation_speed; // maximum turning rate of wheelchair, 20 is good
     public float rotation_decceleration; // rate of losing turning speed on its own, 25 is good
 
+    public bool nonVRMode; // for testing without VR headset
     public GameObject Remote; // remote controlling the wheelchair
 
     // Variables for holding user input
@@ -40,7 +41,7 @@ public class wheelchair_movement : MonoBehaviour {
     void Update()
     {
         // If Remote is in hand, get user input
-        if (dg.isGrabbed)
+        if ((dg.isGrabbed) || (nonVRMode))
         {
             movement_input = Input.GetAxis("Vertical"); // W, S; moving joystick up or down
             rotation_input = Input.GetAxis("Horizontal"); // A, D; moving joystick left or right
