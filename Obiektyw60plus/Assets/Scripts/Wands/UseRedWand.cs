@@ -57,7 +57,7 @@ public class UseRedWand : MonoBehaviour {
     {
         RaycastHit objectHit;
         Vector3 rotate90 = new Vector3(0, 0, 90f);
-        Vector3 realforward = transform.forward+rotate90;
+        Vector3 realforward = transform.forward;// +rotate90;
 
         //realforward = transform.forward * 10000f + rotate90;
        
