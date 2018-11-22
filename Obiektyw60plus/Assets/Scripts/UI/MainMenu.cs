@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour {
 
@@ -11,6 +12,7 @@ public class MainMenu : MonoBehaviour {
     private AudioSource audioSource;
     public GameObject pauseCanvas;
     public GameObject playerController;
+<<<<<<< HEAD
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +20,20 @@ public class MainMenu : MonoBehaviour {
         //optionsPanel.SetActive(false);
         //aboutPanel.SetActive(false);
         audioSource = gameObject.GetComponent<AudioSource>();
+=======
+
+    public Toggle toggleYellowing;
+    
+
+    // Use this for initialization
+    void Start() {
+        BackToMainPanel();
+
+        toggleYellowing.onValueChanged.AddListener(delegate {
+            ToggleValueChanged(toggleYellowing);
+        });
+
+>>>>>>> AleksandrraKotula
     }
 	
 	// Update is called once per frame
@@ -51,7 +67,13 @@ public class MainMenu : MonoBehaviour {
         mainPanel.SetActive(true);
         optionsPanel.SetActive(false);
         aboutPanel.SetActive(false);
+<<<<<<< HEAD
     }
+=======
+        confirmQuitPanel.SetActive(false);
+    }
+
+>>>>>>> AleksandrraKotula
 
     // 
     public void SwitchPanelsToAbout()
