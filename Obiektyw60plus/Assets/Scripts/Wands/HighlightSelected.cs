@@ -17,15 +17,32 @@ public class HighlightSelected : MonoBehaviour {
 
     private bool coroutineStarted = false;
     private Color32 initialColor;
+    private Material initialMaterial;
 
-	// Use this for initialization
-	void Start () {
-        initialColor = selectedObject.transform.gameObject.GetComponent<Renderer>().material.color;
+
+    void Awake()
+    {
+        Debug.Log("Awake from HighlightSelected called.");
+    }
+
+    // Use this for initialization
+    void Start () {
+        Debug.Log("Start from HighlightSelected called.");
+        initialMaterial = GetComponent<Renderer>().material;
+        Color32 color = selectedObject.transform.gameObject.GetComponent<Renderer>().material.color;
+        initialColor = new Color32(color.r, color.g, color.b, color.a);
+
+        print(initialColor.r);
+        print(initialColor.g);
+        print(initialColor.b);
+        print(initialColor.a);
+        //initialMaterial = selectedObject.transform.gameObject.GetComponent<Renderer>().material;
     }
 	
 	// Update is called once per frame
 	void Update () {
 
+        Debug.Log("Update from HighlightSelected called.");
         if (lookingAtObject)
         {
             selectedObject.transform.gameObject.GetComponent<Renderer>().material.color = new Color32((byte)redCol, (byte)greenCol, (byte)blueCol, 255);
@@ -51,6 +68,8 @@ public class HighlightSelected : MonoBehaviour {
             StopCoroutine(FlashObject());
             coroutineStarted = false;
             print("ended coroutine");
+
+            selectedObject.transform.gameObject.GetComponent<Renderer>().material = initialMaterial;
             selectedObject.transform.gameObject.GetComponent<Renderer>().material.color = initialColor;
             print(initialColor);
         }

@@ -9,14 +9,15 @@ public class CastingToObject : MonoBehaviour {
     public string internalObject;
     public RaycastHit theObject;
 
-    HighlightSelected lastHighlighted = null;
+    HighlightSelected lastHighlighted = null; //last highlited object
+    HighlightSelected Highlighted = null; //currently highlighted object
     Transform tempObject;
     bool objectChanged = false;
     bool firstTime = true;
 
     // Use this for initialization
     void Start () {
-        tempObject = transform;
+        tempObject = transform; //temporary assignment
     }
 	
 	// Update is called once per frame
@@ -34,22 +35,23 @@ public class CastingToObject : MonoBehaviour {
                 print("raycast hit");
                 print(selectedObject);
 
-                objectChanged = !objectChanged;
-
-                if(firstTime)
-                    lastHighlighted = theObject.transform.gameObject.GetComponent<HighlightSelected>();
-                else
-                    lastHighlighted = tempObject.gameObject.GetComponent<HighlightSelected>();
+                Highlighted = theObject.transform.gameObject.GetComponent<HighlightSelected>();
+                lastHighlighted = tempObject.gameObject.GetComponent<HighlightSelected>();
 
                 if (lastHighlighted)
                 {
-                    print("changing object");
-                    lastHighlighted.rayCasted = objectChanged;
-                    firstTime = false;
+                    lastHighlighted.rayCasted = false;
+                }
+
+                if (Highlighted)
+                {
+                    Highlighted.rayCasted = true;
                 }
 
                 tempObject = theObject.transform;
+                tempObject.transform.gameObject.name = theObject.transform.gameObject.name;
             }
+
 
         }
 	}
