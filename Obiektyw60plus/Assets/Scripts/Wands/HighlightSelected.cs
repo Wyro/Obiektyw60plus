@@ -4,51 +4,26 @@ using UnityEngine;
 
 public class HighlightSelected : MonoBehaviour {
 
-    public bool rayCasted;
-
+    public bool rayHit;
     public GameObject selectedObject;
 
-    public int redCol;
-    public int greenCol;
-    public int blueCol;
-    public bool lookingAtObject = false;
-    public bool flashingIn = true;
-    public bool startedFlashing = false;
-
+    private int redCol;
+    private int greenCol;
+    private int blueCol;
+    private int alpha = 80;
+    private bool lookingAtObject = false;
+    private bool flashingIn = true;
+    private bool startedFlashing = false;
     private bool coroutineStarted = false;
     private Color32 initialColor;
-    private Material initialMaterial;
 
-
-    void Awake()
+    // Update is called once per frame
+    void Update ()
     {
-        Debug.Log("Awake from HighlightSelected called.");
-    }
 
-    // Use this for initialization
-    void Start () {
-        Debug.Log("Start from HighlightSelected called.");
-        initialMaterial = GetComponent<Renderer>().material;
-        Color32 color = selectedObject.transform.gameObject.GetComponent<Renderer>().material.color;
-        initialColor = new Color32(color.r, color.g, color.b, color.a);
+        changeColor();
 
-        print(initialColor.r);
-        print(initialColor.g);
-        print(initialColor.b);
-        print(initialColor.a);
-        //initialMaterial = selectedObject.transform.gameObject.GetComponent<Renderer>().material;
-    }
-	
-	// Update is called once per frame
-	void Update () {
-
-        Debug.Log("Update from HighlightSelected called.");
-        if (lookingAtObject)
-        {
-            selectedObject.transform.gameObject.GetComponent<Renderer>().material.color = new Color32((byte)redCol, (byte)greenCol, (byte)blueCol, 255);
-        }
-
-        if (rayCasted && !coroutineStarted)
+        if (rayHit && !coroutineStarted)
         {
             selectedObject = GameObject.Find(CastingToObject.selectedObject);
             lookingAtObject = true;
@@ -56,60 +31,91 @@ public class HighlightSelected : MonoBehaviour {
             if (!startedFlashing)
             {
                 startedFlashing = true;
-                print("started coroutine");
+                initialColor = GetComponent<Renderer>().material.color;
                 StartCoroutine(FlashObject());
                 coroutineStarted = true;
             }
         }
-        else if(!rayCasted && coroutineStarted)
+        else if (!rayHit && coroutineStarted)
         {
             lookingAtObject = false;
             startedFlashing = false;
             StopCoroutine(FlashObject());
             coroutineStarted = false;
-            print("ended coroutine");
-
-            selectedObject.transform.gameObject.GetComponent<Renderer>().material = initialMaterial;
             selectedObject.transform.gameObject.GetComponent<Renderer>().material.color = initialColor;
-            print(initialColor);
         }
 
 
-	}
+    }
 
-   IEnumerator FlashObject()
+    private void changeColor()
+    {
+        if (lookingAtObject)
+        {
+            //selectedObject.transform.gameObject.GetComponent<Renderer>().material.color = new Color32((byte)redCol, (byte)greenCol, (byte)blueCol, 255);
+            selectedObject.transform.gameObject.GetComponent<Renderer>().material.color = new Color32(initialColor.r, initialColor.g, initialColor.b, (byte)alpha);
+        }
+    }
+
+    IEnumerator FlashObject()
     {
         while (lookingAtObject)
         {
 
             yield return new WaitForSeconds(0.05f);
+            //if (flashingIn)
+            //{
+            //    if (blueCol <= 30)
+            //    {
+            //        flashingIn = false;
+            //    }
+            //    else
+            //    {
+            //        blueCol -= 10;
+            //        greenCol -= 5;
+            //    }
+
+            //}
+
+            //if (!flashingIn)
+            //    {
+            //        if (blueCol >= 250)
+            //        {
+            //            flashingIn = true;
+            //        }
+            //        else
+            //        {
+            //            blueCol += 10;
+            //            greenCol += 5;
+
+            //        }
+            //    }
+
             if (flashingIn)
             {
-                if (blueCol <= 30)
+                if (alpha <= 80)
                 {
                     flashingIn = false;
                 }
                 else
                 {
-                    blueCol -= 25;
-                    greenCol -= 1;
+                    alpha -= 5;
                 }
 
             }
 
             if (!flashingIn)
+            {
+                if (alpha >= 160)
                 {
-                    if (blueCol >= 250)
-                    {
-                        flashingIn = true;
-                    }
-                    else
-                    {
-                        blueCol += 25;
-                        greenCol += 1;
-                    }
+                    flashingIn = true;
                 }
+                else
+                {
+                    alpha += 5;
 
+                }
+            }
         }
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CastingToObject : MonoBehaviour {
 
-
+    public bool IsCasting = false;
     public static string selectedObject;
     public string internalObject;
     public RaycastHit theObject;
@@ -12,8 +12,7 @@ public class CastingToObject : MonoBehaviour {
     HighlightSelected lastHighlighted = null; //last highlited object
     HighlightSelected Highlighted = null; //currently highlighted object
     Transform tempObject;
-    bool objectChanged = false;
-    bool firstTime = true;
+
 
     // Use this for initialization
     void Start () {
@@ -22,37 +21,44 @@ public class CastingToObject : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.DrawRay(transform.position, transform.forward*100f, Color.blue);
 
-	    if(Physics.Raycast(transform.position, transform.forward, out theObject))
+        //activate the raycasting with r button, for development purposes only
+        if (Input.GetKeyDown("r"))
         {
-            
-            selectedObject = theObject.transform.gameObject.name;
-            internalObject = theObject.transform.gameObject.name;
+            IsCasting = !IsCasting;
+        }
 
-            if (tempObject.transform.gameObject.name != theObject.transform.gameObject.name)
+        if (IsCasting)
+        {
+            Debug.DrawRay(transform.position, transform.forward * 100f, Color.blue);
+            if (Physics.Raycast(transform.position, transform.forward, out theObject))
             {
-                print("raycast hit");
-                print(selectedObject);
 
-                Highlighted = theObject.transform.gameObject.GetComponent<HighlightSelected>();
-                lastHighlighted = tempObject.gameObject.GetComponent<HighlightSelected>();
+                selectedObject = theObject.transform.gameObject.name;
+                internalObject = theObject.transform.gameObject.name;
 
-                if (lastHighlighted)
+                if (tempObject.transform.gameObject.name != theObject.transform.gameObject.name)
                 {
-                    lastHighlighted.rayCasted = false;
+
+                    Highlighted = theObject.transform.gameObject.GetComponent<HighlightSelected>();
+                    lastHighlighted = tempObject.gameObject.GetComponent<HighlightSelected>();
+
+                    if (lastHighlighted)
+                    {
+                        lastHighlighted.rayHit = false;
+                    }
+
+                    if (Highlighted)
+                    {
+                        Highlighted.rayHit = true;
+                    }
+
+                    tempObject = theObject.transform;
+                    tempObject.transform.gameObject.name = theObject.transform.gameObject.name;
                 }
 
-                if (Highlighted)
-                {
-                    Highlighted.rayCasted = true;
-                }
 
-                tempObject = theObject.transform;
-                tempObject.transform.gameObject.name = theObject.transform.gameObject.name;
             }
-
-
         }
 	}
 }

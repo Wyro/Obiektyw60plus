@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class UseRedWand : MonoBehaviour {
 
     
     ParticleSystem particleSystem;
     DistanceGrabbable distanceGrabbable;
+    CastingToObject castingToObject;
+
     bool UsingItem = false;
 
     // Use this for initialization
@@ -14,6 +17,7 @@ public class UseRedWand : MonoBehaviour {
     {
         distanceGrabbable = GetComponent<DistanceGrabbable>();
         particleSystem = GetComponent<ParticleSystem>();
+        castingToObject = GetComponent<CastingToObject>();
     }
 
     // Update is called once per frame
@@ -21,16 +25,19 @@ public class UseRedWand : MonoBehaviour {
     {
         if (Input.GetKeyDown("f"))
         {
-            SetTargetEnemy();
+            DrawRay();
             print("B pressed");
 
         }
 
         if (distanceGrabbable.isGrabbed)
         {
+            DrawRay();
             //use item
             if (!UsingItem)
             {
+                castingToObject.IsCasting = true;
+
                 if (OVRInput.GetDown(OVRInput.Button.One))//A key
                 {
                     print("using red wand");
@@ -46,6 +53,7 @@ public class UseRedWand : MonoBehaviour {
         {
             //stop using item
             UsingItem = false;
+            castingToObject.IsCasting = false;
             //TODO stop coroutine
             StopCoroutine(UseWand());
             particleSystem.Stop();
@@ -53,7 +61,7 @@ public class UseRedWand : MonoBehaviour {
         }
     }
 
-    private void SetTargetEnemy()
+    private void DrawRay()
     {
         RaycastHit objectHit;
 
