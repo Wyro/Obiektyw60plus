@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using OVRTouchSample;
 
 // Handles simple steering of the wheelchair via keyboard or VR controllers
 /// Currently only reads input from left VR controller
@@ -13,6 +14,8 @@ public class wheelchair_movement : MonoBehaviour {
     public float rotation_acceleration; // rate of gaining turning speed, 10 is good
     public float max_rotation_speed; // maximum turning rate of wheelchair, 20 is good
     public float rotation_decceleration; // rate of losing turning speed on its own, 25 is good
+
+    public GameObject Remote; // remote for steering the wheelchair
 
     // Variables for holding user input
     private float movement_input;
