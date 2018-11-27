@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class RayCastSystem : MonoBehaviour
 {
-
     private RaycastHit hit_Info;
     public Canvas Menu;
     public GameObject lampSwitch;
@@ -16,6 +15,7 @@ public class RayCastSystem : MonoBehaviour
     public Button yellowButton;
     public Button whiteButton;
     public Button blackButton;
+    public bool MenuIsActive;
 
     // Use this for initialization
     void Start()
@@ -27,6 +27,7 @@ public class RayCastSystem : MonoBehaviour
         whiteButton.onClick.AddListener(delegate { UIManager(Color.white); });
         blackButton.onClick.AddListener(delegate { UIManager(Color.black); });
         onOffButton.onClick.AddListener(UIManager);
+        MenuIsActive = false;
     }
 
     // Update is called once per frame
@@ -38,16 +39,20 @@ public class RayCastSystem : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit_Info, 10f))
         {
-            if (hit_Info.collider)
-            {
-                Debug.Log(hit_Info.collider);
-                Menu.gameObject.SetActive(true);
-            }
-            else
-            {
-                Menu.gameObject.SetActive(false);
-            }
+                if (!MenuIsActive)
+                    ToggleMenu();
         }
+        else
+        {
+            if (MenuIsActive)
+                ToggleMenu();
+        }
+    }
+
+    void ToggleMenu()
+    {
+        Menu.gameObject.SetActive(!Menu.gameObject.activeSelf);
+        MenuIsActive = !MenuIsActive;
     }
 
     void UIManager(Color color)

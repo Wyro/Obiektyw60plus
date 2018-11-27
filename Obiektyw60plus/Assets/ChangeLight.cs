@@ -10,7 +10,6 @@ public class ChangeLight : MonoBehaviour {
 	void Start ()
     {
         PointLight = this.GetComponentInChildren<Light>();
-
     }
 	
 	// Update is called once per frame
