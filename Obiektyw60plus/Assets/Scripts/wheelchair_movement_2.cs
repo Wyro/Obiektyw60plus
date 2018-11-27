@@ -4,7 +4,8 @@ using UnityEngine;
 
 // Handles simple steering of the wheelchair via keyboard or VR controllers
 /// Currently only reads input from left VR controller
-public class wheelchair_movement : MonoBehaviour {
+public class wheelchair_movement_2 : MonoBehaviour
+{
 
     // Parameters, editable in the component view
     public float movement_acceleration; // rate of gaining movement speed, 1 is good
@@ -52,47 +53,7 @@ public class wheelchair_movement : MonoBehaviour {
     // Forward/backwards motion
     private void Move()
     {
-        movement_speed = movement_speed + movement_input * movement_acceleration * Time.deltaTime; // when forward/backward motion button is pressed speed is increased at a rate controlled by acceleration variable
-        if (movement_speed > max_movement_speed) movement_speed = max_movement_speed; // caps the forward speed at max speed
-        if (movement_speed < -max_movement_speed) movement_speed = -max_movement_speed; // caps the backward speed at max speed
-
-        // when forward/backward motion button is not pressed speed is decreased at rate controlled by decceleration variable
-        if (movement_input == 0)
-        {
-            // speed can be forward or backward
-            if (movement_speed > 0)
-            {
-                movement_speed = movement_speed - movement_decceleration * Time.deltaTime;
-                if (movement_speed < 0) movement_speed = 0; // caps decreasing speed on 0
-            }
-            if (movement_speed < 0)
-            {
-                movement_speed = movement_speed + movement_decceleration * Time.deltaTime;
-                if (movement_speed > 0) movement_speed = 0; // caps decreasing speed on 0
-            }
-        }
-
-        // break button stops motion faster
-        if (movement_input == 0)
-        {
-            // speed can be forward or backward
-            if (movement_speed > 0)
-            {
-                movement_speed = movement_speed - 5 * movement_decceleration * Time.deltaTime;
-                if (movement_speed < 0) movement_speed = 0; // caps decreasing speed on 0
-            }
-            if (movement_speed < 0)
-            {
-                movement_speed = movement_speed + 5 * movement_decceleration * Time.deltaTime;
-                if (movement_speed > 0) movement_speed = 0; // caps decreasing speed on 0
-            }
-        }
-
-        Vector3 movement; // vector of forward/backwards motion
-        movement = transform.forward * movement_speed * Time.deltaTime; // Time.deltaTime allows for parameter to be speed in meters per second instead of meters per frame
-
-        rb.MovePosition(rb.position + movement); // transforms object's position
-        ///rb.AddForce(movement.x, movement.y, movement.z, ForceMode.Impulse);
+        rb.AddForce(0, 0, movement_input * movement_acceleration * Time.deltaTime, ForceMode.VelocityChange); // doesn't work???
     }
 
     // Left/right turning
