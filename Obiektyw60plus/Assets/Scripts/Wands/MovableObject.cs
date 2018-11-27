@@ -16,6 +16,9 @@ public class MovableObject : MonoBehaviour {
     public int cnt = 0;
     bool move = true;
     GameObject wand;
+    WandOfMoveFurniture wandOfMove;
+
+    bool IsPushing = true; //TODO remove this later, it only temporary replaces WandOfMoveFurniture.IsPushing
 	// Use this for initialization
 	void Start () {
 
@@ -23,6 +26,10 @@ public class MovableObject : MonoBehaviour {
         if (!wand)
         {
             print("can't find wand of move furniture");
+        }
+        else
+        {
+            wandOfMove = wand.GetComponent<WandOfMoveFurniture>();
         }
 
         highlightSelected = GetComponent<HighlightSelected>();
@@ -39,6 +46,14 @@ public class MovableObject : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        //TODO remove this later
+        if (Input.GetKeyDown("p"))
+        {
+            IsPushing = !IsPushing;
+        }
+
+
         if (highlightSelected.rayHit && !coroutineStarted)
         {
             selectedObject = GameObject.Find(CastingToObject.selectedObject);
@@ -62,6 +77,15 @@ public class MovableObject : MonoBehaviour {
     {
         while (lookingAtObject)
         {
+            Vector3 wandDirection;
+            if (IsPushing)
+            {
+                wandDirection = wand.transform.forward;
+            }
+            else
+            {
+                wandDirection = wand.transform.forward * -1;
+            }
             yield return new WaitForSeconds(0.05f);
 
             print("moving moving ...");
@@ -73,8 +97,10 @@ public class MovableObject : MonoBehaviour {
                 }
                 else
                 {
-                    rigidbody.AddForce(transform.forward * 100f);
+
+                    rigidbody.AddForce(transform.up * 100f);
                     //TODO add transform of wand in AddForce
+                    //rigidbody.AddForce(wandDirection * 100f);
                     cnt--;
                 }
 
@@ -87,8 +113,9 @@ public class MovableObject : MonoBehaviour {
                 }
                 else
                 {
-                    rigidbody.AddForce(transform.right * 100f);
+                    rigidbody.AddForce(transform.up * -100f);
                     //TODO add transform of wand in AddForce
+                    //rigidbody.AddForce(wandDirection * 100f);
                     cnt++;
                 }
 

@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class WandOfMoveFurniture : MonoBehaviour {
 
+    public bool IsPushing = true;
+
+
     ParticleSystem particleSystem;
     DistanceGrabbable distanceGrabbable;
     CastingToObject castingToObject;
 
     bool UsingItem = false;
+
 
     // Use this for initialization
     void Start()
@@ -27,6 +31,10 @@ public class WandOfMoveFurniture : MonoBehaviour {
             if (!UsingItem)
             {
                 castingToObject.IsCasting = true; //activating script for raycasting
+
+                if (OVRInput.GetDown(OVRInput.Button.Two)) { 
+                    IsPushing = !IsPushing;
+                }
 
                 if (OVRInput.GetDown(OVRInput.Button.One))//A key
                 {
