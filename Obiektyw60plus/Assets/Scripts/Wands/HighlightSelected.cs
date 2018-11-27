@@ -16,6 +16,7 @@ public class HighlightSelected : MonoBehaviour {
     private bool startedFlashing = false;
     private bool coroutineStarted = false;
     private Color32 initialColor;
+    private Color32 newColor;
 
     // Update is called once per frame
     void Update ()
@@ -43,17 +44,27 @@ public class HighlightSelected : MonoBehaviour {
             StopCoroutine(FlashObject());
             coroutineStarted = false;
             selectedObject.transform.gameObject.GetComponent<Renderer>().material.color = initialColor;
+            changeChildColor(initialColor);
         }
 
 
     }
 
+    private void changeChildColor(Color32 colorToSet)
+    {
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<Renderer>().material.color = colorToSet;
+        }
+    }
     private void changeColor()
     {
         if (lookingAtObject)
         {
-            //selectedObject.transform.gameObject.GetComponent<Renderer>().material.color = new Color32((byte)redCol, (byte)greenCol, (byte)blueCol, 255);
-            selectedObject.transform.gameObject.GetComponent<Renderer>().material.color = new Color32(initialColor.r, initialColor.g, initialColor.b, (byte)alpha);
+            newColor = new Color32((byte)redCol, (byte)greenCol, (byte)blueCol, 255);
+            selectedObject.transform.gameObject.GetComponent<Renderer>().material.color = newColor;
+            changeChildColor(newColor);
+            //selectedObject.transform.gameObject.GetComponent<Renderer>().material.color = new Color32(initialColor.r, initialColor.g, initialColor.b, (byte)alpha);
         }
     }
 
@@ -63,59 +74,59 @@ public class HighlightSelected : MonoBehaviour {
         {
 
             yield return new WaitForSeconds(0.05f);
-            //if (flashingIn)
-            //{
-            //    if (blueCol <= 30)
-            //    {
-            //        flashingIn = false;
-            //    }
-            //    else
-            //    {
-            //        blueCol -= 10;
-            //        greenCol -= 5;
-            //    }
-
-            //}
-
-            //if (!flashingIn)
-            //    {
-            //        if (blueCol >= 250)
-            //        {
-            //            flashingIn = true;
-            //        }
-            //        else
-            //        {
-            //            blueCol += 10;
-            //            greenCol += 5;
-
-            //        }
-            //    }
-
             if (flashingIn)
             {
-                if (alpha <= 80)
+                if (blueCol <= 30)
                 {
                     flashingIn = false;
                 }
                 else
                 {
-                    alpha -= 5;
+                    blueCol -= 10;
+                    greenCol -= 5;
                 }
 
             }
 
             if (!flashingIn)
             {
-                if (alpha >= 160)
+                if (blueCol >= 250)
                 {
                     flashingIn = true;
                 }
                 else
                 {
-                    alpha += 5;
+                    blueCol += 10;
+                    greenCol += 5;
 
                 }
             }
+
+            //if (flashingIn)
+            //{
+            //    if (alpha <= 80)
+            //    {
+            //        flashingIn = false;
+            //    }
+            //    else
+            //    {
+            //        alpha -= 5;
+            //    }
+
+            //}
+
+            //if (!flashingIn)
+            //{
+            //    if (alpha >= 160)
+            //    {
+            //        flashingIn = true;
+            //    }
+            //    else
+            //    {
+            //        alpha += 5;
+
+            //    }
+            //}
         }
     }
 
