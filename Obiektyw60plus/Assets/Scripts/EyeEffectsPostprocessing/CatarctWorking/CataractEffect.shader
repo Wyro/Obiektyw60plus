@@ -7,11 +7,7 @@ Shader "Custom/Cataract" {
 		_MainTex("Input", RECT) = "white" {}
 		_BlurStrength("Blur strengh", Float) = 0.1
 		_BlurWidth("Blur Widh", Float) = 0.1
-		/*_RedParam("", Float) = 0.8
-		_GreeenParam("", Float) = 0.75
-		_BlueParam("", Float) = 0.7*/
-		_BlurWidth("Color of Blur", Color) = (0.8, 0.75, 0.7, 1.0)
-
+		//_BlurWidth("Color of Blur", Color) = (0.8, 0.75, 0.7, 1.0)
 		_Brightness("set Brightness", Float) = 1.0
 	}
 	SubShader{
@@ -36,9 +32,6 @@ Shader "Custom/Cataract" {
 			uniform sampler2D _MainTex;
 			uniform float _BlurStrength;
 			uniform float _BlurWidth;
-			uniform float _RedParam;
-			uniform float _GreeenParam;
-			uniform float _BlueParam;
 			uniform float _Brightness;
 
 			float4 frag(v2f_img i) : COLOR
