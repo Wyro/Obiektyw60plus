@@ -3,71 +3,129 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour {
+public class MainMenu : MonoBehaviour
+{
 
     public GameObject mainPanel;
-    public GameObject optionsPanel;
+    public GameObject gameModePanel;
+    public GameObject storyModePanel;
+    public GameObject designerModePanel;
+    public GameObject settingsPanel;
     public GameObject aboutPanel;
-    private AudioSource audioSource;
-    public GameObject pauseCanvas;
-    public GameObject playerController;
+    public GameObject confirmQuitPanel;
 
-	// Use this for initialization
-	void Start () {
-        //mainPanel.SetActive(true);
-        //optionsPanel.SetActive(false);
-        //aboutPanel.SetActive(false);
-        audioSource = gameObject.GetComponent<AudioSource>();
+    public GameObject pauseCanvas;
+    //public GameObject playerController;
+
+
+    // Use this for initialization
+    void Start()
+    {
+        BackToMainPanel();
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if (OVRInput.Get(OVRInput.Button.Two))
+
+    // Update is called once per frame
+    void Update()
+    {
+        /*if (OVRInput.Get(OVRInput.Button.Two))
         {
             Vector3 playerPosition = (playerController.transform.forward * 1.0f) + playerController.transform.position;
             //pauseCanvas.transform.position = new Vector3(0, 1.2f, 0);
             pauseCanvas.transform.position = playerPosition;
             pauseCanvas.transform.rotation = playerController.transform.rotation;
-            audioSource.Play();
-        }
+        }*/
+
 
     }
 
-    // Exit button functionality
-    public void ExitGame()
+
+
+
+    public void OpenStartOptionsMenu()
     {
-        Application.Quit();
+        mainPanel.SetActive(false);
+        gameModePanel.SetActive(true);
+        storyModePanel.SetActive(false);
+        designerModePanel.SetActive(false);
+        settingsPanel.SetActive(false);
+        aboutPanel.SetActive(false);
+        confirmQuitPanel.SetActive(false);
     }
+
+    public void OpenStartStoryMenu()
+    {
+        gameModePanel.SetActive(false);
+        storyModePanel.SetActive(true);
+
+        PlayerPrefs.SetInt("GameMode", 0);
+    }
+
+    public void OpenStartDesignerMenu()
+    {
+        gameModePanel.SetActive(false);
+        designerModePanel.SetActive(true);
+
+        PlayerPrefs.SetInt("GameMode", 1);
+    }
+
 
     // Scene loader
     public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        //SceneManager.LoadScene(sceneName);
+        Debug.Log(PlayerPrefs.GetInt("GameMode"));
     }
 
     // Back to main panel
     public void BackToMainPanel()
     {
         mainPanel.SetActive(true);
-        optionsPanel.SetActive(false);
+        gameModePanel.SetActive(false);
+        storyModePanel.SetActive(false);
+        designerModePanel.SetActive(false);
+        settingsPanel.SetActive(false);
         aboutPanel.SetActive(false);
+        confirmQuitPanel.SetActive(false);
     }
+
+    public void ToggleYellowing()
+    {
+
+    }
+
+    public void ChangeVisualImpairment()
+    {
+        //Debug.Log()
+    }
+
 
     // 
     public void SwitchPanelsToAbout()
     {
         mainPanel.SetActive(false);
-        optionsPanel.SetActive(false);
+        settingsPanel.SetActive(false);
         aboutPanel.SetActive(true);
     }
 
     // 
-    public void SwitchPanelsToOptions()
+    public void SwitchPanelsToSettings()
     {
         mainPanel.SetActive(false);
-        optionsPanel.SetActive(true);
+        settingsPanel.SetActive(true);
         aboutPanel.SetActive(false);
     }
 
+    // Exit button functionality
+    public void ExitGame()
+    {
+        Debug.Log("Quit called!");
+        Application.Quit();
+    }
+
+    public void ConfirmQuitPanel()
+    {
+        mainPanel.SetActive(false);
+        confirmQuitPanel.SetActive(true);
+    }
 
 }
