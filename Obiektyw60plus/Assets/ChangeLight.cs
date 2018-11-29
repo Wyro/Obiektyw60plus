@@ -26,4 +26,9 @@ public class ChangeLight : MonoBehaviour {
     {
         PointLight.color = color;
     }
+
+    public void ChangeIntensity(float intensity)
+    {
+        PointLight.intensity = intensity;
+    }
 }

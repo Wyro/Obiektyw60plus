@@ -15,6 +15,7 @@ public class RayCastSystem : MonoBehaviour
     public Button yellowButton;
     public Button whiteButton;
     public Button blackButton;
+    public Slider intensitySlider;
     public bool MenuIsActive;
 
     // Use this for initialization
@@ -27,6 +28,7 @@ public class RayCastSystem : MonoBehaviour
         whiteButton.onClick.AddListener(delegate { UIManager(Color.white); });
         blackButton.onClick.AddListener(delegate { UIManager(Color.black); });
         onOffButton.onClick.AddListener(UIManager);
+        intensitySlider.onValueChanged.AddListener(delegate { UIManager(intensitySlider.value*2); });
         MenuIsActive = false;
     }
 
@@ -68,5 +70,9 @@ public class RayCastSystem : MonoBehaviour
             hit_Info.transform.gameObject.GetComponent<ChangeLight>().SwitchLight();
     }
 
+    void UIManager(float intensity)
+    {
+        hit_Info.transform.gameObject.GetComponent<ChangeLight>().ChangeIntensity(intensity);
+    }
 }
 
