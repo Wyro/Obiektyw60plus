@@ -3,10 +3,19 @@ using UnityEngine;
 
 namespace UnityStandardAssets.ImageEffects
 {
-    [ExecuteInEditMode]
-    [AddComponentMenu("Image Effects/Blur/Blur")]
+    [ExecuteInEditMode, ImageEffectAllowedInSceneView]
     public class Blur : MonoBehaviour
     {
+        [Range(0.0f, 5.0f)]
+        public float soft = 3.0f;
+
+        [Range(1.0f, 1.4f)]
+        public float brightness = 1.0f;
+
+
+        [Range(0.0f, 1.0f)]
+        public float radius = 0.5f;
+
         /// Blur iterations - larger number means more blur.
         [Range(0,10)]
         public int iterations = 3;
@@ -85,6 +94,11 @@ namespace UnityStandardAssets.ImageEffects
 
         // Called by the camera to apply the image effect
         void OnRenderImage (RenderTexture source, RenderTexture destination) {
+
+            //m_Material.SetFloat("_VRadius", radius);
+            //m_Material.SetFloat("_VSoft", soft);
+            //m_Material.SetFloat("_VSoft", soft);
+
             int rtW = source.width/4;
             int rtH = source.height/4;
             RenderTexture buffer = RenderTexture.GetTemporary(rtW, rtH, 0);
