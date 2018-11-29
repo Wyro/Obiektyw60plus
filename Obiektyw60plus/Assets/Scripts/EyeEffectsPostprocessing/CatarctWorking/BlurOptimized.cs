@@ -3,9 +3,8 @@ using UnityEngine;
 
 namespace UnityStandardAssets.ImageEffects
 {
-    [ExecuteInEditMode]
-    [RequireComponent (typeof(Camera))]
-    [AddComponentMenu ("Image Effects/Blur/Blur (Optimized)")]
+    [ExecuteInEditMode, ImageEffectAllowedInSceneView]
+    [RequireComponent (typeof(Camera))]           
     public class BlurOptimized : PostEffectsBase
     {
 
@@ -18,7 +17,7 @@ namespace UnityStandardAssets.ImageEffects
         }
 
         [Range(0.0f, 10.0f)]
-        public float blurSize = 3.0f;
+        public float blurSize = 0.1f;
 
         [Range(1, 4)]
         public int blurIterations = 2;

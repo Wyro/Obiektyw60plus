@@ -71,7 +71,7 @@ namespace UnityStandardAssets.ImageEffects
 
         void OnDestroy ()
         {
-            RemoveCreatedMaterials ();    
+            //RemoveCreatedMaterials ();    
         }
 
         private void RemoveCreatedMaterials ()

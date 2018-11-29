@@ -11,6 +11,8 @@ Shader "Hidden/BlurEffectConeTap" {
 	half4 _MainTex_TexelSize;
 	half4 _MainTex_ST;
 	half4 _BlurOffsets;
+	//float _VRadius;
+	//float _VSoft;
 	v2f vert( appdata_img v ) {
 		v2f o; 
 		o.pos = UnityObjectToClipPos(v.vertex);
@@ -31,10 +33,42 @@ Shader "Hidden/BlurEffectConeTap" {
 		return o;
 	}
 	half4 frag(v2f i) : SV_Target {
+		half4 normal_col = tex2D(_MainTex, i.uv);
+
+		half color_r = normal_col.r;
+		half color_g = normal_col.g;
+		half color_b = normal_col.b;
+		half color_a = normal_col.a;
+
 		half4 color = tex2D(_MainTex, i.taps[0]);
 		color += tex2D(_MainTex, i.taps[1]);
 		color += tex2D(_MainTex, i.taps[2]);
 		color += tex2D(_MainTex, i.taps[3]);
+
+		half distFromCenter = distance(i.uv.xy, half2(0.5, 0.5));
+		//if (distFromCenter == 1) {
+		//	distFromCenter = _CircleFloatColor;
+		//}
+		half vignette_r = lerp(color.r, color_r, distFromCenter);
+		half vignette_g = lerp(color.g, color_g, distFromCenter);
+		half vignette_b = lerp(color.b, color_b, distFromCenter);
+		half vignette_a = lerp(color.a, color_a, distFromCenter);
+		color.r *= vignette_r;
+		color.g *= vignette_r;
+		color.b *= vignette_r;
+		color.a *= vignette_r;
+
+		if (color.r == 1 || color.g == 1 || color.b == 1) {
+			color.r = color_r;
+			color.g = color_g;
+			color.b = color_b;
+		}
+
+		saturate(color.r);
+		saturate(color.g);
+		saturate(color.b);
+		saturate(color.a);
+
 		return color * 0.25;
 	}
 	ENDCG

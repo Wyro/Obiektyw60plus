@@ -10,20 +10,14 @@ public class CataractEffect : MonoBehaviour {
 
     [NonSerialized]
     Material material = null;
-    
-    [Range(0.0f, 3.0f)]
-    public float blurStrength = 2.2f;
-    [Range(0.0f, 3.0f)]
-    public float blurWidth = 1.0f;
-    [Range(5.5f, 11.0f)]
-    public float intensity = 11.0f;
 
-    [Range(0.0f, 1.0f)]
-    public float red = 0.8f;
-    [Range(0.0f, 1.0f)]
-    public float green = 0.75f;
-    [Range(0.0f, 1.0f)]
-    public float blue = 0.7f;
+    [Range(0.3f, 1.6f)]
+    public float brightness = 0.6f;
+
+    [Range(0.0f, 3.0f)]
+    public float blurStrength = 0.0f;
+    [Range(0.0f, 3.0f)]
+    public float blurWidth = 0.0f;        
 
     public void Start()
     {  
@@ -41,11 +35,9 @@ public class CataractEffect : MonoBehaviour {
         }
 
         material.SetFloat("_BlurStrength", blurStrength);
-        material.SetFloat("_BlurWidth", blurWidth);
-        material.SetFloat("_RedParam", red);
-        material.SetFloat("_GreenParam", green);
-        material.SetFloat("_BlueParam", blue);
-        material.SetFloat("_Intensity", intensity);
+        material.SetFloat("_BlurWidth", blurWidth);    
+        material.SetFloat("_Brightness", brightness);
+
         Graphics.Blit(source, destination, material);
     }
 }
