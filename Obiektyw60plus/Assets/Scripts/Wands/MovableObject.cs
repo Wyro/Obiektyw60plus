@@ -45,7 +45,7 @@ public class MovableObject : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
         //TODO remove this later
         //if (Input.GetKeyDown("p"))
@@ -98,6 +98,7 @@ public class MovableObject : MonoBehaviour {
                 wandDirection = tempWand.transform.forward;
                 //wandDirection = wand.transform.forward;
                 Debug.Log(wandDirection);
+                //Debug.Log(tempWand);
             }
             else
             {
@@ -108,7 +109,8 @@ public class MovableObject : MonoBehaviour {
             yield return new WaitForSeconds(0.05f);
 
             print("moving moving ...");
-            rigidbody.AddForce(wandDirection * 100f);
+            rigidbody.MovePosition(transform.position + wandDirection * Time.fixedDeltaTime);
+            //rigidbody.AddForce(wandDirection * 30f);
             //if (move)
             //{   
             //    if(cnt <= 0)
