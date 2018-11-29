@@ -52,7 +52,7 @@ public class WheelchairMovement : MonoBehaviour {
     // Forward/backwards motion
     private void Move()
     {
-        m_MovementSpeed = m_MovementSpeed + m_MovementInput * m_MovementAcceleration * Time.deltaTime; // when forward/backward motion button is pressed speed is increased at a rate controlled by acceleration variable
+        m_MovementSpeed = m_MovementSpeed + m_MovementInput * m_MovementAcceleration * Time.fixedDeltaTime; // when forward/backward motion button is pressed speed is increased at a rate controlled by acceleration variable
         if (m_MovementSpeed > m_MaxMovementSpeed) m_MovementSpeed = m_MaxMovementSpeed; // caps the forward speed at max speed
         if (m_MovementSpeed < -m_MaxMovementSpeed) m_MovementSpeed = -m_MaxMovementSpeed; // caps the backward speed at max speed
 
@@ -62,12 +62,12 @@ public class WheelchairMovement : MonoBehaviour {
             // speed can be forward or backward
             if (m_MovementSpeed > 0)
             {
-                m_MovementSpeed = m_MovementSpeed - m_MovementDecceleration * Time.deltaTime;
+                m_MovementSpeed = m_MovementSpeed - m_MovementDecceleration * Time.fixedDeltaTime;
                 if (m_MovementSpeed < 0) m_MovementSpeed = 0; // caps decreasing speed on 0
             }
             if (m_MovementSpeed < 0)
             {
-                m_MovementSpeed = m_MovementSpeed + m_MovementDecceleration * Time.deltaTime;
+                m_MovementSpeed = m_MovementSpeed + m_MovementDecceleration * Time.fixedDeltaTime;
                 if (m_MovementSpeed > 0) m_MovementSpeed = 0; // caps decreasing speed on 0
             }
         }
@@ -78,27 +78,26 @@ public class WheelchairMovement : MonoBehaviour {
             // speed can be forward or backward
             if (m_MovementSpeed > 0)
             {
-                m_MovementSpeed = m_MovementSpeed - 5 * m_MovementDecceleration * Time.deltaTime;
+                m_MovementSpeed = m_MovementSpeed - 5 * m_MovementDecceleration * Time.fixedDeltaTime;
                 if (m_MovementSpeed < 0) m_MovementSpeed = 0; // caps decreasing speed on 0
             }
             if (m_MovementSpeed < 0)
             {
-                m_MovementSpeed = m_MovementSpeed + 5 * m_MovementDecceleration * Time.deltaTime;
+                m_MovementSpeed = m_MovementSpeed + 5 * m_MovementDecceleration * Time.fixedDeltaTime;
                 if (m_MovementSpeed > 0) m_MovementSpeed = 0; // caps decreasing speed on 0
             }
         }
 
         Vector3 movement; // vector of forward/backwards motion
-        movement = transform.forward * m_MovementSpeed * Time.deltaTime; // Time.deltaTime allows for parameter to be speed in meters per second instead of meters per frame
+        movement = transform.forward * m_MovementSpeed * Time.fixedDeltaTime; // Time.deltaTime allows for parameter to be speed in meters per second instead of meters per frame
 
         rb.MovePosition(rb.position + movement); // transforms object's position
-        ///rb.AddForce(movement.x, movement.y, movement.z, ForceMode.Impulse);
     }
 
     // Left/right turning
     private void Turn()
     {
-        m_RotationSpeed = m_RotationSpeed + m_RotationInput * m_RotationAcceleration * Time.deltaTime; // when rotation button is pressed rotation speed is increased at a rate controlled by acceleration variable
+        m_RotationSpeed = m_RotationSpeed + m_RotationInput * m_RotationAcceleration * Time.fixedDeltaTime; // when rotation button is pressed rotation speed is increased at a rate controlled by acceleration variable
         if (m_RotationSpeed > m_MaxRotationSpeed) m_RotationSpeed = m_MaxRotationSpeed; // caps the speed at max speed
 
         // when rotation button is not pressed speed is decreased at rate controlled by decceleration variable
@@ -107,12 +106,12 @@ public class WheelchairMovement : MonoBehaviour {
             // speed can be left or right
             if (m_RotationSpeed > 0)
             {
-                m_RotationSpeed = m_RotationSpeed - m_RotationDeccelration * Time.deltaTime;
+                m_RotationSpeed = m_RotationSpeed - m_RotationDeccelration * Time.fixedDeltaTime;
                 if (m_RotationSpeed < 0) m_RotationSpeed = 0; // caps decreasing speed on 0
             }
             if (m_RotationSpeed < 0)
             {
-                m_RotationSpeed = m_RotationSpeed + m_RotationDeccelration * Time.deltaTime;
+                m_RotationSpeed = m_RotationSpeed + m_RotationDeccelration * Time.fixedDeltaTime;
                 if (m_RotationSpeed > 0) m_RotationSpeed = 0; // caps decreasing speed on 0
             }
         }
@@ -123,17 +122,17 @@ public class WheelchairMovement : MonoBehaviour {
             // speed can be left or right
             if (m_RotationSpeed > 0)
             {
-                m_RotationSpeed = m_RotationSpeed - 5 * m_RotationDeccelration * Time.deltaTime;
+                m_RotationSpeed = m_RotationSpeed - 5 * m_RotationDeccelration * Time.fixedDeltaTime;
                 if (m_RotationSpeed < 0) m_RotationSpeed = 0; // caps decreasing speed on 0
             }
             if (m_RotationSpeed < 0)
             {
-                m_RotationSpeed = m_RotationSpeed + 5 * m_RotationDeccelration * Time.deltaTime;
+                m_RotationSpeed = m_RotationSpeed + 5 * m_RotationDeccelration * Time.fixedDeltaTime;
                 if (m_RotationSpeed > 0) m_RotationSpeed = 0; // caps decreasing speed on 0
             }
         }
 
-        float turn = m_RotationSpeed * Time.deltaTime; // Time.deltaTime allows for parameter to be speed in meters per second instead of meters per frame
+        float turn = m_RotationSpeed * Time.fixedDeltaTime; // Time.deltaTime allows for parameter to be speed in meters per second instead of meters per frame
 
         Quaternion rotation; // quaternion of left/right rotation
         rotation = Quaternion.Euler(0f, turn, 0f); // we can only turn left/right, rotating around the Y axis
