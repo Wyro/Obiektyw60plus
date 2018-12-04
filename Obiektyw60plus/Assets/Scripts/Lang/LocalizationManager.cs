@@ -43,7 +43,9 @@ public class LocalizationManager : MonoBehaviour {
         {
             Debug.LogError("Cannot find file");
         }
+        ReloadScene();
     }
+
     public string GetLocalizedValue(string key)
     {
         if (localizedText.ContainsKey(key))
@@ -53,8 +55,15 @@ public class LocalizationManager : MonoBehaviour {
         return result;
     }
 
-    public void ReloadScene()
+    private void ReloadScene()
     {
-        Application.LoadLevel(Application.loadedLevel);
+        Debug.Log("Reloading scene");
+        //Application.LoadLevel(Application.loadedLevel);
+        GameObject[] buttonLabels;
+        buttonLabels = GameObject.FindGameObjectsWithTag("Lang");
+        foreach (GameObject button in buttonLabels)
+        {
+            button.GetComponent<LocalizedText>().ReloadText();
+        }
     }
 }
