@@ -94,7 +94,7 @@ public class HighlightSelected : MonoBehaviour {
             Color32[] newColors = new Color32[transform.childCount];
             newColors = setColors(newColor);
             changeChildColor(newColors);
-
+            
         }
     }
 
@@ -109,13 +109,13 @@ public class HighlightSelected : MonoBehaviour {
 
             if (flashingIn)
             {
-                if (blueCol <= 30)
+                if (redCol <= 30)
                 {
                     flashingIn = false;
                 }
                 else
                 {
-                    blueCol -= 10;
+                    redCol -= 10;
                     greenCol -= 5;
                 }
 
@@ -123,13 +123,13 @@ public class HighlightSelected : MonoBehaviour {
 
             if (!flashingIn)
             {
-                if (blueCol >= 250)
+                if (redCol >= 250)
                 {
                     flashingIn = true;
                 }
                 else
                 {
-                    blueCol += 10;
+                    redCol += 10;
                     greenCol += 5;
 
                 }
@@ -161,7 +161,7 @@ public class HighlightSelected : MonoBehaviour {
             //        alpha += 5;
 
             //    }
-            //}
+            ////}
         }
     }
 

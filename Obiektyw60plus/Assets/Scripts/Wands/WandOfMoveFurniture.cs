@@ -10,6 +10,7 @@ public class WandOfMoveFurniture : MonoBehaviour {
     ParticleSystem particleSystem;
     DistanceGrabbable distanceGrabbable;
     CastingToObject castingToObject;
+    DrawLaser drawLaser;
 
     bool UsingItem = false;
 
@@ -20,6 +21,12 @@ public class WandOfMoveFurniture : MonoBehaviour {
         distanceGrabbable = GetComponent<DistanceGrabbable>();
         particleSystem = GetComponent<ParticleSystem>();
         castingToObject = GetComponent<CastingToObject>();
+        drawLaser = GetComponent<DrawLaser>();
+
+        if (!distanceGrabbable) Debug.Log("No DistanceGrabbable script attached");
+        if (!particleSystem) Debug.Log("No particle system attached");
+        if (!castingToObject) Debug.Log("No CastingToObject script attached");
+        if (!drawLaser) Debug.Log("No DrawLaser script attached");
     }
 
     // Update is called once per frame
@@ -31,18 +38,10 @@ public class WandOfMoveFurniture : MonoBehaviour {
             if (!UsingItem)
             {
                 castingToObject.IsCasting = true; //activating script for raycasting
-
-                if (OVRInput.GetDown(OVRInput.Button.Two)) { 
-                    IsPushing = !IsPushing;
-                }
-
-                if (OVRInput.GetDown(OVRInput.Button.One))//A key
-                {
-                    StartCoroutine(UseWand());
-                    particleSystem.Play();
-                    UsingItem = true;
-                }
-
+                drawLaser.IsShowingLaser = true;
+                StartCoroutine(UseWand());
+                particleSystem.Play(); //maybe move to DrawLaser ?
+                UsingItem = true;
             }
         }
         if (UsingItem && !distanceGrabbable.isGrabbed)
@@ -50,19 +49,33 @@ public class WandOfMoveFurniture : MonoBehaviour {
             //stop using item
             UsingItem = false;
             castingToObject.IsCasting = false;
+            drawLaser.IsShowingLaser = false;
             StopCoroutine(UseWand());
-            particleSystem.Stop();
+            particleSystem.Stop(); //maybe move to DrawLaser ?
         }
     }
 
 
     IEnumerator UseWand()
     {
-        for (int i = 0; i < 10; i++)
+        while (UsingItem)
         {
-            particleSystem.Emit(1);
-            particleSystem.emissionRate = 10f;
-            yield return new WaitForSeconds(0.5f);
+            //Handling user input
+
+            if (OVRInput.GetDown(OVRInput.Button.Two))
+            {
+                IsPushing = !IsPushing;
+            }
+
+            if (OVRInput.GetDown(OVRInput.Button.One))//A key
+            {
+                StartCoroutine(UseWand());
+                particleSystem.Play();
+                UsingItem = true;
+            }
         }
+        
+            yield return new WaitForSeconds(0.05f);
+        
     }
 }
