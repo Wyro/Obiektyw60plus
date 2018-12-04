@@ -10283,7 +10283,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1380658521}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4557fa97d4cd27d4f9547aa22fce4676, type: 3}
+  m_Script: {fileID: 11500000, guid: 96b5a93496383464c9812c4c9c0cbb02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MovementAcceleration: 1
@@ -10292,7 +10292,7 @@ MonoBehaviour:
   m_RotationAcceleration: 10
   m_MaxRotationSpeed: 20
   m_RotationDeccelration: 25
-  m_Remote: {fileID: 1363930628}
+  m_Remote: {fileID: 0}
 --- !u!65 &1380658524
 BoxCollider:
   m_ObjectHideFlags: 0
