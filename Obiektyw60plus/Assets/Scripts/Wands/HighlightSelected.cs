@@ -90,8 +90,8 @@ public class HighlightSelected : MonoBehaviour {
         {
             newColor = new Color32((byte)redCol, (byte)greenCol, (byte)blueCol, 255); //colored mode
             Debug.Log("changing color");
-            selectedObject.transform.gameObject.GetComponent<Renderer>().material.color = newColor;
-            //selectedObject.transform.gameObject.GetComponent<Renderer>().material.color = new Color32(initialColor.r, initialColor.g, initialColor.b, (byte)alpha); //transparent mode
+            //selectedObject.transform.gameObject.GetComponent<Renderer>().material.color = newColor;
+            selectedObject.transform.gameObject.GetComponent<Renderer>().material.color = new Color32(initialColor.r, initialColor.g, initialColor.b, (byte)alpha); //transparent mode
             Color32[] newColors = new Color32[transform.childCount];
             newColors = setColors(newColor);
             changeChildColor(newColors);
@@ -109,61 +109,61 @@ public class HighlightSelected : MonoBehaviour {
             yield return new WaitForSeconds(0.05f);
             //colored mode
 
-            if (flashingIn)
-            {
-                if (blueCol <= 30)
-                {
-                    flashingIn = false;
-                }
-                else
-                {
-                    blueCol -= 10;
-                    greenCol -= 5;
-                }
-
-            }
-
-            if (!flashingIn)
-            {
-                if (blueCol >= 250)
-                {
-                    flashingIn = true;
-                }
-                else
-                {
-                    blueCol += 10;
-                    greenCol += 5;
-
-                }
-            }
-
-            //transparent mode
-
             //if (flashingIn)
             //{
-            //    if (alpha <= 80)
+            //    if (blueCol <= 30)
             //    {
             //        flashingIn = false;
             //    }
             //    else
             //    {
-            //        alpha -= 5;
+            //        blueCol -= 10;
+            //        greenCol -= 5;
             //    }
 
             //}
 
             //if (!flashingIn)
             //{
-            //    if (alpha >= 160)
+            //    if (blueCol >= 250)
             //    {
             //        flashingIn = true;
             //    }
             //    else
             //    {
-            //        alpha += 5;
+            //        blueCol += 10;
+            //        greenCol += 5;
 
             //    }
             //}
+
+            //transparent mode
+
+            if (flashingIn)
+            {
+                if (alpha <= 80)
+                {
+                    flashingIn = false;
+                }
+                else
+                {
+                    alpha -= 5;
+                }
+
+            }
+
+            if (!flashingIn)
+            {
+                if (alpha >= 160)
+                {
+                    flashingIn = true;
+                }
+                else
+                {
+                    alpha += 5;
+
+                }
+            }
         }
     }
 
