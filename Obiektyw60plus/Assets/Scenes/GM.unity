@@ -9035,6 +9035,10 @@ Prefab:
       propertyPath: HmdRotatesY
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
   m_IsPrefabAsset: 0
@@ -9065,8 +9069,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cataractShader: {fileID: 4800000, guid: cbf2beb7c166dd743a363464c29ad4bb, type: 3}
-  brightness: 0.6
-  blurStrength: 0
+  brightness: 0.63
+  blurStrength: 2.01
   blurWidth: 0
 --- !u!114 &1150869389
 MonoBehaviour:
@@ -9074,13 +9078,13 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1150869387}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28c84d1d41322814da078737962a3b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   downsample: 1
-  blurSize: 3
+  blurSize: 0
   blurIterations: 2
   blurType: 0
   blurShader: {fileID: 4800000, guid: 4b92b67f9d1796c46a81f8eb66659dcb, type: 3}
@@ -9096,9 +9100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glaucomaShader: {fileID: 4800000, guid: 607bf443e9ce6954ba02c45a3c1f5fb4, type: 3}
-  radius: 0.31
-  soft: 0
-  circleColor: 0.1
+  radius: 1
+  soft: 1
+  circleColor: 1
 --- !u!114 &1150869391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9112,7 +9116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cataractShader: {fileID: 4800000, guid: e54b005df46cf3e4ca1bd3c750f1fd39, type: 3}
   hueShift: 1
-  saturation: 1
+  saturation: 0.7
   brightness: 1
 --- !u!1 &1156408040
 GameObject:
@@ -9822,8 +9826,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1380658521}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -10.292, y: 0.1, z: -1.402}
+  m_LocalRotation: {x: -0, y: -0.96592593, z: 0, w: -0.25881898}
+  m_LocalPosition: {x: -5.41, y: 2000, z: -1.402}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1309702332}
@@ -9831,7 +9835,7 @@ Transform:
   - {fileID: 1145822793}
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -210, z: 0}
 --- !u!114 &1380658523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9843,12 +9847,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2d271a1399b014982f2f29c202ce04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement_acceleration: 1
-  max_movement_speed: 2
-  movement_decceleration: 2.5
-  rotation_acceleration: 10
-  max_rotation_speed: 20
-  rotation_decceleration: 25
 --- !u!65 &1380658524
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15269,12 +15267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b39a7dc3e08dd5246a025f39b97827c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soft: 3
-  brightness: 1
-  radius: 0.5
-  iterations: 2
-  blurSpread: 0.17
-  blurShader: {fileID: 4800000, guid: 2a83b7f49a1a762478c72cbc07e66f00, type: 3}
 --- !u!114 &1536376127
 MonoBehaviour:
   m_ObjectHideFlags: 0

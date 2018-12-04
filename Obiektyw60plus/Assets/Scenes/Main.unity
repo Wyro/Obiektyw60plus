@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44575727, g: 0.49003518, b: 0.54501224, a: 1}
+  m_IndirectSpecularColor: {r: 0.4457568, g: 0.49003464, b: 0.5450115, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1248,8 +1248,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
   m_RaycastTarget: 1
@@ -1467,8 +1467,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ffe6c14f054b624d8a61df503f21c73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_targetedCrosshair: {fileID: 433859715}
   m_enabledCrosshair: {fileID: 803846374}
 --- !u!1 &426606541
@@ -1705,8 +1705,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7aaf960227867044282d921171d2d7ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_IgnoreReversedGraphics: 1
   m_BlockingObjects: 0
   m_BlockingMask:
@@ -1723,8 +1723,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 10
   m_ScaleFactor: 1
@@ -2088,8 +2088,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4444ce35d262aa648ad0c425a559b931, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   currentOverlayType: 2
   isDynamic: 0
   isProtectedContent: 0
@@ -2184,8 +2184,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f1a9a1d119a5944aacfb87d1ec283a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   rayTransform: {fileID: 1150869385}
   joyPadClickButton: 1
   gazeClickKey: 32
@@ -2213,8 +2213,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
@@ -2227,8 +2227,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8cc4c5ae5b199d45b61e7e6691eabf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   pausePanel: {fileID: 471778817}
 --- !u!1 &525213371
 GameObject:
@@ -2255,8 +2255,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30530ad0e40d0a64ea26d753ee4996ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   hideByDefault: 1
   showTimeoutPeriod: 1
   hideTimeoutPeriod: 0.1
@@ -2322,8 +2322,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
   m_RaycastTarget: 1
@@ -2775,7 +2775,7 @@ Mesh:
     channels: []
     fullWeights: []
   m_BindPose: []
-  m_BoneNameHashes: 
+  m_BoneNameHashes:
   m_RootBoneNameHash: 0
   m_MeshCompression: 0
   m_IsReadable: 1
@@ -2850,59 +2850,59 @@ Mesh:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_UV:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_Normals:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_Tangents:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_Weights:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_NormalSigns:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_TangentSigns:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_FloatColors:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_BoneIndices:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_Triangles:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
     m_Center: {x: 0.00000027939677, y: 0.000000074505806, z: -0.000000059604645}
     m_Extent: {x: 0.02592091, y: 0.026054516, z: 0.21236204}
   m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
+  m_BakedConvexCollisionMesh:
+  m_BakedTriangleCollisionMesh:
   m_MeshMetrics[0]: 1
   m_MeshMetrics[1]: 1
   m_MeshOptimized: 0
@@ -3008,15 +3008,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bde54dcb87096948a4f258cd458bbc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_allowOffhandGrab: 1
   m_snapPosition: 0
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints:
   - {fileID: 707344131}
-  m_materialColorField: 
+  m_materialColorField:
 --- !u!4 &707344126 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 411128, guid: 2b46cc393735f634f89cb88a9e97aaa7,
@@ -7663,8 +7663,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3fe0e96e8bfd58469b0c10ae0027bbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!4 &772995159 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400008, guid: ce816f2e6abb0504092c23ed9b970dfd,
@@ -7767,8 +7767,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe9aecd329caa6245bd5cfe2eb6100d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   rayHit: 0
   selectedObject: {fileID: 0}
   redCol: 0
@@ -7783,8 +7783,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdeef6a58a1962841a34f7b30713ed8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   selectedObject: {fileID: 0}
   cnt: 0
 --- !u!54 &783628116
@@ -8003,12 +8003,12 @@ Prefab:
     - target: {fileID: 114000014060309998, guid: cb5b0d702505e474992223c96b72ebdd,
         type: 2}
       propertyPath: m_player
-      value: 
+      value:
       objectReference: {fileID: 1145822792}
     - target: {fileID: 114000014060309998, guid: cb5b0d702505e474992223c96b72ebdd,
         type: 2}
       propertyPath: m_parentTransform
-      value: 
+      value:
       objectReference: {fileID: 772995159}
     - target: {fileID: 114000014060309998, guid: cb5b0d702505e474992223c96b72ebdd,
         type: 2}
@@ -8034,12 +8034,12 @@ Prefab:
     - target: {fileID: 114000014060309998, guid: cb5b0d702505e474992223c96b72ebdd,
         type: 2}
       propertyPath: m_grabVolumes.Array.data[1]
-      value: 
+      value:
       objectReference: {fileID: 1207573834}
     - target: {fileID: 114000014060309998, guid: cb5b0d702505e474992223c96b72ebdd,
         type: 2}
       propertyPath: m_grabVolumes.Array.data[2]
-      value: 
+      value:
       objectReference: {fileID: 262514572}
     - target: {fileID: 54000012542043316, guid: cb5b0d702505e474992223c96b72ebdd,
         type: 2}
@@ -8743,8 +8743,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2d153878a9f7eb45b0e02c0c739029a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   OutlineColorInRange: {r: 1, g: 1, b: 1, a: 0}
   OutlineColorHighlighted: {r: 0.30189055, g: 0.8679245, b: 0, a: 0}
 --- !u!135 &1037536684
@@ -8928,8 +8928,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9b0b1ab5d4bfb243b4730d66c8ed069, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   cataractShader: {fileID: 4800000, guid: b75634b0752715d42b9dd72a179f90b9, type: 3}
   hueShift: 1
   saturation: 0.6
@@ -8943,8 +8943,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31daafac9203d6f409b90bcd3179ec82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   cataractShader: {fileID: 4800000, guid: 2be5d442499b6f842b908844e90d18f1, type: 3}
   brightness: 0.6
   blurStrength: 0
@@ -8958,8 +8958,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4386d5b01c92e5349ac2b7d06c1e9a5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   downsample: 1
   blurSize: 0.1
   blurIterations: 2
@@ -8974,8 +8974,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff565f09e20d03b46b023289e035f711, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   focusDistance: 0.1
   focusRange: 0.1
   bokehRadius: 1
@@ -13620,8 +13620,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af2c6111d227ed0469787d1046d26f37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   IsShowingLaser: 0
 --- !u!114 &1087739645
 MonoBehaviour:
@@ -13632,10 +13632,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 528cc0ae4892b9843bd0457496679a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   IsCasting: 0
-  internalObject: 
+  internalObject:
 --- !u!114 &1087739646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13645,8 +13645,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bde54dcb87096948a4f258cd458bbc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_allowOffhandGrab: 1
   m_snapPosition: 0
   m_snapOrientation: 0
@@ -13663,8 +13663,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6064e7ad9f669284c875d68deadab5f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   IsPushing: 1
 --- !u!136 &1087739648
 CapsuleCollider:
@@ -13749,9 +13749,86 @@ MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 3309972, guid: 2b46cc393735f634f89cb88a9e97aaa7,
     type: 2}
+  m_PrefabInternal: {fileID: 1150869384}
+--- !u!114 &1083786468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1087739640}
-  m_Mesh: {fileID: 687529680}
+  m_GameObject: {fileID: 1083786466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a48c351cda6f8b40859ea5352c11506, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  cataractShader: {fileID: 4800000, guid: e54b005df46cf3e4ca1bd3c750f1fd39, type: 3}
+  hueShift: 1
+  saturation: 0.6
+  brightness: 1
+--- !u!114 &1083786469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1083786466}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88fd1078db840024e8d123069eeaff0a, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  cataractShader: {fileID: 4800000, guid: cbf2beb7c166dd743a363464c29ad4bb, type: 3}
+  brightness: 0.6
+  blurStrength: 0
+  blurWidth: 0
+--- !u!114 &1083786470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1083786466}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28c84d1d41322814da078737962a3b72, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  downsample: 1
+  blurSize: 0.1
+  blurIterations: 2
+  blurType: 0
+  blurShader: {fileID: 4800000, guid: 4b92b67f9d1796c46a81f8eb66659dcb, type: 3}
+--- !u!114 &1083786471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1083786466}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b0b1ab5d4bfb243b4730d66c8ed069, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+--- !u!114 &1083786472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1083786466}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31daafac9203d6f409b90bcd3179ec82, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+--- !u!114 &1083786473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1083786466}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4386d5b01c92e5349ac2b7d06c1e9a5c, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1 &1111660404
 GameObject:
   m_ObjectHideFlags: 0
@@ -14503,8 +14580,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdeef6a58a1962841a34f7b30713ed8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   selectedObject: {fileID: 0}
   cnt: 0
 --- !u!114 &1301675464
@@ -14516,8 +14593,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe9aecd329caa6245bd5cfe2eb6100d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   rayHit: 0
   selectedObject: {fileID: 0}
   redCol: 0
@@ -14764,14 +14841,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bde54dcb87096948a4f258cd458bbc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_allowOffhandGrab: 1
   m_snapPosition: 0
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
-  m_materialColorField: 
+  m_materialColorField:
 --- !u!65 &1363930631
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14850,8 +14927,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6064e7ad9f669284c875d68deadab5f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   IsPushing: 1
 --- !u!1001 &1365673822
 Prefab:
@@ -14894,7 +14971,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 32975a9a2d2d5c74cb334e5182835254, type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value: 
+      value:
       objectReference: {fileID: 2100000, guid: d5526050ca2e6c341bfa2d267b96ba73, type: 2}
     - target: {fileID: 400002, guid: 32975a9a2d2d5c74cb334e5182835254, type: 3}
       propertyPath: m_LocalScale.x
@@ -14910,7 +14987,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2300004, guid: 32975a9a2d2d5c74cb334e5182835254, type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value: 
+      value:
       objectReference: {fileID: 2100000, guid: f3b1339b270c7344b98e8a5ad0a226b0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32975a9a2d2d5c74cb334e5182835254, type: 3}
@@ -14958,8 +15035,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe9aecd329caa6245bd5cfe2eb6100d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   rayHit: 0
   selectedObject: {fileID: 0}
   redCol: 0
@@ -15028,8 +15105,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdeef6a58a1962841a34f7b30713ed8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   selectedObject: {fileID: 0}
   cnt: 0
 --- !u!54 &1367714450
@@ -15124,15 +15201,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4557fa97d4cd27d4f9547aa22fce4676, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MovementAcceleration: 1
-  m_MaxMovementSpeed: 2
-  m_MovementDecceleration: 2.5
-  m_RotationAcceleration: 10
-  m_MaxRotationSpeed: 20
-  m_RotationDeccelration: 25
-  m_Remote: {fileID: 1363930628}
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!65 &1380658524
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15280,8 +15350,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6064e7ad9f669284c875d68deadab5f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   IsPushing: 1
 --- !u!114 &1397926305
 MonoBehaviour:
@@ -15292,8 +15362,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bde54dcb87096948a4f258cd458bbc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_allowOffhandGrab: 1
   m_snapPosition: 0
   m_snapOrientation: 0
@@ -19900,10 +19970,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 528cc0ae4892b9843bd0457496679a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   IsCasting: 0
-  internalObject: 
+  internalObject:
 --- !u!64 &1397926309
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20036,8 +20106,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Navigation:
     m_Mode: 3
     m_SelectOnUp: {fileID: 0}
@@ -20077,8 +20147,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -20641,8 +20711,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
@@ -21043,7 +21113,7 @@ Mesh:
     channels: []
     fullWeights: []
   m_BindPose: []
-  m_BoneNameHashes: 
+  m_BoneNameHashes:
   m_RootBoneNameHash: 0
   m_MeshCompression: 0
   m_IsReadable: 1
@@ -21118,59 +21188,59 @@ Mesh:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_UV:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_Normals:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_Tangents:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_Weights:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_NormalSigns:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_TangentSigns:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_FloatColors:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_BoneIndices:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_Triangles:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.050000023, y: 0.025, z: 0.100000024}
   m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
+  m_BakedConvexCollisionMesh:
+  m_BakedTriangleCollisionMesh:
   m_MeshMetrics[0]: 1
   m_MeshMetrics[1]: 1
   m_MeshOptimized: 0
@@ -21941,8 +22011,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe9aecd329caa6245bd5cfe2eb6100d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   rayHit: 0
   selectedObject: {fileID: 0}
   redCol: 0
@@ -21971,8 +22041,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdeef6a58a1962841a34f7b30713ed8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   selectedObject: {fileID: 0}
   cnt: 0
 --- !u!54 &1906026302
@@ -22210,12 +22280,12 @@ Prefab:
     - target: {fileID: 114000011302329234, guid: c851dc68baae3964fb16a001e7333995,
         type: 2}
       propertyPath: m_player
-      value: 
+      value:
       objectReference: {fileID: 1145822792}
     - target: {fileID: 114000011302329234, guid: c851dc68baae3964fb16a001e7333995,
         type: 2}
       propertyPath: m_parentTransform
-      value: 
+      value:
       objectReference: {fileID: 772995159}
     - target: {fileID: 114000011302329234, guid: c851dc68baae3964fb16a001e7333995,
         type: 2}
@@ -22241,17 +22311,17 @@ Prefab:
     - target: {fileID: 114000011302329234, guid: c851dc68baae3964fb16a001e7333995,
         type: 2}
       propertyPath: m_grabVolumes.Array.data[0]
-      value: 
+      value:
       objectReference: {fileID: 688181141}
     - target: {fileID: 114000011302329234, guid: c851dc68baae3964fb16a001e7333995,
         type: 2}
       propertyPath: m_grabVolumes.Array.data[1]
-      value: 
+      value:
       objectReference: {fileID: 1833364556}
     - target: {fileID: 114000011302329234, guid: c851dc68baae3964fb16a001e7333995,
         type: 2}
       propertyPath: m_grabVolumes.Array.data[2]
-      value: 
+      value:
       objectReference: {fileID: 1727893860}
     - target: {fileID: 54000014062604106, guid: c851dc68baae3964fb16a001e7333995,
         type: 2}
