@@ -336,7 +336,6 @@ Shader "Custom/HSL" {
 				//return float4(tempCol1, col.a);
 				return float4(returnCol, col.a);
 
-				//return col;// half4(half3(rgb2hsl(col, hsl)), col.a);
 
 			}
 
