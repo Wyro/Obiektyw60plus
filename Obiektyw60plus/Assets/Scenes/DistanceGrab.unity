@@ -253,7 +253,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011298121576, guid: 2fe85e6b53467fa4ab15c063fbd4d24a, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4000011298121576, guid: 2fe85e6b53467fa4ab15c063fbd4d24a, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -337,7 +337,6 @@ MonoBehaviour:
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
   m_materialColorField: 
-  itemGrabbed: {fileID: 0}
 --- !u!1 &65590323
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +648,6 @@ MonoBehaviour:
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
   m_materialColorField: 
-  itemGrabbed: {fileID: 11400000, guid: 24942e7a0bbdc8b4190820ac267418b1, type: 2}
 --- !u!1001 &293686662
 Prefab:
   m_ObjectHideFlags: 0
@@ -687,7 +685,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011880463214, guid: f266cbc0b1e72924f909c3ea2b746949, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4000011880463214, guid: f266cbc0b1e72924f909c3ea2b746949, type: 2}
       propertyPath: m_LocalScale.x
@@ -1066,7 +1064,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 813344686}
-  - component: {fileID: 813344684}
   - component: {fileID: 813344683}
   - component: {fileID: 813344687}
   m_Layer: 0
@@ -1088,21 +1085,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsItemEquipped: 0
-  ActiveItem: {fileID: 0}
---- !u!114 &813344684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 813344682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a067bbdaab2d7c34d864c69bd96bc6f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wandRed: {fileID: 257809993}
-  wandGreen: {fileID: 852176847}
-  wandPurple: {fileID: 1841795726}
 --- !u!4 &813344686
 Transform:
   m_ObjectHideFlags: 0
@@ -1370,7 +1352,6 @@ MonoBehaviour:
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
   m_materialColorField: 
-  itemGrabbed: {fileID: 11400000, guid: b2de24494f86ef240a4cb84266533406, type: 2}
 --- !u!1 &892034482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1506,67 +1487,6 @@ Transform:
   m_Father: {fileID: 2061129897}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!1001 &1035468407
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: b8c457a551ed50549963768348b6baeb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.59
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: b8c457a551ed50549963768348b6baeb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: b8c457a551ed50549963768348b6baeb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: b8c457a551ed50549963768348b6baeb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: b8c457a551ed50549963768348b6baeb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: b8c457a551ed50549963768348b6baeb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: b8c457a551ed50549963768348b6baeb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: b8c457a551ed50549963768348b6baeb, type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b8c457a551ed50549963768348b6baeb, type: 3}
-  m_IsPrefabAsset: 0
---- !u!1 &1035468408 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: b8c457a551ed50549963768348b6baeb,
-    type: 3}
-  m_PrefabInternal: {fileID: 1035468407}
---- !u!64 &1035468409
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1035468408}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: b8c457a551ed50549963768348b6baeb, type: 3}
 --- !u!1 &1079917242
 GameObject:
   m_ObjectHideFlags: 0
@@ -3288,7 +3208,6 @@ MonoBehaviour:
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
   m_materialColorField: _OutlineColor
-  itemGrabbed: {fileID: 11400000, guid: 9162c3d6d60b6dd40b3572a0ee0ef478, type: 2}
 --- !u!1 &1891751613
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,9 +7,9 @@ public class HighlightSelected : MonoBehaviour {
     public bool rayHit;
     public GameObject selectedObject;
 
-    private int redCol;
-    private int greenCol;
-    private int blueCol;
+    public int redCol;
+    public int greenCol;
+    public int blueCol;
     private int alpha = 80;
     private bool lookingAtObject = false;
     private bool flashingIn = true;
@@ -89,6 +89,7 @@ public class HighlightSelected : MonoBehaviour {
         if (lookingAtObject)
         {
             newColor = new Color32((byte)redCol, (byte)greenCol, (byte)blueCol, 255); //colored mode
+            Debug.Log("changing color");
             selectedObject.transform.gameObject.GetComponent<Renderer>().material.color = newColor;
             //selectedObject.transform.gameObject.GetComponent<Renderer>().material.color = new Color32(initialColor.r, initialColor.g, initialColor.b, (byte)alpha); //transparent mode
             Color32[] newColors = new Color32[transform.childCount];
@@ -100,6 +101,7 @@ public class HighlightSelected : MonoBehaviour {
 
     IEnumerator FlashObject()
     {
+        Debug.Log("running");
 
         while (lookingAtObject)
         {

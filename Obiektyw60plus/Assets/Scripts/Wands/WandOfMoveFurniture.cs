@@ -10,6 +10,9 @@ public class WandOfMoveFurniture : MonoBehaviour {
     ParticleSystem particleSystem;
     DistanceGrabbable distanceGrabbable;
     CastingToObject castingToObject;
+    LaserControl laserControl;
+    
+
 
     bool UsingItem = false;
 
@@ -20,6 +23,7 @@ public class WandOfMoveFurniture : MonoBehaviour {
         distanceGrabbable = GetComponent<DistanceGrabbable>();
         particleSystem = GetComponent<ParticleSystem>();
         castingToObject = GetComponent<CastingToObject>();
+        laserControl = GetComponent<LaserControl>();
     }
 
     // Update is called once per frame
@@ -31,17 +35,19 @@ public class WandOfMoveFurniture : MonoBehaviour {
             if (!UsingItem)
             {
                 castingToObject.IsCasting = true; //activating script for raycasting
+                laserControl.IsShowingLaser = true; //activating script for showing raycast laser
 
+                UsingItem = true;
                 if (OVRInput.GetDown(OVRInput.Button.Two)) { 
                     IsPushing = !IsPushing;
                 }
 
-                if (OVRInput.GetDown(OVRInput.Button.One))//A key
-                {
-                    StartCoroutine(UseWand());
-                    particleSystem.Play();
-                    UsingItem = true;
-                }
+                //if (OVRInput.GetDown(OVRInput.Button.One))//A key
+                //{
+                //    StartCoroutine(UseWand());
+                //    particleSystem.Play();
+                //    UsingItem = true;
+                //}
 
             }
         }
@@ -50,19 +56,20 @@ public class WandOfMoveFurniture : MonoBehaviour {
             //stop using item
             UsingItem = false;
             castingToObject.IsCasting = false;
-            StopCoroutine(UseWand());
+            laserControl.IsShowingLaser = false;
+            //StopCoroutine(UseWand());
             particleSystem.Stop();
         }
     }
 
 
-    IEnumerator UseWand()
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            particleSystem.Emit(1);
-            particleSystem.emissionRate = 10f;
-            yield return new WaitForSeconds(0.5f);
-        }
-    }
+    //IEnumerator UseWand()
+    //{
+    //    for (int i = 0; i < 10; i++)
+    //    {
+    //        particleSystem.Emit(1);
+    //        particleSystem.emissionRate = 10f;
+    //        yield return new WaitForSeconds(0.5f);
+    //    }
+    //}
 }
