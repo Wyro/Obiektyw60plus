@@ -333,8 +333,8 @@ Shader "Custom/HSL" {
 
 				// return the changed RGB result
 
-				//return float4(tempCol1, col.a);
-				return float4(returnCol, col.a);
+				return float4(tempCol1, col.a);
+				//return float4(returnCol, col.a);
 
 
 			}

@@ -33,6 +33,7 @@ public class DistanceGrabbable : ColorGrabbable
     Renderer m_renderer;
     MaterialPropertyBlock m_mpb;
 
+    HighlightSelected highlightSelected;
 
     public bool InRange {
         get { return m_inRange; }
@@ -58,6 +59,7 @@ public class DistanceGrabbable : ColorGrabbable
     protected override void Start()
     {
         base.Start();
+        highlightSelected.GetComponent<HighlightSelected>();
         m_crosshair = gameObject.GetComponentInChildren<GrabbableCrosshair>();
         m_renderer = gameObject.GetComponent<Renderer>();
         m_crosshairManager = FindObjectOfType<GrabManager>();
@@ -67,8 +69,12 @@ public class DistanceGrabbable : ColorGrabbable
 
     void RefreshCrosshair()
     {
+
         if (m_crosshair)
         {
+
+    
+
             if (isGrabbed) m_crosshair.SetState(GrabbableCrosshair.CrosshairState.Disabled);
             else if(!InRange) m_crosshair.SetState(GrabbableCrosshair.CrosshairState.Disabled);
             else m_crosshair.SetState(Targeted ? GrabbableCrosshair.CrosshairState.Targeted : GrabbableCrosshair.CrosshairState.Enabled);
