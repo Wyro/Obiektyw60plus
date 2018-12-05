@@ -5,7 +5,7 @@ using UnityEngine;
 public class WandOfMoveFurniture : MonoBehaviour {
 
     public bool IsPushing = true;
-
+    public bool move = false;
 
     ParticleSystem particleSystem;
     DistanceGrabbable distanceGrabbable;
@@ -32,6 +32,16 @@ public class WandOfMoveFurniture : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (OVRInput.GetDown(OVRInput.Button.Two))
+        {
+            IsPushing = !IsPushing;
+        }
+
+        if (OVRInput.GetDown(OVRInput.Button.One))//A key
+        {
+            move = !move;
+
+        }
         if (distanceGrabbable.isGrabbed)
         {
             //use item
@@ -62,17 +72,17 @@ public class WandOfMoveFurniture : MonoBehaviour {
         {
             //Handling user input
 
-            if (OVRInput.GetDown(OVRInput.Button.Two))
-            {
-                IsPushing = !IsPushing;
-            }
+            //if (OVRInput.GetDown(OVRInput.Button.Two))
+            //{
+            //    IsPushing = !IsPushing;
+            //}
 
-            if (OVRInput.GetDown(OVRInput.Button.One))//A key
-            {
-                StartCoroutine(UseWand());
-                particleSystem.Play();
-                UsingItem = true;
-            }
+            //if (OVRInput.GetDown(OVRInput.Button.One))//A key
+            //{
+            //    move = !move;
+                
+            //}
+            //TODO maybe change color of laser when moving ?
         }
         
             yield return new WaitForSeconds(0.05f);

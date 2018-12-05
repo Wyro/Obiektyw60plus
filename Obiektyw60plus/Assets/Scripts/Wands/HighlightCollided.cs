@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Highlights object selected with ray
-//CastingToObject steers this script
-public class HighlightSelected : MonoBehaviour {
+//Does the same as HighlightSelected, but when collision with objects occurs
+//CheckHandCollision steers this script
+public class HighlightCollided : MonoBehaviour {
 
     public bool rayHit;
     public GameObject selectedObject;
@@ -18,7 +18,7 @@ public class HighlightSelected : MonoBehaviour {
     private bool startedFlashing = false;
     private bool coroutineStarted = false;
     private Color32 initialColor;
-    private Color32 []initialColors;
+    private Color32[] initialColors;
     private Color32 newColor;
 
     private void Start()
@@ -27,19 +27,20 @@ public class HighlightSelected : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
-        
+
         changeColor();
 
         if (rayHit && !coroutineStarted)
         {
-            selectedObject = GameObject.Find(CastingToObject.selectedObject);
-            if (!selectedObject)
-            {
-                Debug.Log("Can't find selectedObject from CastingToObject, setting it to this gameObject");
-                selectedObject = gameObject;
-            }
+            //selectedObject = GameObject.Find(CastingToObject.selectedObject);
+            //if (!selectedObject)
+            //{
+            //    Debug.Log("Can't find selectedObject from CastingToObject, setting it to this gameObject");
+            //    selectedObject = gameObject;
+            //}
+            selectedObject = gameObject;
             lookingAtObject = true;
 
             if (!startedFlashing)
@@ -72,7 +73,7 @@ public class HighlightSelected : MonoBehaviour {
             i++;
         }
     }
-    private void changeChildColor(Color32 [] colorToSet)
+    private void changeChildColor(Color32[] colorToSet)
     {
         int i = 0;
         foreach (Transform child in transform)
@@ -101,7 +102,7 @@ public class HighlightSelected : MonoBehaviour {
             Color32[] newColors = new Color32[transform.childCount];
             newColors = setColors(newColor);
             changeChildColor(newColors);
-            
+
         }
     }
 
@@ -171,9 +172,6 @@ public class HighlightSelected : MonoBehaviour {
             ////}
         }
     }
-
-
-
 
 
 }
