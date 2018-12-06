@@ -40,8 +40,8 @@ public class WandOfMoveFurniture : MonoBehaviour {
         if (OVRInput.GetDown(OVRInput.Button.One))//A key
         {
             move = !move;
-
         }
+
         if (distanceGrabbable.isGrabbed)
         {
             //use item

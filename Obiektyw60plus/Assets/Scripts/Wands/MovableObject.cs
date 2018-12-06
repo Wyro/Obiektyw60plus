@@ -60,6 +60,11 @@ public class MovableObject : MonoBehaviour {
                 coroutineStarted = false;
             }
         }
+
+        if(coroutineStarted && !wandOfMove.move)
+        {
+            StopCoroutine(MoveObject());
+        }
     }
 
     //private Vector3 setWandDirection(Vector3 Direction)
@@ -75,8 +80,6 @@ public class MovableObject : MonoBehaviour {
     {
         while (lookingAtObject)
         {
-            if (wandOfMove.move)
-            {
                 Vector3 wandDirection;
                 Transform tempWand;
 
@@ -86,8 +89,6 @@ public class MovableObject : MonoBehaviour {
                     tempWand.Rotate(0, wand.transform.rotation.y, wand.transform.rotation.z);
                     wandDirection = tempWand.transform.forward;
                     //wandDirection = wand.transform.forward;
-                    Debug.Log(wandDirection);
-                    //Debug.Log(tempWand);
                 }
                 else
                 {
@@ -132,7 +133,6 @@ public class MovableObject : MonoBehaviour {
 
                 //}
 
-            }
         }
     }
 }
