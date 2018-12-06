@@ -6,6 +6,7 @@ public class WandOfMoveFurniture : MonoBehaviour {
 
     public bool IsPushing = true;
     public bool move = false;
+    public Vector3 PointToGo;
 
     ParticleSystem particleSystem;
     DistanceGrabbable distanceGrabbable;
@@ -14,6 +15,8 @@ public class WandOfMoveFurniture : MonoBehaviour {
 
     bool UsingItem = false;
 
+    // Variables for holding user input
+    private float MovementInput;
 
     // Use this for initialization
     void Start()
@@ -32,18 +35,27 @@ public class WandOfMoveFurniture : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        MovementInput = Input.GetAxis("Oculus_CrossPlatform_PrimaryHandTrigger");
+        
+        Debug.Log(MovementInput);
+
         if (OVRInput.GetDown(OVRInput.Button.Two))
         {
-            IsPushing = !IsPushing;
+            //IsPushing = !IsPushing;
+            move = !move;
         }
 
         if (OVRInput.GetDown(OVRInput.Button.One))//A key
         {
-            move = !move;
+            FindIntersectionPoint();            
         }
+
+        
 
         if (distanceGrabbable.isGrabbed)
         {
+            
+
             //use item
             if (!UsingItem)
             {
@@ -65,6 +77,20 @@ public class WandOfMoveFurniture : MonoBehaviour {
         }
     }
 
+    private void FindIntersectionPoint()
+    {
+        RaycastHit objectHit;
+
+        Debug.DrawRay(transform.position, transform.forward, Color.blue, 2);
+        // Shoot raycast
+        if (Physics.Raycast(transform.position, transform.forward, out objectHit, 50))
+        {
+            Debug.Log("Raycast hitted to: " + objectHit.collider);
+            Debug.Log("Raycast hitted to: " + objectHit.point);
+            PointToGo = objectHit.point;
+
+        }
+    }
 
     IEnumerator UseWand()
     {

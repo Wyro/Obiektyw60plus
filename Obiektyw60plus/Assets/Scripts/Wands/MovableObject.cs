@@ -18,11 +18,14 @@ public class MovableObject : MonoBehaviour {
 
     GameObject wand;
     WandOfMoveFurniture wandOfMove;
+    Vector3 PositionY;
 
     //bool IsPushing = true; //TODO remove this later, it only temporary replaces WandOfMoveFurniture.IsPushing
 	// Use this for initialization
 	void Start () {
 
+        //PositionY = transform.position.y;
+        
         wand = GameObject.Find("WandOfMoveFurniture");
         if (!wand) Debug.Log("Can't find wand of move furniture");
         wandOfMove = wand.GetComponent<WandOfMoveFurniture>();
@@ -31,6 +34,8 @@ public class MovableObject : MonoBehaviour {
         if (!highlightSelected) Debug.Log("no HighlightSelected script attached");
         rigidbody = GetComponent<Rigidbody>();
         if (!rigidbody) Debug.Log("no Rigidbody attached");
+
+        wandOfMove.PointToGo = transform.position;
 
 	}
 	
@@ -43,7 +48,8 @@ public class MovableObject : MonoBehaviour {
         //  IsPushing = !IsPushing;
         //}
 
-        if (wandOfMove.move)
+        
+        if (wandOfMove.move) //must click to start moving coroutine
         {
             if (highlightSelected.rayHit && !coroutineStarted)
             {
@@ -78,60 +84,38 @@ public class MovableObject : MonoBehaviour {
 
     IEnumerator MoveObject()
     {
-        while (lookingAtObject)
+        //while (lookingAtObject)
+        while(wandOfMove.move)
         {
-                Vector3 wandDirection;
-                Transform tempWand;
+            //Vector3 wandDirection;
+            //Transform tempWand;
 
-                if (wandOfMove.IsPushing)
-                {
-                    tempWand = wand.transform;
-                    tempWand.Rotate(0, wand.transform.rotation.y, wand.transform.rotation.z);
-                    wandDirection = tempWand.transform.forward;
-                    //wandDirection = wand.transform.forward;
-                }
-                else
-                {
-                    tempWand = wand.transform;
-                    tempWand.Rotate(0, wand.transform.rotation.y, wand.transform.rotation.z);
-                    wandDirection = tempWand.transform.forward * -1;
-                }
-                yield return new WaitForSeconds(0.05f);
+            //if (wandOfMove.IsPushing)
+            //{
+            //    tempWand = wand.transform;
+            //    tempWand.Rotate(0, wand.transform.rotation.y, wand.transform.rotation.z);
+            //    wandDirection = tempWand.transform.forward;
+            //}
+            //else
+            //{
+            //    tempWand = wand.transform;
+            //    tempWand.Rotate(0, wand.transform.rotation.y, wand.transform.rotation.z);
+            //    wandDirection = tempWand.transform.forward * -1;
+            //}
+            //if(wandOfMove.PointToGo.y < transform.position.y)
+            //{
+            //    wandOfMove.PointToGo.y = transform.position.y;
+            //}
+            Vector3 ToGo = wandOfMove.PointToGo - transform.position;
+            rigidbody.MovePosition(transform.position + ToGo*Time.deltaTime);
+
+            yield return new WaitForSeconds(0.05f);
 
                 print("moving moving ...");
-                rigidbody.MovePosition(transform.position + wandDirection * Time.fixedDeltaTime);
-                //rigidbody.AddForce(wandDirection * 30f);
-                //if (move)
-                //{   
-                //    if(cnt <= 0)
-                //    {
-                //        move = false;
-                //    }
-                //    else
-                //    {
 
-                //        //rigidbody.AddForce(transform.up * 100f);
-                //        //TODO add transform of wand in AddForce
-                //        rigidbody.AddForce(wandDirection * 100f);
-                //        cnt--;
-                //    }
 
-                //}
-                //else
-                //{
-                //    if (cnt >= 100)
-                //    {
-                //        move = true;
-                //    }
-                //    else
-                //    {
-                //        //rigidbody.AddForce(transform.up * -100f);
-                //        //TODO add transform of wand in AddForce
-                //        rigidbody.AddForce(wandDirection * 100f);
-                //        cnt++;
-                //    }
-
-                //}
+                //rigidbody.MovePosition(transform.position + wandDirection * Time.fixedDeltaTime);
+            
 
         }
     }
