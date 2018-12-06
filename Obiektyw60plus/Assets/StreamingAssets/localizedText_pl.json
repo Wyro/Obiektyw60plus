@@ -9,9 +9,13 @@
 {"key":"back_button","value":"Powrót"},
 {"key":"label_desingmode","value":"Tryb projektanta"},
 {"key":"label_wheelchair","value":"Wózek"},
-{"key":"toggle_enabled","value":"EnabledP"},
-{"key":"toggle_disabled","value":"DisabledP"},
-{"key":"label_settings","value":"SettingsP"},
-{"key":"label_volume","value":"VolumeP"},
-{"key":"label_language","value":"LanguageP"}
+{"key":"toggle_enabled","value":"Włączony"},
+{"key":"toggle_disabled","value":"Wyłączony"},
+{"key":"label_settings","value":"Ustawienia"},
+{"key":"label_volume","value":"Głośność"},
+{"key":"label_language","value":"Język"},
+{"key":"label_about","value":"O projekcie"},
+{"key":"confirm_quit","value":"Czy na pewno chcesz wyjść?"},
+{"key":"button_yes","value":"Tak"},
+{"key":"button_no","value":"Nie"}
 ]}

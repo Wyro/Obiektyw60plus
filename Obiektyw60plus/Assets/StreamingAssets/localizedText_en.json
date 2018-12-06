@@ -13,5 +13,9 @@
 {"key":"toggle_disabled","value":"Disabled"},
 {"key":"label_settings","value":"Settings"},
 {"key":"label_volume","value":"Volume"},
-{"key":"label_language","value":"Language"}
+{"key":"label_language","value":"Language"},
+{"key":"label_about","value":"About"},
+{"key":"confirm_quit","value":"Are you sure you want to quit?"},
+{"key":"button_yes","value":"Yes"},
+{"key":"button_no","value":"No"}
 ]}
