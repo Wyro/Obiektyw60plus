@@ -1,6 +1,17 @@
 {"items":[
+{"key":"main_title","value":"Perspective 60+"},
 {"key":"start_button","value":"Start"},
 {"key":"settings_button","value":"Settings"},
 {"key":"about_button","value":"About"},
-{"key":"quit_button","value":"Quit"}
+{"key":"quit_button","value":"Quit"},
+{"key":"label_storymode","value":"Story Mode"},
+{"key":"label_impairment","value":"Visual Impairment"},
+{"key":"back_button","value":"Back"},
+{"key":"label_desingmode","value":"Designer Mode"},
+{"key":"label_wheelchair","value":"Wheelchair"},
+{"key":"toggle_enabled","value":"Enabled"},
+{"key":"toggle_disabled","value":"Disabled"},
+{"key":"label_settings","value":"Settings"},
+{"key":"label_volume","value":"Volume"},
+{"key":"label_language","value":"Language"}
 ]}

@@ -116,6 +116,7 @@ public class MainMenu : MonoBehaviour
         settingsPanel.SetActive(true);
         aboutPanel.SetActive(true);
         confirmQuitPanel.SetActive(true);
+        Debug.Log("Activating all panels.");
     }
 
     private void DeactivateAllPanels()
@@ -127,6 +128,7 @@ public class MainMenu : MonoBehaviour
         settingsPanel.SetActive(true);  // Only settings should stay on
         aboutPanel.SetActive(false);
         confirmQuitPanel.SetActive(false);
+        Debug.Log("Deactivating panels.");
     }
 
 

@@ -1,6 +1,17 @@
 {"items":[
+{"key":"main_title","value":"Obiektyw 60+"},
 {"key":"start_button","value":"Start"},
 {"key":"settings_button","value":"Ustawienia"},
 {"key":"about_button","value":"O projekcie"},
-{"key":"quit_button","value":"Wyjście"}
+{"key":"quit_button","value":"Wyjście"},
+{"key":"label_storymode","value":"Tryb fabularny"},
+{"key":"label_impairment","value":"Wada wzroku"},
+{"key":"back_button","value":"Powrót"},
+{"key":"label_desingmode","value":"Tryb projektanta"},
+{"key":"label_wheelchair","value":"Wózek"},
+{"key":"toggle_enabled","value":"EnabledP"},
+{"key":"toggle_disabled","value":"DisabledP"},
+{"key":"label_settings","value":"SettingsP"},
+{"key":"label_volume","value":"VolumeP"},
+{"key":"label_language","value":"LanguageP"}
 ]}

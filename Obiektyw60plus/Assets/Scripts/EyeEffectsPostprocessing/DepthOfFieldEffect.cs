@@ -58,13 +58,13 @@ namespace Assets.Scripts
 
             int nonScaledWidth = source.width;
             int nonSclaedHeight = source.height;
-            Debug.Log("Non scaled width: " + nonScaledWidth);
-            Debug.Log("Non sclaed height: " + nonSclaedHeight);
+            //Debug.Log("Non scaled width: " + nonScaledWidth);
+            //Debug.Log("Non sclaed height: " + nonSclaedHeight);
 
             int width = source.width / 2;
             int height = source.height / 2;
-            Debug.Log("Scaled width: " + width);
-            Debug.Log("Sclaed height: " + height);
+            //Debug.Log("Scaled width: " + width);
+            //Debug.Log("Sclaed height: " + height);
             RenderTextureFormat format = source.format;
             RenderTexture dof0 = RenderTexture.GetTemporary(width, height, 0, format);
             RenderTexture dof1 = RenderTexture.GetTemporary(width, height, 0, format);

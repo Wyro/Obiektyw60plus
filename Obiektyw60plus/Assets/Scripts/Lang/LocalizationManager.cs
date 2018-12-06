@@ -63,7 +63,12 @@ public class LocalizationManager : MonoBehaviour {
         buttonLabels = GameObject.FindGameObjectsWithTag("Lang");
         foreach (GameObject button in buttonLabels)
         {
-            button.GetComponent<LocalizedText>().ReloadText();
+            try{
+                button.GetComponent<LocalizedText>().ReloadText();
+            }
+            catch (System.Exception e){
+                print("Localization error: "+button.transform.name);
+            }
         }
     }
 }
