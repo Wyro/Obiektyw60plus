@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3517,7 +3517,7 @@ GameObject:
   - component: {fileID: 596781652}
   m_Layer: 5
   m_Name: PanelText
-  m_TagString: Untagged
+  m_TagString: Lang
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6285,6 +6285,10 @@ Prefab:
       propertyPath: m_Colors.m_PressedColor.b
       value: 0.4716981
       objectReference: {fileID: 0}
+    - target: {fileID: 1236238860130076, guid: 99a1953dd9a65eb4db28d67a65e14425, type: 2}
+      propertyPath: m_TagString
+      value: Lang
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99a1953dd9a65eb4db28d67a65e14425, type: 2}
   m_IsPrefabAsset: 0
@@ -6835,7 +6839,7 @@ GameObject:
   - component: {fileID: 985956252}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: Lang
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7002,7 +7006,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &998461930
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8694,7 +8698,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.4949495, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11420,6 +11424,10 @@ Prefab:
         type: 2}
       propertyPath: m_Colors.m_PressedColor.b
       value: 0.4716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507210782655080, guid: 6ff45c9e592d3a8418de83928b986a19, type: 2}
+      propertyPath: m_TagString
+      value: Lang
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ff45c9e592d3a8418de83928b986a19, type: 2}
@@ -14494,7 +14502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1985011094
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15145,8 +15153,8 @@ RectTransform:
   m_Father: {fileID: 683920658}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.4949495, y: 0}
-  m_AnchorMax: {x: 0.4949495, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -15198,7 +15206,7 @@ GameObject:
   - component: {fileID: 2095605416}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: Lang
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
