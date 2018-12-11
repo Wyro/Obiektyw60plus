@@ -35,16 +35,12 @@ public class WandOfMoveFurniture : MonoBehaviour {
         MovementInput = Input.GetAxis("Oculus_CrossPlatform_SecondaryIndexTrigger"); //TODO check this input
 
         //Input test
-        //Debug.Log(MovementInput);
         //Debug.Log("Lindex " +Input.GetAxis("Oculus_CrossPlatform_PrimaryIndexTrigger")); //left index
         //Debug.Log("Rindex " +Input.GetAxis("Oculus_CrossPlatform_SecondaryIndexTrigger")); //right index
         //Debug.Log("Primary hand "+Input.GetAxis("Oculus_CrossPlatform_PrimaryHandTrigger")); //left grab
         //Debug.Log("Secondary hand "+Input.GetAxis("Oculus_CrossPlatform_SecondaryHandTrigger")); //right grab
         //Debug.Log("Primary thumbstick " + Input.GetAxis("Oculus_CrossPlatform_PrimaryThumbstick"));
         //Debug.Log("Secondary thumbstick " + Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstick"));
-
-
-
 
 
         if (MovementInput > 0) { move = true; }
@@ -83,8 +79,6 @@ public class WandOfMoveFurniture : MonoBehaviour {
         // Shoot raycast
         if (Physics.Raycast(transform.position, transform.forward, out objectHit, 50))
         {
-            Debug.Log("Raycast hitted to: " + objectHit.collider);
-            Debug.Log("Raycast hitted to: " + objectHit.point);
             PointToGo = objectHit.point;
         }
     }

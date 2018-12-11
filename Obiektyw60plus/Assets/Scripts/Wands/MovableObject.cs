@@ -70,39 +70,13 @@ public class MovableObject : MonoBehaviour {
         }
     }
 
-    //private Vector3 setWandDirection(Vector3 Direction)
-    //{
-    //    Vector3 newDirection = Direction;
-
-    //    Direction.x = 0;
-
-    //    return newDirection;
-    //}
 
     IEnumerator MoveObject()
     {
-        //while (lookingAtObject)
+
         while(wandOfMove.move)
         {
-            //Vector3 wandDirection;
-            //Transform tempWand;
 
-            //if (wandOfMove.IsPushing)
-            //{
-            //    tempWand = wand.transform;
-            //    tempWand.Rotate(0, wand.transform.rotation.y, wand.transform.rotation.z);
-            //    wandDirection = tempWand.transform.forward;
-            //}
-            //else
-            //{
-            //    tempWand = wand.transform;
-            //    tempWand.Rotate(0, wand.transform.rotation.y, wand.transform.rotation.z);
-            //    wandDirection = tempWand.transform.forward * -1;
-            //}
-            //if(wandOfMove.PointToGo.y < transform.position.y)
-            //{
-            //    wandOfMove.PointToGo.y = transform.position.y;
-            //}
             Vector3 DirectionToGo = wandOfMove.PointToGo - transform.position;
             rigidbody.MovePosition(transform.position + DirectionToGo*Time.deltaTime);
 
@@ -113,7 +87,6 @@ public class MovableObject : MonoBehaviour {
 
             //rigidbody.MovePosition(transform.position + wandDirection * Time.fixedDeltaTime);
             
-
         }
     }
 }
