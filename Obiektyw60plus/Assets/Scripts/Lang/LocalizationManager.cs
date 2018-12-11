@@ -66,8 +66,16 @@ public class LocalizationManager : MonoBehaviour {
             try{
                 button.GetComponent<LocalizedText>().ReloadText();
             }
-            catch (System.Exception e){
-                print("Localization error: "+button.transform.name);
+            catch (System.Exception e1){
+                try
+                {
+                    button.GetComponent<LocalizedImage>().ReloadImage();
+                    print("Reloading image");
+                }
+                catch (System.Exception e)
+                {
+                    print("Localization error: " + button.transform.name);
+                }
             }
         }
     }

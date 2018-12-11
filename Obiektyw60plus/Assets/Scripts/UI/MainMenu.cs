@@ -122,6 +122,7 @@ public class MainMenu : MonoBehaviour
                 Debug.Log("Error with language dropdown settings!");
                 break;
         }
+        PlayerPrefs.SetInt("lang", languageSelection.value);
         Debug.Log("Loading " + languageFile);
         ActivateAllPanels();
         languageManager.GetComponent<LocalizationManager>().LoadLocalizedText(languageFile);
