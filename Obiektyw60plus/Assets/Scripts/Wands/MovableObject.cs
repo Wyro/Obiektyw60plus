@@ -18,13 +18,10 @@ public class MovableObject : MonoBehaviour {
 
     GameObject wand;
     WandOfMoveFurniture wandOfMove;
-    Vector3 PositionY;
 
-    //bool IsPushing = true; //TODO remove this later, it only temporary replaces WandOfMoveFurniture.IsPushing
+
 	// Use this for initialization
 	void Start () {
-
-        //PositionY = transform.position.y;
         
         wand = GameObject.Find("WandOfMoveFurniture");
         if (!wand) Debug.Log("Can't find wand of move furniture");
@@ -45,11 +42,11 @@ public class MovableObject : MonoBehaviour {
         //TODO remove this later
         //if (Input.GetKeyDown("p"))
         //{
-        //  IsPushing = !IsPushing;
+        //  wandOfMove.move = !wandOfMove.move;
         //}
 
-        
-        if (wandOfMove.move) //must click to start moving coroutine
+
+        if (wandOfMove.move) //must hold right index finger to start moving coroutine
         {
             if (highlightSelected.rayHit && !coroutineStarted)
             {
@@ -106,15 +103,15 @@ public class MovableObject : MonoBehaviour {
             //{
             //    wandOfMove.PointToGo.y = transform.position.y;
             //}
-            Vector3 ToGo = wandOfMove.PointToGo - transform.position;
-            rigidbody.MovePosition(transform.position + ToGo*Time.deltaTime);
+            Vector3 DirectionToGo = wandOfMove.PointToGo - transform.position;
+            rigidbody.MovePosition(transform.position + DirectionToGo*Time.deltaTime);
 
             yield return new WaitForSeconds(0.05f);
 
-                print("moving moving ...");
+            print("moving moving ...");
 
 
-                //rigidbody.MovePosition(transform.position + wandDirection * Time.fixedDeltaTime);
+            //rigidbody.MovePosition(transform.position + wandDirection * Time.fixedDeltaTime);
             
 
         }

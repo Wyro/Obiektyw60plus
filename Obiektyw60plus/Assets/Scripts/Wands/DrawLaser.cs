@@ -5,8 +5,8 @@ using UnityEngine;
 public class DrawLaser : MonoBehaviour {
 
     ParticleSystem particleSystem;
-    public bool IsShowingLaser = false;
-    bool Started = false;
+    public bool IsShowingLaser = false; 
+    bool Started = false; //used for activating the ShowLaser coroutine only once 
 
     void Start()
     {
@@ -19,6 +19,7 @@ public class DrawLaser : MonoBehaviour {
     {
         if (IsShowingLaser && !Started)
         {
+            particleSystem.Play();
             StartCoroutine(ShowLaser());
             Started = true;
         }
@@ -26,6 +27,7 @@ public class DrawLaser : MonoBehaviour {
         if (!IsShowingLaser && Started)
         {
             StopCoroutine(ShowLaser());
+            particleSystem.Stop();
             Started = false;
         }
     }
