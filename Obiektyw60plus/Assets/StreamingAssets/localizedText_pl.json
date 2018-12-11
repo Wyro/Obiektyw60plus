@@ -17,5 +17,6 @@
 {"key":"label_about","value":"O projekcie"},
 {"key":"confirm_quit","value":"Czy na pewno chcesz wyjść?"},
 {"key":"button_yes","value":"Tak"},
-{"key":"button_no","value":"Nie"}
+{"key":"button_no","value":"Nie"},
+{"key":"yellow_toggle","value":"Zażółcenie gałki ocznej"}
 ]}

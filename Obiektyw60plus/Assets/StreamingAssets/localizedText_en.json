@@ -17,5 +17,6 @@
 {"key":"label_about","value":"About"},
 {"key":"confirm_quit","value":"Are you sure you want to quit?"},
 {"key":"button_yes","value":"Yes"},
-{"key":"button_no","value":"No"}
+{"key":"button_no","value":"No"},
+{"key":"yellow_toggle","value":"Yellowing of eye lens"}
 ]}

@@ -8,7 +8,7 @@ namespace Assets.Scripts.EyeEffectsPostprocessing
     /// Simulation of eye dissfunction
     /// </summary>
     [ExecuteInEditMode, ImageEffectAllowedInSceneView]
-    class YellowEyeEffect : MonoBehaviour
+    public class YellowEyeEffect : MonoBehaviour
     {
 
         /// <summary>
@@ -30,10 +30,10 @@ namespace Assets.Scripts.EyeEffectsPostprocessing
 
         public void Start()
         {
-            red = 255.0f;
-            green = 248.0f;
-            blue = 207.0f;
-            yellEyeColor = new Color(red, green, blue);
+            //red = 255.0f;
+            //green = 248.0f;
+            //blue = 207.0f;
+            //yellEyeColor = new Color(red, green, blue);
         }
 
         void OnRenderImage(RenderTexture source, RenderTexture destination)
