@@ -9105,7 +9105,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.565
+      value: 1.218
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9400,10 +9400,10 @@ GameObject:
   - component: {fileID: 1186048697}
   - component: {fileID: 1186048696}
   - component: {fileID: 1186048695}
-  - component: {fileID: 1186048693}
-  - component: {fileID: 1186048694}
   - component: {fileID: 1186048692}
   - component: {fileID: 1186048704}
+  - component: {fileID: 1186048694}
+  - component: {fileID: 1186048693}
   m_Layer: 0
   m_Name: WandOfMoveFurniture
   m_TagString: Untagged
@@ -9419,7 +9419,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1186048691}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1241e7893cd48e43ad6ab11005af4cf, type: 3}
+  m_Script: {fileID: 11500000, guid: e4ccd591b4398f548ad8df6e7f1c4bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   IsShowingLaser: 0
@@ -9431,11 +9431,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1186048691}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f2d1143d87c11f488f0c8892bb4f026, type: 3}
+  m_Script: {fileID: 11500000, guid: c6f85eadcdd16dd4e95b757b38b2468a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayHit: 0
-  selectedObject: {fileID: 0}
 --- !u!114 &1186048694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9444,9 +9442,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1186048691}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6848d2260d086294681ce18f55414263, type: 3}
+  m_Script: {fileID: 11500000, guid: a0daba54a612f014ebdcf6a18062fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rayHit: 0
+  selectedObject: {fileID: 0}
 --- !u!114 &1186048695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15036,8 +15036,8 @@ GameObject:
   - component: {fileID: 1380658522}
   - component: {fileID: 1380658525}
   - component: {fileID: 1380658524}
-  - component: {fileID: 1380658523}
   - component: {fileID: 1380658526}
+  - component: {fileID: 1380658523}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -15069,7 +15069,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1380658521}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96b5a93496383464c9812c4c9c0cbb02, type: 3}
+  m_Script: {fileID: 11500000, guid: 4557fa97d4cd27d4f9547aa22fce4676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MovementAcceleration: 1
@@ -15089,8 +15089,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.7645104, z: 1}
-  m_Center: {x: 0, y: 0.3822552, z: 0}
+  m_Size: {x: 0.79338735, y: 0.7645104, z: 1}
+  m_Center: {x: -0.020661294, y: 0.3822552, z: -7.15701e-17}
 --- !u!54 &1380658525
 Rigidbody:
   m_ObjectHideFlags: 0

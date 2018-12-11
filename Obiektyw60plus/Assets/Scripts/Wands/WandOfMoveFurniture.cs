@@ -8,7 +8,6 @@ public class WandOfMoveFurniture : MonoBehaviour {
     public bool move = false;
     public Vector3 PointToGo;
 
-    ParticleSystem particleSystem;
     DistanceGrabbable distanceGrabbable;
     CastingToObject castingToObject;
     DrawLaser drawLaser;
@@ -22,12 +21,10 @@ public class WandOfMoveFurniture : MonoBehaviour {
     void Start()
     {
         distanceGrabbable = GetComponent<DistanceGrabbable>();
-        particleSystem = GetComponent<ParticleSystem>();
         castingToObject = GetComponent<CastingToObject>();
         drawLaser = GetComponent<DrawLaser>();
 
         if (!distanceGrabbable) Debug.Log("No DistanceGrabbable script attached");
-        if (!particleSystem) Debug.Log("No particle system attached");
         if (!castingToObject) Debug.Log("No CastingToObject script attached");
         if (!drawLaser) Debug.Log("No DrawLaser script attached");
     }
@@ -35,34 +32,32 @@ public class WandOfMoveFurniture : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        MovementInput = Input.GetAxis("Oculus_CrossPlatform_PrimaryHandTrigger");
+        MovementInput = Input.GetAxis("Oculus_CrossPlatform_SecondaryIndexTrigger"); //TODO check this input
+
+        //Input test
+        //Debug.Log("Lindex " +Input.GetAxis("Oculus_CrossPlatform_PrimaryIndexTrigger")); //left index
+        //Debug.Log("Rindex " +Input.GetAxis("Oculus_CrossPlatform_SecondaryIndexTrigger")); //right index
+        //Debug.Log("Primary hand "+Input.GetAxis("Oculus_CrossPlatform_PrimaryHandTrigger")); //left grab
+        //Debug.Log("Secondary hand "+Input.GetAxis("Oculus_CrossPlatform_SecondaryHandTrigger")); //right grab
+        //Debug.Log("Primary thumbstick " + Input.GetAxis("Oculus_CrossPlatform_PrimaryThumbstick"));
+        //Debug.Log("Secondary thumbstick " + Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstick"));
+
+
+        if (MovementInput > 0) { move = true; }
+        else{ move = false; }
+
+        Debug.Log("move = "+move);
+
+        FindIntersectionPoint();            
         
-        Debug.Log(MovementInput);
-
-        if (OVRInput.GetDown(OVRInput.Button.Two))
-        {
-            //IsPushing = !IsPushing;
-            move = !move;
-        }
-
-        if (OVRInput.GetDown(OVRInput.Button.One))//A key
-        {
-            FindIntersectionPoint();            
-        }
-
-        
-
         if (distanceGrabbable.isGrabbed)
-        {
-            
-
+        {         
             //use item
             if (!UsingItem)
             {
-                castingToObject.IsCasting = true; //activating script for raycasting
-                drawLaser.IsShowingLaser = true;
+                castingToObject.IsCasting = true; //activating script for detecting which object we hit
+                drawLaser.IsShowingLaser = true; 
                 StartCoroutine(UseWand());
-                particleSystem.Play(); //maybe move to DrawLaser ?
                 UsingItem = true;
             }
         }
@@ -73,7 +68,6 @@ public class WandOfMoveFurniture : MonoBehaviour {
             castingToObject.IsCasting = false;
             drawLaser.IsShowingLaser = false;
             StopCoroutine(UseWand());
-            particleSystem.Stop(); //maybe move to DrawLaser ?
         }
     }
 
@@ -85,10 +79,7 @@ public class WandOfMoveFurniture : MonoBehaviour {
         // Shoot raycast
         if (Physics.Raycast(transform.position, transform.forward, out objectHit, 50))
         {
-            Debug.Log("Raycast hitted to: " + objectHit.collider);
-            Debug.Log("Raycast hitted to: " + objectHit.point);
             PointToGo = objectHit.point;
-
         }
     }
 
@@ -112,6 +103,5 @@ public class WandOfMoveFurniture : MonoBehaviour {
         }
         
             yield return new WaitForSeconds(0.05f);
-        
     }
 }
