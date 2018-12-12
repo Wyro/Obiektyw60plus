@@ -9,8 +9,13 @@ using Assets.Scripts.EyeEffectsPostprocessing;
 
 public class MainMenu : MonoBehaviour
 {
+    //public GameObject playerController;
     public GameObject eyeEffectCamera;
+    public GameObject uiCamera;
+
     public GameObject languageManager;
+
+    public GameObject mainCanvas;
     public GameObject mainPanel;
     public GameObject gameModePanel;
     public GameObject storyModePanel;
@@ -20,7 +25,6 @@ public class MainMenu : MonoBehaviour
     public GameObject confirmQuitPanel;
 
     public GameObject pauseCanvas;
-    //public GameObject playerController;
     public Dropdown languageSelection;
     public Slider volumeSlider;
     public Toggle yellowToggle_SM,yellowToggle_DM;
@@ -133,7 +137,9 @@ public class MainMenu : MonoBehaviour
     // Keep the menu in front of player
     void Update()
     {
-        
+        mainCanvas.transform.position = uiCamera.transform.position + uiCamera.transform.forward * 1;
+        mainCanvas.transform. rotation = new Quaternion(0.0f, uiCamera.transform.rotation.y, 0.0f, uiCamera.transform.rotation.w);
+
     }
 
     private void ActivateAllPanels()
