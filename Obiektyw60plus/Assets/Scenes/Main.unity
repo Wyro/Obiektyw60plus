@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44575727, g: 0.49003518, b: 0.54501224, a: 1}
+  m_IndirectSpecularColor: {r: 0.44575703, g: 0.49003464, b: 0.5450113, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -282,7 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 94947231}
   m_Layer: 0
-  m_Name: Distance Hands
+  m_Name: Distance hands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -446,6 +446,91 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 15.343, y: -290.41498, z: -13.155001}
+--- !u!1 &170363371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 170363375}
+  - component: {fileID: 170363374}
+  - component: {fileID: 170363373}
+  - component: {fileID: 170363372}
+  m_Layer: 0
+  m_Name: TakeMedicine1_target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &170363372
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 170363371}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &170363373
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 170363371}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &170363374
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 170363371}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &170363375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 170363371}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.709, y: 0.46, z: -3.26}
+  m_LocalScale: {x: 1, y: 1, z: 2.1087809}
+  m_Children: []
+  m_Father: {fileID: 1968718271}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &177747150
 GameObject:
   m_ObjectHideFlags: 0
@@ -9422,7 +9507,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1241e7893cd48e43ad6ab11005af4cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsShowingLaser: 0
 --- !u!114 &1186048693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9434,8 +9518,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f2d1143d87c11f488f0c8892bb4f026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayHit: 0
-  selectedObject: {fileID: 0}
 --- !u!114 &1186048694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14196,7 +14278,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1194780417}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.197483, y: 0.6991707, z: -2.847118}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -14374,6 +14456,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 11804215}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1301585394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1301585396}
+  - component: {fileID: 1301585395}
+  m_Layer: 0
+  m_Name: QuestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1301585395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1301585394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56ca99f11694c74ab16ba758ca6256d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentQuest: 0
+  quests:
+  - {fileID: 1968718270}
+  - {fileID: 2064074108}
+--- !u!4 &1301585396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1301585394}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1968718271}
+  - {fileID: 2064074109}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1301675458 stripped
 GameObject:
@@ -14799,6 +14927,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPushing: 1
   move: 0
+--- !u!1 &1364911405 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100172, guid: 5eec3f1348acd874abbc1146223aa484,
+    type: 3}
+  m_PrefabInternal: {fileID: 475432102}
 --- !u!1001 &1365673822
 Prefab:
   m_ObjectHideFlags: 0
@@ -15067,7 +15200,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1380658521}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96b5a93496383464c9812c4c9c0cbb02, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d2d271a1399b014982f2f29c202ce04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MovementAcceleration: 1
@@ -17434,6 +17567,55 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1966966897}
   m_Mesh: {fileID: 4300036, guid: 7c25a85a8f6e3e948b7ee2a915133b74, type: 3}
+--- !u!1 &1968718269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1968718271}
+  - component: {fileID: 1968718270}
+  m_Layer: 0
+  m_Name: TakeMedicine1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1968718270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1968718269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 936c48e439557994fa2f047a7b307f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enter: 1
+  enterTargetPlace: {fileID: 170363371}
+  pickUp: 0
+  pickUpTarget: {fileID: 0}
+  highlightedGameObjects:
+  - {fileID: 1364911405}
+  text: Take medicine. It is in the night stand's drawer.
+  completed: 0
+--- !u!4 &1968718271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1968718269}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 170363375}
+  m_Father: {fileID: 1301585396}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1990945955
 GameObject:
   m_ObjectHideFlags: 0
@@ -17740,6 +17922,54 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2045814717}
   m_Mesh: {fileID: 4300022, guid: 7c25a85a8f6e3e948b7ee2a915133b74, type: 3}
+--- !u!1 &2064074107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2064074109}
+  - component: {fileID: 2064074108}
+  m_Layer: 0
+  m_Name: PickUpWand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2064074108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2064074107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 936c48e439557994fa2f047a7b307f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enter: 0
+  enterTargetPlace: {fileID: 0}
+  pickUp: 1
+  pickUpTarget: {fileID: 1186048691}
+  highlightedGameObjects:
+  - {fileID: 1186048691}
+  text: Cannot reach night stand. Find wand. It is somewhere in the room.
+  completed: 0
+--- !u!4 &2064074109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2064074107}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1301585396}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2085871748
 GameObject:
   m_ObjectHideFlags: 0
