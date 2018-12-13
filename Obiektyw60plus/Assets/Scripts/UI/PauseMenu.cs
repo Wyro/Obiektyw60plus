@@ -6,6 +6,7 @@ public class PauseMenu : MonoBehaviour {
 
     public GameObject pausePanel;
     private AudioSource audioSource;
+    public GameObject player;
 
 	// Use this for initialization
 	void Start () {
@@ -20,13 +21,13 @@ public class PauseMenu : MonoBehaviour {
         {
             if (!pausePanel.activeInHierarchy)
             {
-                audioSource.Play();
                 PauseGame();
+                print("Pressed pause");
             }
             if (pausePanel.activeInHierarchy)
             {
                 ContinueGame();
-                audioSource.Stop();
+                print("pressed unpause");
             }
         }
     }
@@ -35,6 +36,7 @@ public class PauseMenu : MonoBehaviour {
     {
         Time.timeScale = 0;
         pausePanel.SetActive(true);
+        pausePanel.transform.position = player.transform.position + player.transform.forward * 1;
         //Disable scripts that still work while timescale is set to 0
     }
     private void ContinueGame()

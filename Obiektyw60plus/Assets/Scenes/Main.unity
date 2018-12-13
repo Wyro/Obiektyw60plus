@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44575703, g: 0.49003464, b: 0.5450113, a: 1}
+  m_IndirectSpecularColor: {r: 0.44575703, g: 0.49003464, b: 0.54501134, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1331,8 +1331,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
   m_RaycastTarget: 1
@@ -1730,8 +1730,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe9aecd329caa6245bd5cfe2eb6100d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   rayHit: 0
   selectedObject: {fileID: 0}
 --- !u!54 &466761470
@@ -6348,15 +6348,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bde54dcb87096948a4f258cd458bbc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_allowOffhandGrab: 1
   m_snapPosition: 0
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints:
   - {fileID: 345627260}
-  m_materialColorField: 
+  m_materialColorField:
 --- !u!4 &466761474
 Transform:
   m_ObjectHideFlags: 0
@@ -6398,8 +6398,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7aaf960227867044282d921171d2d7ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_IgnoreReversedGraphics: 1
   m_BlockingObjects: 0
   m_BlockingMask:
@@ -6416,8 +6416,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 10
   m_ScaleFactor: 1
@@ -6809,8 +6809,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4444ce35d262aa648ad0c425a559b931, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   currentOverlayType: 2
   isDynamic: 0
   isProtectedContent: 0
@@ -6905,8 +6905,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f1a9a1d119a5944aacfb87d1ec283a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   rayTransform: {fileID: 1150869385}
   joyPadClickButton: 1
   gazeClickKey: 32
@@ -6934,8 +6934,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
@@ -6948,9 +6948,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8cc4c5ae5b199d45b61e7e6691eabf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   pausePanel: {fileID: 471778817}
+  player: {fileID: 1380658521}
 --- !u!1 &525213371
 GameObject:
   m_ObjectHideFlags: 0
@@ -6976,8 +6977,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30530ad0e40d0a64ea26d753ee4996ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   hideByDefault: 1
   showTimeoutPeriod: 1
   hideTimeoutPeriod: 0.1
@@ -7043,8 +7044,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
   m_RaycastTarget: 1
@@ -7496,7 +7497,7 @@ Mesh:
     channels: []
     fullWeights: []
   m_BindPose: []
-  m_BoneNameHashes: 
+  m_BoneNameHashes:
   m_RootBoneNameHash: 0
   m_MeshCompression: 0
   m_IsReadable: 1
@@ -7571,59 +7572,59 @@ Mesh:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_UV:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_Normals:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_Tangents:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_Weights:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_NormalSigns:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_TangentSigns:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_FloatColors:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_BoneIndices:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_Triangles:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
     m_Center: {x: 0.00000027939677, y: 0.000000074505806, z: -0.000000059604645}
     m_Extent: {x: 0.02592091, y: 0.026054516, z: 0.21236204}
   m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
+  m_BakedConvexCollisionMesh:
+  m_BakedTriangleCollisionMesh:
   m_MeshMetrics[0]: 1
   m_MeshMetrics[1]: 1
   m_MeshOptimized: 0
@@ -7816,8 +7817,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe9aecd329caa6245bd5cfe2eb6100d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   rayHit: 0
   selectedObject: {fileID: 0}
 --- !u!114 &783628115
@@ -7829,8 +7830,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdeef6a58a1962841a34f7b30713ed8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   selectedObject: {fileID: 0}
   cnt: 0
 --- !u!4 &789983943 stripped
@@ -7962,12 +7963,12 @@ Prefab:
     - target: {fileID: 114000014060309998, guid: cb5b0d702505e474992223c96b72ebdd,
         type: 2}
       propertyPath: m_player
-      value: 
+      value:
       objectReference: {fileID: 1145822792}
     - target: {fileID: 114000014060309998, guid: cb5b0d702505e474992223c96b72ebdd,
         type: 2}
       propertyPath: m_parentTransform
-      value: 
+      value:
       objectReference: {fileID: 772995159}
     - target: {fileID: 114000014060309998, guid: cb5b0d702505e474992223c96b72ebdd,
         type: 2}
@@ -7993,12 +7994,12 @@ Prefab:
     - target: {fileID: 114000014060309998, guid: cb5b0d702505e474992223c96b72ebdd,
         type: 2}
       propertyPath: m_grabVolumes.Array.data[1]
-      value: 
+      value:
       objectReference: {fileID: 1207573834}
     - target: {fileID: 114000014060309998, guid: cb5b0d702505e474992223c96b72ebdd,
         type: 2}
       propertyPath: m_grabVolumes.Array.data[2]
-      value: 
+      value:
       objectReference: {fileID: 262514572}
     - target: {fileID: 54000012542043316, guid: cb5b0d702505e474992223c96b72ebdd,
         type: 2}
@@ -8798,8 +8799,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2d153878a9f7eb45b0e02c0c739029a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   OutlineColorInRange: {r: 1, g: 1, b: 1, a: 0}
   OutlineColorHighlighted: {r: 0.30189055, g: 0.8679245, b: 0, a: 0}
 --- !u!135 &1037536684
@@ -8983,8 +8984,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9b0b1ab5d4bfb243b4730d66c8ed069, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!114 &1083786472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8994,8 +8995,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31daafac9203d6f409b90bcd3179ec82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!114 &1083786473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9005,8 +9006,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4386d5b01c92e5349ac2b7d06c1e9a5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1 &1111660404
 GameObject:
   m_ObjectHideFlags: 0
@@ -9190,7 +9191,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.565
+      value: 1.218
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9485,10 +9486,10 @@ GameObject:
   - component: {fileID: 1186048697}
   - component: {fileID: 1186048696}
   - component: {fileID: 1186048695}
-  - component: {fileID: 1186048693}
-  - component: {fileID: 1186048694}
   - component: {fileID: 1186048692}
   - component: {fileID: 1186048704}
+  - component: {fileID: 1186048694}
+  - component: {fileID: 1186048693}
   m_Layer: 0
   m_Name: WandOfMoveFurniture
   m_TagString: Untagged
@@ -9504,9 +9505,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1186048691}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1241e7893cd48e43ad6ab11005af4cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Script: {fileID: 11500000, guid: e4ccd591b4398f548ad8df6e7f1c4bcb, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!114 &1186048693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9515,9 +9516,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1186048691}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f2d1143d87c11f488f0c8892bb4f026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Script: {fileID: 11500000, guid: c6f85eadcdd16dd4e95b757b38b2468a, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!114 &1186048694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9526,9 +9527,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1186048691}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6848d2260d086294681ce18f55414263, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Script: {fileID: 11500000, guid: a0daba54a612f014ebdcf6a18062fe2b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  rayHit: 0
+  selectedObject: {fileID: 0}
 --- !u!114 &1186048695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9539,8 +9542,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bde54dcb87096948a4f258cd458bbc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_allowOffhandGrab: 1
   m_snapPosition: 0
   m_snapOrientation: 0
@@ -9558,10 +9561,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6064e7ad9f669284c875d68deadab5f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   IsPushing: 1
   move: 0
+  PointToGo: {x: 0, y: 0, z: 0}
 --- !u!136 &1186048697
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14252,10 +14256,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 528cc0ae4892b9843bd0457496679a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   IsCasting: 0
-  internalObject: 
+  internalObject:
 --- !u!1 &1194780417
 GameObject:
   m_ObjectHideFlags: 0
@@ -14482,8 +14486,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b56ca99f11694c74ab16ba758ca6256d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   currentQuest: 0
   quests:
   - {fileID: 1968718270}
@@ -14579,8 +14583,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdeef6a58a1962841a34f7b30713ed8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   selectedObject: {fileID: 0}
   cnt: 0
 --- !u!114 &1301675464
@@ -14592,8 +14596,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe9aecd329caa6245bd5cfe2eb6100d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   rayHit: 0
   selectedObject: {fileID: 0}
 --- !u!1 &1302298305
@@ -14837,14 +14841,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bde54dcb87096948a4f258cd458bbc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_allowOffhandGrab: 1
   m_snapPosition: 0
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
-  m_materialColorField: 
+  m_materialColorField:
 --- !u!65 &1363930631
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14923,15 +14927,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6064e7ad9f669284c875d68deadab5f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   IsPushing: 1
   move: 0
---- !u!1 &1364911405 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100172, guid: 5eec3f1348acd874abbc1146223aa484,
-    type: 3}
-  m_PrefabInternal: {fileID: 475432102}
+  PointToGo: {x: 0, y: 0, z: 0}
 --- !u!1001 &1365673822
 Prefab:
   m_ObjectHideFlags: 0
@@ -14973,7 +14973,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 32975a9a2d2d5c74cb334e5182835254, type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value: 
+      value:
       objectReference: {fileID: 2100000, guid: d5526050ca2e6c341bfa2d267b96ba73, type: 2}
     - target: {fileID: 400002, guid: 32975a9a2d2d5c74cb334e5182835254, type: 3}
       propertyPath: m_LocalScale.x
@@ -14989,7 +14989,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2300004, guid: 32975a9a2d2d5c74cb334e5182835254, type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value: 
+      value:
       objectReference: {fileID: 2100000, guid: f3b1339b270c7344b98e8a5ad0a226b0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32975a9a2d2d5c74cb334e5182835254, type: 3}
@@ -15037,8 +15037,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe9aecd329caa6245bd5cfe2eb6100d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   rayHit: 0
   selectedObject: {fileID: 0}
 --- !u!65 &1367714446
@@ -15104,8 +15104,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdeef6a58a1962841a34f7b30713ed8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   selectedObject: {fileID: 0}
   cnt: 0
 --- !u!54 &1367714450
@@ -15120,7 +15120,7 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1 &1369220871
@@ -15167,8 +15167,8 @@ GameObject:
   - component: {fileID: 1380658522}
   - component: {fileID: 1380658525}
   - component: {fileID: 1380658524}
-  - component: {fileID: 1380658523}
   - component: {fileID: 1380658526}
+  - component: {fileID: 1380658523}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -15200,9 +15200,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1380658521}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d2d271a1399b014982f2f29c202ce04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Script: {fileID: 11500000, guid: 4557fa97d4cd27d4f9547aa22fce4676, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
   m_MovementAcceleration: 1
   m_MaxMovementSpeed: 2
   m_MovementDecceleration: 2.5
@@ -15220,8 +15220,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.7645104, z: 1}
-  m_Center: {x: 0, y: 0.3822552, z: 0}
+  m_Size: {x: 0.79338735, y: 0.7645104, z: 1}
+  m_Center: {x: -0.020661294, y: 0.3822552, z: -7.15701e-17}
 --- !u!54 &1380658525
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15246,10 +15246,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 528cc0ae4892b9843bd0457496679a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   IsCasting: 0
-  internalObject: 
+  internalObject:
 --- !u!1001 &1397403953
 Prefab:
   m_ObjectHideFlags: 0
@@ -15380,8 +15380,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Navigation:
     m_Mode: 3
     m_SelectOnUp: {fileID: 0}
@@ -15421,8 +15421,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -16014,8 +16014,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
@@ -16431,7 +16431,7 @@ Mesh:
     channels: []
     fullWeights: []
   m_BindPose: []
-  m_BoneNameHashes: 
+  m_BoneNameHashes:
   m_RootBoneNameHash: 0
   m_MeshCompression: 0
   m_IsReadable: 1
@@ -16506,59 +16506,59 @@ Mesh:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_UV:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_Normals:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_Tangents:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_Weights:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_NormalSigns:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_TangentSigns:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_FloatColors:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_BoneIndices:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_Triangles:
       m_NumItems: 0
-      m_Data: 
+      m_Data:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.050000023, y: 0.025, z: 0.100000024}
   m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
+  m_BakedConvexCollisionMesh:
+  m_BakedTriangleCollisionMesh:
   m_MeshMetrics[0]: 1
   m_MeshMetrics[1]: 1
   m_MeshOptimized: 0
@@ -17417,12 +17417,12 @@ Prefab:
     - target: {fileID: 114000011302329234, guid: c851dc68baae3964fb16a001e7333995,
         type: 2}
       propertyPath: m_player
-      value: 
+      value:
       objectReference: {fileID: 1145822792}
     - target: {fileID: 114000011302329234, guid: c851dc68baae3964fb16a001e7333995,
         type: 2}
       propertyPath: m_parentTransform
-      value: 
+      value:
       objectReference: {fileID: 772995159}
     - target: {fileID: 114000011302329234, guid: c851dc68baae3964fb16a001e7333995,
         type: 2}
@@ -17448,17 +17448,17 @@ Prefab:
     - target: {fileID: 114000011302329234, guid: c851dc68baae3964fb16a001e7333995,
         type: 2}
       propertyPath: m_grabVolumes.Array.data[0]
-      value: 
+      value:
       objectReference: {fileID: 688181141}
     - target: {fileID: 114000011302329234, guid: c851dc68baae3964fb16a001e7333995,
         type: 2}
       propertyPath: m_grabVolumes.Array.data[1]
-      value: 
+      value:
       objectReference: {fileID: 1833364556}
     - target: {fileID: 114000011302329234, guid: c851dc68baae3964fb16a001e7333995,
         type: 2}
       propertyPath: m_grabVolumes.Array.data[2]
-      value: 
+      value:
       objectReference: {fileID: 1727893860}
     - target: {fileID: 54000014062604106, guid: c851dc68baae3964fb16a001e7333995,
         type: 2}
@@ -17592,8 +17592,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 936c48e439557994fa2f047a7b307f1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   enter: 1
   enterTargetPlace: {fileID: 170363371}
   pickUp: 0
@@ -17947,8 +17947,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 936c48e439557994fa2f047a7b307f1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   enter: 0
   enterTargetPlace: {fileID: 0}
   pickUp: 1
