@@ -5,11 +5,13 @@ using UnityEngine;
 public class MoveShelves : MonoBehaviour {
 
     public int ShelvesNum = 16;
+    public float ShelfSpeed = 0.001f;
 
     private enum MoveDirection { left, right, up, down};
     private int[] MoveDirections;
     private int[] CurrentShelvesPositions;
     private GameObject KitchenShelf;
+    private bool MoveAgain = true;
 
     private Vector3 Up = new Vector3(0, 0.73f, 0);
     private Vector3 Down = new Vector3(0, -0.73f, 0);
@@ -46,8 +48,11 @@ public class MoveShelves : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-        if (Input.GetKeyDown("x"))
+        //if (Input.GetKeyDown("x") && MoveAgain) MoveAgain = !MoveAgain;
+
+        if (MoveAgain)
         {
+            MoveAgain = false;
             //move shelves one position
 
             int i = 0;
@@ -90,41 +95,48 @@ public class MoveShelves : MonoBehaviour {
 
     IEnumerator MoveShelfLeft(Transform Shelf, Vector3 Direction, Vector3 Destination)
     {
+        Debug.Log("coroutine running");
         while (Shelf.transform.position.x > Destination.x )
-        {
-            Shelf.GetComponent<Rigidbody>().MovePosition(Shelf.transform.position + Direction * Time.deltaTime);
+        { 
+            Shelf.GetComponent<Rigidbody>().MovePosition(Shelf.transform.position + ShelfSpeed * Direction * Time.deltaTime);
 
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSeconds(0.05f);
         }
+        
     }
 
     IEnumerator MoveShelfRight(Transform Shelf, Vector3 Direction, Vector3 Destination)
     {
+        Debug.Log("coroutine running");
         while (Shelf.transform.position.x < Destination.x)
         {
-            Shelf.GetComponent<Rigidbody>().MovePosition(Shelf.transform.position + Direction * Time.deltaTime);
+            Shelf.GetComponent<Rigidbody>().MovePosition(Shelf.transform.position + ShelfSpeed * Direction * Time.deltaTime);
 
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 
     IEnumerator MoveShelfUp(Transform Shelf, Vector3 Direction, Vector3 Destination)
     {
+        Debug.Log("coroutine running");
         while (Shelf.transform.position.y < Destination.y)
         {
-            Shelf.GetComponent<Rigidbody>().MovePosition(Shelf.transform.position + Direction * Time.deltaTime);
+            Shelf.GetComponent<Rigidbody>().MovePosition(Shelf.transform.position + ShelfSpeed * Direction * Time.deltaTime);
 
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSeconds(0.05f);
         }
+        //last shelf stopped moving
+        MoveAgain = true;
     }
 
     IEnumerator MoveShelfDown(Transform Shelf, Vector3 Direction, Vector3 Destination)
     {
+        Debug.Log("coroutine running");
         while (Shelf.transform.position.y > Destination.y)
         {
-            Shelf.GetComponent<Rigidbody>().MovePosition(Shelf.transform.position + Direction * Time.deltaTime);
+            Shelf.GetComponent<Rigidbody>().MovePosition(Shelf.transform.position + ShelfSpeed * Direction * Time.deltaTime);
 
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 
