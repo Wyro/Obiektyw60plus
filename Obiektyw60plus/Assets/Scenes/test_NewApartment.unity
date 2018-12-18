@@ -11445,7 +11445,7 @@ GameObject:
   - component: {fileID: 382117873}
   - component: {fileID: 382117875}
   m_Layer: 0
-  m_Name: "modu\u0142.box.006"
+  m_Name: box13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18625,7 +18625,7 @@ GameObject:
   - component: {fileID: 663237054}
   - component: {fileID: 663237056}
   m_Layer: 0
-  m_Name: "modu\u0142.box"
+  m_Name: box1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20006,7 +20006,7 @@ GameObject:
   m_Component:
   - component: {fileID: 699340403}
   m_Layer: 0
-  m_Name: salon regal
+  m_Name: salonRegal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62248,7 +62248,7 @@ GameObject:
   - component: {fileID: 2132033142}
   - component: {fileID: 2132033144}
   m_Layer: 0
-  m_Name: "modu\u0142.box.005"
+  m_Name: box0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
