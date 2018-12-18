@@ -4,32 +4,49 @@ using UnityEngine;
 
 public class MoveShelves : MonoBehaviour {
 
-    public int ShelvesNum = 16;
-    public float ShelfSpeed = 0.001f;
+    public int ShelvesNum = 14;
+    public float ShelfSpeed = 4f;
 
     private enum MoveDirection { left, right, up, down};
     private int[] MoveDirections;
     private int[] CurrentShelvesPositions;
-    private GameObject KitchenShelf;
+    GameObject KitchenShelf;
     private bool MoveAgain = true;
 
-    private Vector3 Up = new Vector3(0, 0.73f, 0);
-    private Vector3 Down = new Vector3(0, -0.73f, 0);
-    private Vector3 Right = new Vector3(0.7f, 0, 0);
-    private Vector3 Left = new Vector3(-0.7f, 0, 0);
+    float DistanceHorizontal;
+    float DistanceVertical;
+    private Vector3 Up;
+    private Vector3 Down;
+    private Vector3 Right;
+    private Vector3 Left;
 
 
     // Use this for initialization
     void Start ()
     {
+        KitchenShelf = GameObject.Find("salonRegal");
+        if (!KitchenShelf) Debug.Log("Can't find salonRegal");
 
+        AssignDistancesBetweenShelves();
         AssignMoveDirections();
+    }
 
-        for (int i = 0; i < ShelvesNum; i++) Debug.Log(MoveDirections[i]);
+    private void AssignDistancesBetweenShelves()
+    {
 
-        KitchenShelf = GameObject.Find("salon szafka modułowa przesuwna");
-        if (!KitchenShelf) Debug.Log("Can't find salon szafka modułowa przesuwna");
+        Transform Shelf1 = KitchenShelf.transform.GetChild(0); //KitchenShelf.transform.Find("box0");//
+        Transform Shelf2 = KitchenShelf.transform.GetChild(1);
+        Transform Shelf3 = KitchenShelf.transform.GetChild(ShelvesNum - 1);
 
+        DistanceHorizontal = Vector3.Distance(Shelf1.transform.position, Shelf2.transform.position);
+        DistanceVertical = Vector3.Distance(Shelf1.transform.position, Shelf3.transform.position);
+        Debug.Log("vertical" + DistanceVertical);
+        Debug.Log("horizontal" + DistanceHorizontal);
+
+        Up = new Vector3(0, DistanceVertical, 0);
+        Down = new Vector3(0, -DistanceVertical, 0);
+        Right = new Vector3(DistanceHorizontal, 0, 0);
+        Left = new Vector3(-DistanceHorizontal, 0, 0);
     }
 
     private void AssignMoveDirections()
@@ -48,11 +65,24 @@ public class MoveShelves : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-        //if (Input.GetKeyDown("x") && MoveAgain) MoveAgain = !MoveAgain;
+        if (Input.GetKeyDown("x") && MoveAgain) MoveAgain = !MoveAgain;
 
-        if (MoveAgain)
-        {
-            MoveAgain = false;
+        //TODO implement this below (using wand to select shelf)
+        //if(IsShelfSelected) if player selected a shelf start moving
+        //(selecting a shelf, by clicking index button when wand is highlighting it), it should be set in WandOfMoveFurniture script
+        
+        //FindClosestShelf() returns shelf index from 0 - 15, returns the shelf closest to player.
+
+        //find which shelf was selected (from CastingToObject) or attach script to each shelf and from this get the selected shelf
+        //  selectedObject = GameObject.Find(CastingToObject.selectedObject);
+        //  if (!selectedObject)Debug.Log("no object selected");
+
+        //Calculate how many shelves away is the selected shelf from closest shelf
+        //Move shelves this many times
+
+            if (MoveAgain)
+            {
+                MoveAgain = false;
             //move shelves one position
 
             int i = 0;
@@ -90,8 +120,13 @@ public class MoveShelves : MonoBehaviour {
             CurrentShelvesPositions[ShelvesNum - 1] = temp;
         }
 
-        //TODO stop the coroutines some day
 	}
+
+    int FindClosestShelf()
+    {
+
+        return 0;
+    }
 
     IEnumerator MoveShelfLeft(Transform Shelf, Vector3 Direction, Vector3 Destination)
     {
