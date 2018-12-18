@@ -458,7 +458,11 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+<<<<<<< HEAD
+  m_IsActive: 0
+=======
   m_IsActive: 1
+>>>>>>> 01f941db388f548248bdd18b646622b3718c39b5
 --- !u!224 &21158772
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8650,7 +8654,11 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+<<<<<<< HEAD
+  m_IsActive: 1
+=======
   m_IsActive: 0
+>>>>>>> 01f941db388f548248bdd18b646622b3718c39b5
 --- !u!224 &986465084
 RectTransform:
   m_ObjectHideFlags: 0

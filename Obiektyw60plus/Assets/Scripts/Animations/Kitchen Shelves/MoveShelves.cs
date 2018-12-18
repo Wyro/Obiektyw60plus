@@ -10,7 +10,7 @@ public class MoveShelves : MonoBehaviour {
     private enum MoveDirection { left, right, up, down};
     private int[] MoveDirections;
     private int[] CurrentShelvesPositions;
-    private GameObject KitchenShelf;
+    GameObject KitchenShelf;
     private bool MoveAgain = true;
 
     float DistanceHorizontal;
@@ -24,27 +24,24 @@ public class MoveShelves : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        KitchenShelf = GameObject.Find("salonRegal");
+        if (!KitchenShelf) Debug.Log("Can't find salonRegal");
+
         AssignDistancesBetweenShelves();
         AssignMoveDirections();
-
-        for (int i = 0; i < ShelvesNum; i++) Debug.Log(MoveDirections[i]);
-
-        KitchenShelf = GameObject.Find("salon regal");
-        if (!KitchenShelf) Debug.Log("Can't find salon regal");
-
     }
 
     private void AssignDistancesBetweenShelves()
     {
-        Transform Shelf1 = KitchenShelf.transform.GetChild(0);
-        Debug.Log(Shelf1.name);
+
+        Transform Shelf1 = KitchenShelf.transform.GetChild(0); //KitchenShelf.transform.Find("box0");//
         Transform Shelf2 = KitchenShelf.transform.GetChild(1);
         Transform Shelf3 = KitchenShelf.transform.GetChild(ShelvesNum - 1);
 
         DistanceHorizontal = Vector3.Distance(Shelf1.transform.position, Shelf2.transform.position);
         DistanceVertical = Vector3.Distance(Shelf1.transform.position, Shelf3.transform.position);
-        Debug.Log("vertical"+DistanceVertical);
-        Debug.Log("horizontal"+DistanceHorizontal);
+        Debug.Log("vertical" + DistanceVertical);
+        Debug.Log("horizontal" + DistanceHorizontal);
 
         Up = new Vector3(0, DistanceVertical, 0);
         Down = new Vector3(0, -DistanceVertical, 0);
