@@ -2222,7 +2222,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 471778817}
-  player: {fileID: 0}
 --- !u!82 &508630063
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9115,17 +9114,6 @@ MonoBehaviour:
   hueShift: 1
   saturation: 1
   brightness: 1
---- !u!114 &1150869393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1150869387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3457ffbdfe49ecb439c0aa827681c1cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1156408040
 GameObject:
   m_ObjectHideFlags: 0
@@ -9855,6 +9843,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2d271a1399b014982f2f29c202ce04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement_acceleration: 1
+  max_movement_speed: 2
+  movement_decceleration: 2.5
+  rotation_acceleration: 10
+  max_rotation_speed: 20
+  rotation_decceleration: 25
 --- !u!65 &1380658524
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15275,6 +15269,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b39a7dc3e08dd5246a025f39b97827c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soft: 3
+  brightness: 1
+  radius: 0.5
+  iterations: 2
+  blurSpread: 0.17
+  blurShader: {fileID: 4800000, guid: 2a83b7f49a1a762478c72cbc07e66f00, type: 3}
 --- !u!114 &1536376127
 MonoBehaviour:
   m_ObjectHideFlags: 0

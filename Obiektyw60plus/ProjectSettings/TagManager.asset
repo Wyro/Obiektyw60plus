@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Lang
   - Button
-  - MagicSpawn
   layers:
   - Default
   - TransparentFX
