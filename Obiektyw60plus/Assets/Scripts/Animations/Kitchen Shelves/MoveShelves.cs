@@ -5,8 +5,13 @@ using UnityEngine;
 public class MoveShelves : MonoBehaviour {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public int ShelvesNum = 16;
     public float ShelfSpeed = 0.001f;
+=======
+    public int ShelvesNum = 14;
+    public float ShelfSpeed = 4f;
+>>>>>>> 01f941db388f548248bdd18b646622b3718c39b5
 =======
     public int ShelvesNum = 14;
     public float ShelfSpeed = 4f;
@@ -19,17 +24,23 @@ public class MoveShelves : MonoBehaviour {
     private bool MoveAgain = true;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private Vector3 Up = new Vector3(0, 0.73f, 0);
     private Vector3 Down = new Vector3(0, -0.73f, 0);
     private Vector3 Right = new Vector3(0.7f, 0, 0);
     private Vector3 Left = new Vector3(-0.7f, 0, 0);
 =======
+=======
+>>>>>>> 01f941db388f548248bdd18b646622b3718c39b5
     float DistanceHorizontal;
     float DistanceVertical;
     private Vector3 Up;
     private Vector3 Down;
     private Vector3 Right;
     private Vector3 Left;
+<<<<<<< HEAD
+>>>>>>> 01f941db388f548248bdd18b646622b3718c39b5
+=======
 >>>>>>> 01f941db388f548248bdd18b646622b3718c39b5
 
 
@@ -37,7 +48,11 @@ public class MoveShelves : MonoBehaviour {
     void Start ()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+        AssignDistancesBetweenShelves();
+>>>>>>> 01f941db388f548248bdd18b646622b3718c39b5
 =======
         AssignDistancesBetweenShelves();
 >>>>>>> 01f941db388f548248bdd18b646622b3718c39b5
@@ -46,10 +61,13 @@ public class MoveShelves : MonoBehaviour {
         for (int i = 0; i < ShelvesNum; i++) Debug.Log(MoveDirections[i]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         KitchenShelf = GameObject.Find("salon szafka modułowa przesuwna");
         if (!KitchenShelf) Debug.Log("Can't find salon szafka modułowa przesuwna");
 
 =======
+=======
+>>>>>>> 01f941db388f548248bdd18b646622b3718c39b5
         KitchenShelf = GameObject.Find("salon regal");
         if (!KitchenShelf) Debug.Log("Can't find salon regal");
 
@@ -71,6 +89,9 @@ public class MoveShelves : MonoBehaviour {
         Down = new Vector3(0, -DistanceVertical, 0);
         Right = new Vector3(DistanceHorizontal, 0, 0);
         Left = new Vector3(-DistanceHorizontal, 0, 0);
+<<<<<<< HEAD
+>>>>>>> 01f941db388f548248bdd18b646622b3718c39b5
+=======
 >>>>>>> 01f941db388f548248bdd18b646622b3718c39b5
     }
 
@@ -91,12 +112,15 @@ public class MoveShelves : MonoBehaviour {
     void Update () {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         //if (Input.GetKeyDown("x") && MoveAgain) MoveAgain = !MoveAgain;
 
         if (MoveAgain)
         {
             MoveAgain = false;
 =======
+=======
+>>>>>>> 01f941db388f548248bdd18b646622b3718c39b5
         if (Input.GetKeyDown("x") && MoveAgain) MoveAgain = !MoveAgain;
 
         //TODO implement this below (using wand to select shelf)
@@ -115,6 +139,9 @@ public class MoveShelves : MonoBehaviour {
             if (MoveAgain)
             {
                 MoveAgain = false;
+<<<<<<< HEAD
+>>>>>>> 01f941db388f548248bdd18b646622b3718c39b5
+=======
 >>>>>>> 01f941db388f548248bdd18b646622b3718c39b5
             //move shelves one position
 
@@ -154,10 +181,13 @@ public class MoveShelves : MonoBehaviour {
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         //TODO stop the coroutines some day
 	}
 
 =======
+=======
+>>>>>>> 01f941db388f548248bdd18b646622b3718c39b5
 	}
 
     int FindClosestShelf()
@@ -166,6 +196,9 @@ public class MoveShelves : MonoBehaviour {
         return 0;
     }
 
+<<<<<<< HEAD
+>>>>>>> 01f941db388f548248bdd18b646622b3718c39b5
+=======
 >>>>>>> 01f941db388f548248bdd18b646622b3718c39b5
     IEnumerator MoveShelfLeft(Transform Shelf, Vector3 Direction, Vector3 Destination)
     {
