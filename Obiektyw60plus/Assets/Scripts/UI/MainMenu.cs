@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
 {
     //public GameObject playerController;
     public GameObject eyeEffectCamera;
-    public GameObject player;
+    public GameObject uiCamera;
 
     public GameObject languageManager;
 
@@ -25,6 +25,7 @@ public class MainMenu : MonoBehaviour
     public GameObject confirmQuitPanel;
 
     public GameObject pauseCanvas;
+    public Dropdown languageSelection;
     public Slider volumeSlider;
     public Toggle yellowToggle_SM,yellowToggle_DM;
 
@@ -41,11 +42,26 @@ public class MainMenu : MonoBehaviour
         depthScript = eyeEffectCamera.GetComponent<DepthOfField>();
         yellowScript = eyeEffectCamera.GetComponent<YellowEyeEffect>();
 
-      
+        // Add visual impairment dropdown listener
+        visualSelection.onValueChanged.AddListener(delegate {
+            ChangeVisualImpairment(visualSelection);
+        });
+
+
+        // Add language dropdown listener
+        languageSelection.onValueChanged.AddListener(delegate {
+            LanguageChanged(languageSelection);
+        });
+
         // Initialize language
         if (!PlayerPrefs.HasKey("lang"))
         {
+            languageSelection.value = 0;
             PlayerPrefs.SetInt("lang",0);
+        }
+        else
+        {
+            languageSelection.value = PlayerPrefs.GetInt("lang");
         }
 
         // Add volume slider listener
@@ -63,8 +79,8 @@ public class MainMenu : MonoBehaviour
         }
 
         // Add yellowing toggle listener
-        //yellowToggle_DM.onValueChanged.AddListener(delegate { ToggleYellowing(); });
-        //yellowToggle_SM.onValueChanged.AddListener(delegate { ToggleYellowing(); });
+        yellowToggle_DM.onValueChanged.AddListener(delegate { ToggleYellowing(); });
+        yellowToggle_SM.onValueChanged.AddListener(delegate { ToggleYellowing(); });
 
 
         yellowScript.enabled = false;
@@ -93,16 +109,24 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("volume", Mathf.RoundToInt(volumeSlider.value));
     }
 
-    public void LanguageChanged(String languageFile)
+    private void LanguageChanged(Dropdown languageSelection)
     {
-        if (languageFile == "localizedText_pl.json")
+        //throw new NotImplementedException();
+        Debug.Log("Language changed to :" + languageSelection.value);
+        string languageFile = null;
+        switch (languageSelection.value)
         {
-            PlayerPrefs.SetInt("lang", 1);
+            case 0:
+                languageFile = "localizedText_en.json";
+                break;
+            case 1:
+                languageFile = "localizedText_pl.json";
+                break;
+            default:
+                Debug.Log("Error with language dropdown settings!");
+                break;
         }
-        else
-        {
-            PlayerPrefs.SetInt("lang", 0);
-        }
+        PlayerPrefs.SetInt("lang", languageSelection.value);
         Debug.Log("Loading " + languageFile);
         ActivateAllPanels();
         languageManager.GetComponent<LocalizationManager>().LoadLocalizedText(languageFile);
@@ -113,8 +137,8 @@ public class MainMenu : MonoBehaviour
     // Keep the menu in front of player
     void Update()
     {
-        mainCanvas.transform.position = eyeEffectCamera.transform.position + eyeEffectCamera.transform.forward * 1;
-        mainCanvas.transform. rotation = new Quaternion(0.0f, eyeEffectCamera.transform.rotation.y, 0.0f, eyeEffectCamera.transform.rotation.w);
+        mainCanvas.transform.position = uiCamera.transform.position + uiCamera.transform.forward * 1;
+        mainCanvas.transform. rotation = new Quaternion(0.0f, uiCamera.transform.rotation.y, 0.0f, uiCamera.transform.rotation.w);
 
     }
 
@@ -190,14 +214,16 @@ public class MainMenu : MonoBehaviour
         confirmQuitPanel.SetActive(false);
     }
 
-    public void ToggleYellowing(Toggle toggle)
+    public void ToggleYellowing()
     {
-        if (toggle.isOn)
+        if (yellowToggle_DM.isOn||yellowToggle_SM.isOn)
         {
             PlayerPrefs.SetInt("yellowing", 1);
             //yellowToggle_SM.isOn = true;
             //yellowToggle_DM.isOn = true;
             yellowScript.enabled = true;
+
+
         }
         else
         {
@@ -208,28 +234,32 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    public void ToggleGlaucoma(Toggle toggle)
+    public void ChangeVisualImpairment(Dropdown visualSelection)
     {
-        if (toggle.isOn)
+        //Debug.Log()
+        switch (visualSelection.value)
         {
-            glaucomaScript.enabled = true;
-        }
-        else
-        {
-            glaucomaScript.enabled = false;
+            case 0:
+                //glaucoma
+                glaucomaScript.enabled = true;
+                depthScript.enabled = false;
+                break;
+            case 1:
+                //none, later cataract
+                glaucomaScript.enabled = false;
+                depthScript.enabled = false;
+                break;
+            case 2:
+                //depth
+                depthScript.enabled = true;
+                glaucomaScript.enabled = false;
+                break;
+            default:
+                Debug.Log("Error with visual impairment dropdown settings!");
+                break;
         }
     }
-    public void ToggleDepth(Toggle toggle)
-    {
-        if (toggle.isOn)
-        {
-            depthScript.enabled = true;
-        }
-        else
-        {
-            depthScript.enabled = false;
-        }
-    }
+
 
     // 
     public void SwitchPanelsToAbout()
