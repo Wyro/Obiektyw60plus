@@ -67,17 +67,17 @@ public class MainMenu : MonoBehaviour
         //yellowToggle_SM.onValueChanged.AddListener(delegate { ToggleYellowing(); });
 
 
-        yellowScript.enabled = false;
-        if (!PlayerPrefs.HasKey("yellowing"))
-        {
-            yellowToggle_DM.isOn = false;
-            yellowToggle_SM.isOn = false;
-            PlayerPrefs.SetInt("yellowing", 0);
-        }
-        else
-        {
-            volumeSlider.value = PlayerPrefs.GetInt("yellowing");
-        }
+        //yellowScript.enabled = false;
+        //if (!PlayerPrefs.HasKey("yellowing"))
+        //{
+        //    yellowToggle_DM.isOn = false;
+        //    yellowToggle_SM.isOn = false;
+        //    PlayerPrefs.SetInt("yellowing", 0);
+        //}
+        //else
+        //{
+        //    volumeSlider.value = PlayerPrefs.GetInt("yellowing");
+        //}
 
 
 
