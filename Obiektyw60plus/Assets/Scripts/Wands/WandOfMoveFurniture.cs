@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ public class WandOfMoveFurniture : MonoBehaviour {
     DistanceGrabbable distanceGrabbable;
     CastingToObject castingToObject;
     DrawLaser drawLaser;
+    MoveShelves moveShelves;
+    GameObject KitchenShelf;
 
     bool UsingItem = false;
 
@@ -20,13 +23,18 @@ public class WandOfMoveFurniture : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        KitchenShelf = GameObject.Find("salonRegal");
+        if (!KitchenShelf) Debug.Log("Can't find salonRegal");
+
         distanceGrabbable = GetComponent<DistanceGrabbable>();
         castingToObject = GetComponent<CastingToObject>();
         drawLaser = GetComponent<DrawLaser>();
+        moveShelves = KitchenShelf.GetComponent<MoveShelves>();
 
         if (!distanceGrabbable) Debug.Log("No DistanceGrabbable script attached");
         if (!castingToObject) Debug.Log("No CastingToObject script attached");
         if (!drawLaser) Debug.Log("No DrawLaser script attached");
+        if (!moveShelves) Debug.Log("No MoveShelves script attached");
     }
 
     // Update is called once per frame
@@ -41,7 +49,7 @@ public class WandOfMoveFurniture : MonoBehaviour {
         //Debug.Log("Secondary hand "+Input.GetAxis("Oculus_CrossPlatform_SecondaryHandTrigger")); //right grab
         //Debug.Log("Primary thumbstick " + Input.GetAxis("Oculus_CrossPlatform_PrimaryThumbstick"));
         //Debug.Log("Secondary thumbstick " + Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstick"));
-
+        if(IsSelectedShelf()) moveShelves.IsShelfSelected = true;
 
         if (MovementInput > 0) { move = true; }
         else{ move = false; }
@@ -57,7 +65,7 @@ public class WandOfMoveFurniture : MonoBehaviour {
             {
                 castingToObject.IsCasting = true; //activating script for detecting which object we hit
                 drawLaser.IsShowingLaser = true; 
-                StartCoroutine(UseWand());
+                //StartCoroutine(UseWand());
                 UsingItem = true;
             }
         }
@@ -67,8 +75,18 @@ public class WandOfMoveFurniture : MonoBehaviour {
             UsingItem = false;
             castingToObject.IsCasting = false;
             drawLaser.IsShowingLaser = false;
-            StopCoroutine(UseWand());
+            //StopCoroutine(UseWand());
         }
+    }
+
+    private bool IsSelectedShelf()
+    {
+        GameObject selectedObject = GameObject.Find(CastingToObject.selectedObject);
+        if (selectedObject.transform.IsChildOf(KitchenShelf.transform))
+        {
+            return true;
+        }
+        else return false;
     }
 
     private void FindIntersectionPoint()

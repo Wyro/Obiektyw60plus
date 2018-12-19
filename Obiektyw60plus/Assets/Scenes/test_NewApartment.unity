@@ -12648,7 +12648,7 @@ GameObject:
   - component: {fileID: 422891137}
   - component: {fileID: 422891139}
   m_Layer: 0
-  m_Name: "modu\u0142.box.012"
+  m_Name: box8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21182,7 +21182,7 @@ GameObject:
   - component: {fileID: 754493557}
   - component: {fileID: 754493559}
   m_Layer: 0
-  m_Name: "modu\u0142.box.007"
+  m_Name: box12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29705,7 +29705,7 @@ GameObject:
   - component: {fileID: 1024467796}
   - component: {fileID: 1024467798}
   m_Layer: 0
-  m_Name: "modu\u0142.box.015"
+  m_Name: box5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31058,7 +31058,7 @@ GameObject:
   - component: {fileID: 1072207184}
   - component: {fileID: 1072207186}
   m_Layer: 0
-  m_Name: "modu\u0142.box.004"
+  m_Name: box4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32034,7 +32034,7 @@ GameObject:
   - component: {fileID: 1114014915}
   - component: {fileID: 1114014917}
   m_Layer: 0
-  m_Name: "modu\u0142.box.003"
+  m_Name: box3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32827,7 +32827,7 @@ GameObject:
   - component: {fileID: 1153204013}
   - component: {fileID: 1153204015}
   m_Layer: 0
-  m_Name: "modu\u0142.box.002"
+  m_Name: box2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41892,7 +41892,7 @@ GameObject:
   - component: {fileID: 1482110848}
   - component: {fileID: 1482110850}
   m_Layer: 0
-  m_Name: "modu\u0142.box.014"
+  m_Name: box6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54183,7 +54183,7 @@ GameObject:
   - component: {fileID: 1896955363}
   - component: {fileID: 1896955365}
   m_Layer: 0
-  m_Name: "modu\u0142.box.011"
+  m_Name: box9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56557,7 +56557,7 @@ GameObject:
   - component: {fileID: 1973744245}
   - component: {fileID: 1973744247}
   m_Layer: 0
-  m_Name: "modu\u0142.box.010"
+  m_Name: box10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57788,7 +57788,7 @@ GameObject:
   - component: {fileID: 2017061571}
   - component: {fileID: 2017061573}
   m_Layer: 0
-  m_Name: "modu\u0142.box.013"
+  m_Name: box7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58903,6 +58903,91 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2054289420}
   m_Mesh: {fileID: 4300482, guid: 6114fdf19448a014ebf5846149f68d08, type: 3}
+--- !u!1 &2054462711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2054462715}
+  - component: {fileID: 2054462714}
+  - component: {fileID: 2054462713}
+  - component: {fileID: 2054462712}
+  m_Layer: 0
+  m_Name: TempPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &2054462712
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2054462711}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &2054462713
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2054462711}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &2054462714
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2054462711}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2054462715
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2054462711}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.755, y: 0.8648002, z: 3.745}
+  m_LocalScale: {x: 0.23811, y: 0.23811, z: 0.23811}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2055307242
 GameObject:
   m_ObjectHideFlags: 0
@@ -61922,7 +62007,7 @@ GameObject:
   - component: {fileID: 2124278459}
   - component: {fileID: 2124278461}
   m_Layer: 0
-  m_Name: "modu\u0142.box.009"
+  m_Name: box11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
