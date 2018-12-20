@@ -16,7 +16,10 @@ public class MoveShelves : MonoBehaviour {
     private GameObject Player;
 
     private bool MoveAgain = true; //true means shelves stopped moving, and we can move again
+    private bool DistanceFound = false; //true means we found distance between shelf and player
+    private bool GoingRight = true; //shelves are moving right or left depending on which way is faster
     private int NumShelvesAway = 5; //5 for testing
+
 
     private float DistanceHorizontal;
     private float DistanceVertical;
@@ -32,11 +35,10 @@ public class MoveShelves : MonoBehaviour {
         KitchenShelf = GameObject.Find("salonRegal");
         if (!KitchenShelf) Debug.Log("Can't find salonRegal");
 
-        Player = GameObject.Find("TempPlayer"); //TODO change this to Player
-        if (!Player) Debug.Log("Can't find TempPlayer");
+        Player = GameObject.Find("TempPlayer"); //TODO change this to Player when done testing
+        if (!Player) Debug.Log("Can't find TempPlayer"); //TODO change this also
 
         AssignDistancesBetweenShelves();
-        AssignMoveDirections();
     }
 
     private void AssignDistancesBetweenShelves()
@@ -55,15 +57,25 @@ public class MoveShelves : MonoBehaviour {
         Left = new Vector3(-DistanceHorizontal, 0, 0);
     }
 
-    private void AssignMoveDirections()
+    private void AssignMoveDirections(bool GoingRight)
     {
         MoveDirections = new int[ShelvesNum];
         CurrentShelvesPositions = new int[ShelvesNum];
         //assigning move directions, starting for the upper row of shelves
-        for (int i = 0; i < (ShelvesNum / 2) - 1; i++) MoveDirections[i] = (int)MoveDirection.right;
-        MoveDirections[(ShelvesNum / 2) - 1] = (int)MoveDirection.down;
-        for (int i = (ShelvesNum / 2); i < ShelvesNum - 1; i++) MoveDirections[i] = (int)MoveDirection.left;
-        MoveDirections[ShelvesNum - 1] = (int)MoveDirection.up;
+        if (GoingRight)
+        {
+            for (int i = 0; i < (ShelvesNum / 2) - 1; i++) MoveDirections[i] = (int)MoveDirection.right;
+            MoveDirections[(ShelvesNum / 2) - 1] = (int)MoveDirection.down;
+            for (int i = (ShelvesNum / 2); i < ShelvesNum - 1; i++) MoveDirections[i] = (int)MoveDirection.left;
+            MoveDirections[ShelvesNum - 1] = (int)MoveDirection.up;
+        }
+        else //negative speed
+        {
+            MoveDirections[0] = (int)MoveDirection.down;
+            for (int i = 1; i < (ShelvesNum / 2); i++) MoveDirections[i] = (int)MoveDirection.left;
+            MoveDirections[(ShelvesNum / 2)] = (int)MoveDirection.up;
+            for (int i = (ShelvesNum / 2)+1; i < ShelvesNum; i++) MoveDirections[i] = (int)MoveDirection.right;
+        }
 
         CurrentShelvesPositions = MoveDirections;
     }
@@ -71,34 +83,48 @@ public class MoveShelves : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-        if (Input.GetKeyDown("x")) IsShelfSelected = !IsShelfSelected;
+        if (Input.GetKeyDown("x"))
+        {
+            IsShelfSelected = true;
+            NumShelvesAway = 5;
+        }
 
-        //TODO implement this below (using wand to select shelf)
         //if(IsShelfSelected) if player selected a shelf start moving
         //(selecting a shelf, by clicking index button when wand is highlighting it), it should be set in WandOfMoveFurniture script
 
-
-
-        
-        //Calculate how many shelves away is the selected shelf from closest shelf
-        //Move shelves this many times
-
         if (IsShelfSelected)
         {
-            //NumShelvesAway = FindClosestShelf() - FindSelectedObject(); //TODO uncomment when done testing
-            //if (NumShelvesAway < 0) NumShelvesAway = ShelvesNum + NumShelvesAway; //TODO uncomment when done testing
-
-            if (NumShelvesAway == 0)
+            //Assign distance in number of shelves and calculate which way to go, right or left
+            if (!DistanceFound) 
             {
-                IsShelfSelected = false;
-                MoveAgain = false;
+                //NumShelvesAway = FindClosestShelf() - FindSelectedObject(); //TODO uncomment when done testing
+                //if (NumShelvesAway < 0) NumShelvesAway = ShelvesNum + NumShelvesAway; //TODO uncomment when done testing
+                //Depending on the distance assign move directions
+                if (NumShelvesAway > ShelvesNum / 2)
+                {
+                    NumShelvesAway = ShelvesNum - NumShelvesAway;
+                    GoingRight = false;
+                }
+                else
+                {
+                    GoingRight = true; 
+                }
+
+                AssignMoveDirections(GoingRight); //true means going right 
+                DistanceFound = true;  
             }
             
+            //Move shelves one position right or left
             if(MoveAgain)
             {
                 MoveAgain = false;
-                
-                //move shelves one position
+
+                if (NumShelvesAway == 1)
+                {
+                    IsShelfSelected = false;
+                    MoveAgain = true;
+                    DistanceFound = false;
+                }
 
                 int i = 0;
                 foreach (Transform Shelf in KitchenShelf.transform)
@@ -125,19 +151,34 @@ public class MoveShelves : MonoBehaviour {
                 }
 
                 //assign new values to CurrentPositions array
-                //going right (for now one step only)
-                //TODO adjust this to more than one step, after it is working for one step
-                int temp = CurrentShelvesPositions[0];
-                for (int j = 0; j < ShelvesNum - 1; j++)
-                {
-                    CurrentShelvesPositions[j] = CurrentShelvesPositions[j + 1];
-                }
-                CurrentShelvesPositions[ShelvesNum - 1] = temp;
+                if (GoingRight) ChangeTableRightMove();
+                else ChangeTableLeftMove();
             }
-
         }
 
 	}
+
+    private void ChangeTableRightMove()
+    {
+        //going right one step
+        int temp = CurrentShelvesPositions[0];
+        for (int j = 0; j < ShelvesNum - 1; j++)
+        {
+            CurrentShelvesPositions[j] = CurrentShelvesPositions[j + 1];
+        }
+        CurrentShelvesPositions[ShelvesNum - 1] = temp;
+    }
+
+    private void ChangeTableLeftMove()
+    {
+        //going left one step
+        int temp = CurrentShelvesPositions[ShelvesNum - 1];
+        for (int j = ShelvesNum - 1; j > 0; j--)
+        {
+            CurrentShelvesPositions[j] = CurrentShelvesPositions[j - 1];
+        }
+        CurrentShelvesPositions[0] = temp;
+    }
 
     private int FindSelectedObject()
     {
@@ -220,7 +261,5 @@ public class MoveShelves : MonoBehaviour {
             yield return new WaitForSeconds(0.05f);
         }
     }
-
-
 
 }
