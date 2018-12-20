@@ -37805,6 +37805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShelvesNum: 14
   ShelfSpeed: 4
+  IsShelfSelected: 0
 --- !u!1 &1309761983
 GameObject:
   m_ObjectHideFlags: 0
