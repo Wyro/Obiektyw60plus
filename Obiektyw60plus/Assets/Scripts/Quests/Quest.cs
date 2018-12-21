@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 public class Quest : MonoBehaviour
 {
@@ -13,33 +12,14 @@ public class Quest : MonoBehaviour
     public string text;
     public bool completed = false;
 
-    public QuestManager qm;
-
     public void StartQuest()
     {
-        // Display text
-        // Update notebook
-        Task();
-        // Highlight objects
-    }
 
-    public void Task()
-    {
-        if (enter)
-        {
-            EndQuest();
-        }
-
-        if (pickUp)
-        {
-            EndQuest();
-        }
     }
 
     public void EndQuest()
     {
         completed = true;
-        qm.Progress();
     }
 
     // Use this for initialization

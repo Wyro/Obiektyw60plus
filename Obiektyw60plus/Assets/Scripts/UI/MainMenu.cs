@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour
 
     public GameObject pauseCanvas;
     public Slider volumeSlider;
-    public Toggle glaucomaToggle,depthToggle;
+    public Toggle yellowToggle_SM,yellowToggle_DM;
 
     public Dropdown visualSelection;
 
@@ -62,10 +62,27 @@ public class MainMenu : MonoBehaviour
             volumeSlider.value = PlayerPrefs.GetInt("volume");
         }
 
-        // Add visual toggles listener
-        
-        //glaucomaToggle.onValueChanged.AddListener(delegate { ToggleGlaucoma(); });
-        //depthToggle.onValueChanged.AddListener(delegate { ToggleDepth(); });
+        // Add yellowing toggle listener
+        //yellowToggle_DM.onValueChanged.AddListener(delegate { ToggleYellowing(); });
+        //yellowToggle_SM.onValueChanged.AddListener(delegate { ToggleYellowing(); });
+
+
+        //yellowScript.enabled = false;
+        //if (!PlayerPrefs.HasKey("yellowing"))
+        //{
+        //    yellowToggle_DM.isOn = false;
+        //    yellowToggle_SM.isOn = false;
+        //    PlayerPrefs.SetInt("yellowing", 0);
+        //}
+        //else
+        //{
+        //    volumeSlider.value = PlayerPrefs.GetInt("yellowing");
+        //}
+
+
+
+
+
 
         // Reset menu to proper layer configuration
         BackToMainPanel();
