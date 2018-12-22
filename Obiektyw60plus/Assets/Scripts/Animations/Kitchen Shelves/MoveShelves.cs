@@ -18,15 +18,20 @@ public class MoveShelves : MonoBehaviour {
     private bool MoveAgain = true; //true means shelves stopped moving, and we can move again
     private bool DistanceFound = false; //true means we found distance between shelf and player
     private bool GoingRight = true; //shelves are moving right or left depending on which way is faster
-    private int NumShelvesAway = 5; //5 for testing
+    private int NumShelvesAway = 0; //variable for counting  the shelves, it is changed only when new shelf is selected
+    private int NumShelvesCnt = 0; //variable for counting the shelves, it is changed in every step move of shelves
+    private int ShelvesPosControl = 0;//variable changing when new shelf is selected, calculated based on previous NumShelvesAway numbers
 
-
+    //Variables calculated at start
     private float DistanceHorizontal;
     private float DistanceVertical;
     private Vector3 Up;
     private Vector3 Down;
     private Vector3 Right;
     private Vector3 Left;
+
+    private bool CollidersActive = true;
+    private bool FirstMove = true;
 
 
     // Use this for initialization
@@ -35,8 +40,8 @@ public class MoveShelves : MonoBehaviour {
         KitchenShelf = GameObject.Find("salonRegal");
         if (!KitchenShelf) Debug.Log("Can't find salonRegal");
 
-        Player = GameObject.Find("TempPlayer"); //TODO change this to Player when done testing
-        if (!Player) Debug.Log("Can't find TempPlayer"); //TODO change this also
+        Player = GameObject.Find("Player"); 
+        if (!Player) Debug.Log("Can't find Player"); 
 
         AssignDistancesBetweenShelves();
     }
@@ -57,28 +62,7 @@ public class MoveShelves : MonoBehaviour {
         Left = new Vector3(-DistanceHorizontal, 0, 0);
     }
 
-    private void AssignMoveDirections(bool GoingRight)
-    {
-        MoveDirections = new int[ShelvesNum];
-        CurrentShelvesPositions = new int[ShelvesNum];
-        //assigning move directions, starting for the upper row of shelves
-        if (GoingRight)
-        {
-            for (int i = 0; i < (ShelvesNum / 2) - 1; i++) MoveDirections[i] = (int)MoveDirection.right;
-            MoveDirections[(ShelvesNum / 2) - 1] = (int)MoveDirection.down;
-            for (int i = (ShelvesNum / 2); i < ShelvesNum - 1; i++) MoveDirections[i] = (int)MoveDirection.left;
-            MoveDirections[ShelvesNum - 1] = (int)MoveDirection.up;
-        }
-        else //negative speed
-        {
-            MoveDirections[0] = (int)MoveDirection.down;
-            for (int i = 1; i < (ShelvesNum / 2); i++) MoveDirections[i] = (int)MoveDirection.left;
-            MoveDirections[(ShelvesNum / 2)] = (int)MoveDirection.up;
-            for (int i = (ShelvesNum / 2)+1; i < ShelvesNum; i++) MoveDirections[i] = (int)MoveDirection.right;
-        }
 
-        CurrentShelvesPositions = MoveDirections;
-    }
 
     // Update is called once per frame
     void Update () {
@@ -88,18 +72,18 @@ public class MoveShelves : MonoBehaviour {
             IsShelfSelected = true;
             NumShelvesAway = 5;
         }
-
-        //if(IsShelfSelected) if player selected a shelf start moving
-        //(selecting a shelf, by clicking index button when wand is highlighting it), it should be set in WandOfMoveFurniture script
+        
 
         if (IsShelfSelected)
         {
             //Assign distance in number of shelves and calculate which way to go, right or left
             if (!DistanceFound) 
             {
-                //NumShelvesAway = FindClosestShelf() - FindSelectedObject(); //TODO uncomment when done testing
-                //if (NumShelvesAway < 0) NumShelvesAway = ShelvesNum + NumShelvesAway; //TODO uncomment when done testing
-                //Depending on the distance assign move directions
+                Colliders(false);
+                CollidersActive = false;
+                NumShelvesAway = FindClosestShelf() - FindSelectedObject(); //TODO uncomment when done testing
+                if (NumShelvesAway < 0) NumShelvesAway = ShelvesNum + NumShelvesAway; //TODO uncomment when done testing
+                //Depending on the distance assign moving right or left
                 if (NumShelvesAway > ShelvesNum / 2)
                 {
                     NumShelvesAway = ShelvesNum - NumShelvesAway;
@@ -111,7 +95,9 @@ public class MoveShelves : MonoBehaviour {
                 }
 
                 AssignMoveDirections(GoingRight); //true means going right 
-                DistanceFound = true;  
+                DistanceFound = true;
+                NumShelvesCnt = NumShelvesAway;
+                Debug.Log("Going " + (GoingRight ? "right" : "left"));
             }
             
             //Move shelves one position right or left
@@ -119,14 +105,10 @@ public class MoveShelves : MonoBehaviour {
             {
                 MoveAgain = false;
 
-                if (NumShelvesAway == 1)
-                {
-                    IsShelfSelected = false;
-                    MoveAgain = true;
-                    DistanceFound = false;
-                }
+                int i;
+                i = ShelvesPosControl;
+                Debug.Log("ShelvesPosControl: " + ShelvesPosControl);
 
-                int i = 0;
                 foreach (Transform Shelf in KitchenShelf.transform)
                 {
                     //Assign the direction to go depending on which shelf we are on
@@ -148,6 +130,35 @@ public class MoveShelves : MonoBehaviour {
                     }
 
                     i++;
+                    if (i == ShelvesNum) i = 0;
+                }
+                if (NumShelvesCnt == 1) //stop moving, by changing IsShelfSelected to false
+                {
+                    IsShelfSelected = false;
+                    DistanceFound = false;
+
+                    if (!FirstMove)
+                    {
+                        //Calculate current shelves position, depending on how many shelves moved last time
+                        if (GoingRight)
+                        {
+                            ShelvesPosControl += NumShelvesAway;
+                            if (ShelvesPosControl > ShelvesNum - 1) ShelvesPosControl -= ShelvesNum;
+                                
+                        }
+                        else
+                        {
+                            ShelvesPosControl -= NumShelvesAway;
+                            if (ShelvesPosControl < 0) ShelvesPosControl += ShelvesNum;
+                             
+                        }
+                    }
+                    if (FirstMove)
+                    {
+                        if (GoingRight) { ShelvesPosControl = NumShelvesAway; } else { ShelvesPosControl = ShelvesNum -NumShelvesAway; }
+                        FirstMove = false;
+                    }
+                   
                 }
 
                 //assign new values to CurrentPositions array
@@ -155,9 +166,52 @@ public class MoveShelves : MonoBehaviour {
                 else ChangeTableLeftMove();
             }
         }
+        else if(!IsShelfSelected && !CollidersActive)
+        {
+            //Colliders(true); //this didn't work correctly, probably need to wait a little before activating the colliders
+            CollidersActive = true;
+            //Debug.Log("activated colliders back");
+        }
 
-	}
+        if (OVRInput.GetDown(OVRInput.Button.One))//A key //TODO activate colliders automatically when move ends
+        {
+            Colliders(true);
 
+        }
+    }
+
+    private void AssignMoveDirections(bool GoingRight)
+    {
+        MoveDirections = new int[ShelvesNum];
+        CurrentShelvesPositions = new int[ShelvesNum];
+        //assigning move directions, starting for the upper row of shelves
+        if (GoingRight)
+        {
+            for (int i = 0; i < (ShelvesNum / 2) - 1; i++) MoveDirections[i] = (int)MoveDirection.right;
+            MoveDirections[(ShelvesNum / 2) - 1] = (int)MoveDirection.down;
+            for (int i = (ShelvesNum / 2); i < ShelvesNum - 1; i++) MoveDirections[i] = (int)MoveDirection.left;
+            MoveDirections[ShelvesNum - 1] = (int)MoveDirection.up;
+        }
+        else //going left
+        {
+            MoveDirections[0] = (int)MoveDirection.down;
+            for (int i = 1; i < (ShelvesNum / 2); i++) MoveDirections[i] = (int)MoveDirection.left;
+            MoveDirections[(ShelvesNum / 2)] = (int)MoveDirection.up;
+            for (int i = (ShelvesNum / 2) + 1; i < ShelvesNum; i++) MoveDirections[i] = (int)MoveDirection.right;
+        }
+
+        CurrentShelvesPositions = MoveDirections;
+        //for(int i=0; i < ShelvesNum; i++) Debug.Log("pozycja "+i+" =  "+CurrentShelvesPositions[i]);
+
+    }
+
+    private void Colliders(bool CollidersActive)
+    {
+        foreach (Transform Shelf in KitchenShelf.transform)
+        {
+            Shelf.GetComponent<Collider>().enabled = CollidersActive;
+        }
+    }
     private void ChangeTableRightMove()
     {
         //going right one step
@@ -182,21 +236,33 @@ public class MoveShelves : MonoBehaviour {
 
     private int FindSelectedObject()
     {
-        int Index = 0;
-        //GameObject selectedObject = GameObject.Find(CastingToObject.selectedObject); //TODO uncomment when done testing
-        //if (!selectedObject) Debug.Log("no object selected"); //TODO uncomment when done testing
+        //int Index = 0;
+        GameObject selectedObject = GameObject.Find(CastingToObject.selectedObject); //TODO uncomment when done testing
+        if (!selectedObject) Debug.Log("no object selected"); //TODO uncomment when done testing
 
-        string name = "box13"; //TODO comment when done testing
-        string IndexStr = name.Substring(3); //TODO comment when done testing
+        //string name = "box13"; //TODO comment when done testing
+        //string IndexStr = name.Substring(3); //TODO comment when done testing
 
         //string IndexStr = selectedObject.name.Substring(3); //TODO uncomment when done testing
 
-        if (!Int32.TryParse(IndexStr, out Index))
+        //if (!Int32.TryParse(IndexStr, out Index))
+        //{
+        //    Index = -1;
+        //}
+
+        int i = 0;
+        foreach (Transform Shelf in KitchenShelf.transform)
         {
-            Index = -1;
+            if (Shelf.name == selectedObject.name)
+            {
+                //Debug.Log("Selected object: " + selectedObject.name);
+                //Debug.Log("Selected object's index: " + i);
+                return i;
+            }
+            i++;
         }
 
-        return Index;
+        return 0; //object not found
     }
 
     //Finds the shelf with min distance to player, returns it's index 0 - 13
@@ -215,7 +281,7 @@ public class MoveShelves : MonoBehaviour {
             i++;
         }
 
-            return MinIndex;
+        return MinIndex;
     }
 
     IEnumerator MoveShelfLeft(Transform Shelf, Vector3 Direction, Vector3 Destination)
@@ -239,6 +305,7 @@ public class MoveShelves : MonoBehaviour {
         }
     }
 
+    //This method moves shelf up and decreases the shelves counter
     IEnumerator MoveShelfUp(Transform Shelf, Vector3 Direction, Vector3 Destination)
     {
         while (Shelf.transform.position.y < Destination.y)
@@ -249,7 +316,7 @@ public class MoveShelves : MonoBehaviour {
         }
         //last shelf stopped moving
         MoveAgain = true;
-        NumShelvesAway--;
+        NumShelvesCnt--;
     }
 
     IEnumerator MoveShelfDown(Transform Shelf, Vector3 Direction, Vector3 Destination)

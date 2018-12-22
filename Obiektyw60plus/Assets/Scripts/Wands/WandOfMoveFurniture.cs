@@ -40,7 +40,7 @@ public class WandOfMoveFurniture : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        MovementInput = Input.GetAxis("Oculus_CrossPlatform_SecondaryIndexTrigger"); //TODO check this input
+        MovementInput = Input.GetAxis("Oculus_CrossPlatform_SecondaryIndexTrigger");
 
         //Input test
         //Debug.Log("Lindex " +Input.GetAxis("Oculus_CrossPlatform_PrimaryIndexTrigger")); //left index
@@ -49,17 +49,18 @@ public class WandOfMoveFurniture : MonoBehaviour {
         //Debug.Log("Secondary hand "+Input.GetAxis("Oculus_CrossPlatform_SecondaryHandTrigger")); //right grab
         //Debug.Log("Primary thumbstick " + Input.GetAxis("Oculus_CrossPlatform_PrimaryThumbstick"));
         //Debug.Log("Secondary thumbstick " + Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstick"));
-        if(IsSelectedShelf()) moveShelves.IsShelfSelected = true;
+        if (IsSelectedShelf() && MovementInput > 0 &&!moveShelves.IsShelfSelected) moveShelves.IsShelfSelected = true;
 
         if (MovementInput > 0) { move = true; }
-        else{ move = false; }
+        else { move = false; }
 
-        Debug.Log("move = "+move);
+        Debug.Log("move = " + move);
 
-        FindIntersectionPoint();            
-        
+        FindIntersectionPoint();
+
         if (distanceGrabbable.isGrabbed)
-        {         
+        {
+            Debug.Log("grabbed");
             //use item
             if (!UsingItem)
             {
@@ -82,6 +83,7 @@ public class WandOfMoveFurniture : MonoBehaviour {
     private bool IsSelectedShelf()
     {
         GameObject selectedObject = GameObject.Find(CastingToObject.selectedObject);
+        if (!selectedObject) return false;
         if (selectedObject.transform.IsChildOf(KitchenShelf.transform))
         {
             return true;
