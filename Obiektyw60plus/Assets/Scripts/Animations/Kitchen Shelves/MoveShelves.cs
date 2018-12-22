@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TODO make it work for the two nearest shelves ( now they move 2 steps instead of one ) Maybe add some time for colliders to turn on, so it won't break
+
 public class MoveShelves : MonoBehaviour {
 
     public int ShelvesNum = 14;
@@ -79,9 +81,9 @@ public class MoveShelves : MonoBehaviour {
             //Assign distance in number of shelves and calculate which way to go, right or left
             if (!DistanceFound) 
             {
-                Colliders(false);
-                CollidersActive = false;
                 NumShelvesAway = FindClosestShelf() - FindSelectedObject(); //TODO uncomment when done testing
+                if (NumShelvesAway == 0) goto SkipToEnd; //Selecting the same shelf that we are standing near
+                Debug.Log(NumShelvesAway);
                 if (NumShelvesAway < 0) NumShelvesAway = ShelvesNum + NumShelvesAway; //TODO uncomment when done testing
                 //Depending on the distance assign moving right or left
                 if (NumShelvesAway > ShelvesNum / 2)
@@ -97,6 +99,8 @@ public class MoveShelves : MonoBehaviour {
                 AssignMoveDirections(GoingRight); //true means going right 
                 DistanceFound = true;
                 NumShelvesCnt = NumShelvesAway;
+                Colliders(false);
+                CollidersActive = false;
                 Debug.Log("Going " + (GoingRight ? "right" : "left"));
             }
             
@@ -132,8 +136,10 @@ public class MoveShelves : MonoBehaviour {
                     i++;
                     if (i == ShelvesNum) i = 0;
                 }
-                if (NumShelvesCnt == 1) //stop moving, by changing IsShelfSelected to false
+                Debug.Log("num"+NumShelvesCnt);
+                if (NumShelvesCnt <= 1) //stop moving, by changing IsShelfSelected to false
                 {
+                    
                     IsShelfSelected = false;
                     DistanceFound = false;
 
@@ -158,26 +164,30 @@ public class MoveShelves : MonoBehaviour {
                         if (GoingRight) { ShelvesPosControl = NumShelvesAway; } else { ShelvesPosControl = ShelvesNum -NumShelvesAway; }
                         FirstMove = false;
                     }
-                   
+
+                    MoveAgain = false;
                 }
 
                 //assign new values to CurrentPositions array
                 if (GoingRight) ChangeTableRightMove();
                 else ChangeTableLeftMove();
             }
+            
         }
-        else if(!IsShelfSelected && !CollidersActive)
+        else if (!IsShelfSelected && !CollidersActive)
         {
-            //Colliders(true); //this didn't work correctly, probably need to wait a little before activating the colliders
+            
+            //need to wait a little before activating the colliders
+            StartCoroutine(LateColliders(true));
             CollidersActive = true;
-            //Debug.Log("activated colliders back");
         }
 
-        if (OVRInput.GetDown(OVRInput.Button.One))//A key //TODO activate colliders automatically when move ends
+        SkipToEnd:
         {
-            Colliders(true);
-
+            Debug.Log("stepped out, nothing to move");
+            if(NumShelvesAway == 0) IsShelfSelected = false;
         }
+
     }
 
     private void AssignMoveDirections(bool GoingRight)
@@ -284,6 +294,12 @@ public class MoveShelves : MonoBehaviour {
         return MinIndex;
     }
 
+    IEnumerator LateColliders(bool On)
+    {
+        yield return new WaitForSeconds(1f);
+        Colliders(On);
+    }
+
     IEnumerator MoveShelfLeft(Transform Shelf, Vector3 Direction, Vector3 Destination)
     {
         while (Shelf.transform.position.x > Destination.x )
@@ -303,6 +319,7 @@ public class MoveShelves : MonoBehaviour {
 
             yield return new WaitForSeconds(0.05f);
         }
+
     }
 
     //This method moves shelf up and decreases the shelves counter
