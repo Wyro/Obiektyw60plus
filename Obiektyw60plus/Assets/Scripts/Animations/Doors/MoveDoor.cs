@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class MoveDoor : MonoBehaviour {
 
+    public bool Move = false;
+
     Animation animation;
     string AnimName;
     bool IsPlayingForward = false;
     bool AnimationStarted = false;
+    float MovementInput;
 
     // Use this for initialization
     void Start () {
@@ -18,28 +21,33 @@ public class MoveDoor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        MovementInput = Input.GetAxis("Oculus_CrossPlatform_SecondaryIndexTrigger");
 
-        if (IsPlayingForward && !AnimationStarted)
-        {
-            animation[AnimName].time = 0;
-            animation[AnimName].speed = 1;
-            AnimationStarted = true;
-        }
-        else if (!IsPlayingForward && AnimationStarted)
-        {
-            animation[AnimName].time = animation[AnimName].length;
-            animation[AnimName].speed = -1;
-            AnimationStarted = false;
-        }
-
-        if (!animation.isPlaying)
-        {
-            if (Input.GetKeyDown("b"))
+        //if (Move)
+        //{
+            if (IsPlayingForward && !AnimationStarted)
             {
-                IsPlayingForward = !IsPlayingForward;
-                animation.Play(AnimName);
+                animation[AnimName].time = 0;
+                animation[AnimName].speed = 1;
+                AnimationStarted = true;
             }
-        }
-
+            else if (!IsPlayingForward && AnimationStarted)
+            {
+                animation[AnimName].time = animation[AnimName].length;
+                animation[AnimName].speed = -1;
+                AnimationStarted = false;
+            }
+        
+            if (!animation.isPlaying)
+            {
+                if (Move)
+                {
+                    
+                    IsPlayingForward = !IsPlayingForward;
+                    animation.Play(AnimName);
+                }
+            }
+        if (Move) Move = false;
+        //}
 	}
 }

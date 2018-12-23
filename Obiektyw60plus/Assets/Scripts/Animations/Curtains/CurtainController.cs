@@ -19,6 +19,7 @@ public class CurtainController : MonoBehaviour {
     }
     #endregion
 
+    public bool Use;
     public GameObject curtainLeft;
     public GameObject curtainRight;
     public GameObject curtainMid;
@@ -78,14 +79,15 @@ public class CurtainController : MonoBehaviour {
 
         if (!curtainLeftAnim.isPlaying)
         {
-            if (Input.GetKeyDown("p"))
+            if (Use)
             {
                 IsPlayingForward = !IsPlayingForward;
                 curtainLeftAnim.Play(leftAnimName);
                 curtainRightAnim.Play(rightAnimName);
                 curtainMidAnim.Play(midAnimName);
+                
             }
         }
-        
+        if(Use) Use = false;
     }
 }

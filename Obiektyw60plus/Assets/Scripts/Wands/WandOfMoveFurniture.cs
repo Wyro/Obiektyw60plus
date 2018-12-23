@@ -13,7 +13,10 @@ public class WandOfMoveFurniture : MonoBehaviour {
     CastingToObject castingToObject;
     DrawLaser drawLaser;
     MoveShelves moveShelves;
+    MoveDoor moveDoor;
+    CurtainController curtainController;
     GameObject KitchenShelf;
+    GameObject GameManager;
 
     bool UsingItem = false;
 
@@ -26,15 +29,20 @@ public class WandOfMoveFurniture : MonoBehaviour {
         KitchenShelf = GameObject.Find("salonRegal");
         if (!KitchenShelf) Debug.Log("Can't find salonRegal");
 
+        GameManager = GameObject.Find("GameManager");
+        if (!GameManager) Debug.Log("Can't find GameManager");
+
         distanceGrabbable = GetComponent<DistanceGrabbable>();
         castingToObject = GetComponent<CastingToObject>();
         drawLaser = GetComponent<DrawLaser>();
         moveShelves = KitchenShelf.GetComponent<MoveShelves>();
+        curtainController = GameManager.GetComponent<CurtainController>();
 
         if (!distanceGrabbable) Debug.Log("No DistanceGrabbable script attached");
         if (!castingToObject) Debug.Log("No CastingToObject script attached");
         if (!drawLaser) Debug.Log("No DrawLaser script attached");
         if (!moveShelves) Debug.Log("No MoveShelves script attached");
+        if (!curtainController) Debug.Log("No CurtainController script attached to GameManager object");
     }
 
     // Update is called once per frame
@@ -49,24 +57,22 @@ public class WandOfMoveFurniture : MonoBehaviour {
         //Debug.Log("Secondary hand "+Input.GetAxis("Oculus_CrossPlatform_SecondaryHandTrigger")); //right grab
         //Debug.Log("Primary thumbstick " + Input.GetAxis("Oculus_CrossPlatform_PrimaryThumbstick"));
         //Debug.Log("Secondary thumbstick " + Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstick"));
-        if (IsSelectedShelf() && MovementInput > 0 &&!moveShelves.IsShelfSelected) moveShelves.IsShelfSelected = true;
+        if (IsSelectedShelf() && MovementInput > 0 &&!moveShelves.IsShelfSelected) moveShelves.IsShelfSelected = true; //moving shelves
+        if (IsSelectedDoor() && MovementInput > 0 && !moveDoor.Move) moveDoor.Move = true; //moving door
+        if (IsSelectedCurtain() && MovementInput > 0 && !curtainController.Use) curtainController.Use = true; //using curtains
 
         if (MovementInput > 0) { move = true; }
         else { move = false; }
-
-        Debug.Log("move = " + move);
 
         FindIntersectionPoint();
 
         if (distanceGrabbable.isGrabbed)
         {
-            Debug.Log("grabbed");
             //use item
             if (!UsingItem)
             {
                 castingToObject.IsCasting = true; //activating script for detecting which object we hit
                 drawLaser.IsShowingLaser = true; 
-                //StartCoroutine(UseWand());
                 UsingItem = true;
             }
         }
@@ -76,7 +82,6 @@ public class WandOfMoveFurniture : MonoBehaviour {
             UsingItem = false;
             castingToObject.IsCasting = false;
             drawLaser.IsShowingLaser = false;
-            //StopCoroutine(UseWand());
         }
     }
 
@@ -85,6 +90,30 @@ public class WandOfMoveFurniture : MonoBehaviour {
         GameObject selectedObject = GameObject.Find(CastingToObject.selectedObject);
         if (!selectedObject) return false;
         if (selectedObject.transform.IsChildOf(KitchenShelf.transform))
+        {
+            return true;
+        }
+        else return false;
+    }
+
+    private bool IsSelectedDoor()
+    {
+        GameObject selectedObject = GameObject.Find(CastingToObject.selectedObject);
+        if (!selectedObject) return false;
+        if (selectedObject.GetComponent<MoveDoor>()) //if selected object has component MoveDoor
+        {
+            moveDoor = selectedObject.GetComponent<MoveDoor>();
+            return true;
+        }
+        else return false;
+    }
+
+    private bool IsSelectedCurtain()
+    {
+        GameObject selectedObject = GameObject.Find(CastingToObject.selectedObject);
+        //Debug.Log(selectedObject.name);
+        if (!selectedObject) return false;
+        if (selectedObject.name == "zaslony") 
         {
             return true;
         }
@@ -103,25 +132,4 @@ public class WandOfMoveFurniture : MonoBehaviour {
         }
     }
 
-    IEnumerator UseWand()
-    {
-        while (UsingItem)
-        {
-            //Handling user input
-
-            //if (OVRInput.GetDown(OVRInput.Button.Two))
-            //{
-            //    IsPushing = !IsPushing;
-            //}
-
-            //if (OVRInput.GetDown(OVRInput.Button.One))//A key
-            //{
-            //    move = !move;
-                
-            //}
-            //TODO maybe change color of laser when moving ?
-        }
-        
-            yield return new WaitForSeconds(0.05f);
-    }
 }
