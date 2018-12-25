@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class WandOfMoveFurniture : MonoBehaviour {
 
-    public bool IsPushing = true;
     public bool move = false;
     public Vector3 PointToGo;
 
@@ -15,10 +14,13 @@ public class WandOfMoveFurniture : MonoBehaviour {
     MoveShelves moveShelves;
     MoveDoor moveDoor;
     CurtainController curtainController;
+
     GameObject KitchenShelf;
     GameObject GameManager;
+    GameObject Door;
 
     bool UsingItem = false;
+    bool SomethingIsUsed = false;
 
     // Variables for holding user input
     private float MovementInput;
@@ -31,6 +33,7 @@ public class WandOfMoveFurniture : MonoBehaviour {
 
         GameManager = GameObject.Find("GameManager");
         if (!GameManager) Debug.Log("Can't find GameManager");
+
 
         distanceGrabbable = GetComponent<DistanceGrabbable>();
         castingToObject = GetComponent<CastingToObject>();
@@ -57,11 +60,15 @@ public class WandOfMoveFurniture : MonoBehaviour {
         //Debug.Log("Secondary hand "+Input.GetAxis("Oculus_CrossPlatform_SecondaryHandTrigger")); //right grab
         //Debug.Log("Primary thumbstick " + Input.GetAxis("Oculus_CrossPlatform_PrimaryThumbstick"));
         //Debug.Log("Secondary thumbstick " + Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstick"));
-        if (IsSelectedShelf() && MovementInput > 0 &&!moveShelves.IsShelfSelected) moveShelves.IsShelfSelected = true; //moving shelves
-        if (IsSelectedDoor() && MovementInput > 0 && !moveDoor.Move) moveDoor.Move = true; //moving door
-        if (IsSelectedCurtain() && MovementInput > 0 && !curtainController.Use) curtainController.Use = true; //using curtains
 
-        if (MovementInput > 0) { move = true; }
+        
+        SomethingIsUsed = curtainController.Use || moveShelves.IsShelfSelected || move;
+
+        if (IsSelectedShelf() && MovementInput > 0 && !SomethingIsUsed) moveShelves.IsShelfSelected = true; //moving shelves
+        if (IsSelectedDoor() && MovementInput > 0 && !SomethingIsUsed) moveDoor.Move = true; //moving door
+        if (IsSelectedCurtain() && MovementInput > 0 && !SomethingIsUsed) curtainController.Use = true; //using curtains
+
+        if (/*/*IsSelectedMovableObject() &&*/ MovementInput > 0 ) { move = true; }
         else { move = false; }
 
         FindIntersectionPoint();
@@ -108,12 +115,23 @@ public class WandOfMoveFurniture : MonoBehaviour {
         else return false;
     }
 
+    //private bool IsSelectedMovableObject()
+    //{
+    //    GameObject selectedObject = GameObject.Find(CastingToObject.selectedObject);
+    //    if (!selectedObject) return false;
+    //    if (selectedObject.GetComponent<MovableObject>() || selectedObject.GetComponent<MovableInYAxis>()) //if selected object has component MoveDoor
+    //    {
+    //        return true;
+    //    }
+    //    else return false;
+    //}
+
     private bool IsSelectedCurtain()
     {
         GameObject selectedObject = GameObject.Find(CastingToObject.selectedObject);
         //Debug.Log(selectedObject.name);
         if (!selectedObject) return false;
-        if (selectedObject.name == "zaslony") 
+        if (selectedObject.name == "zaslony") //This is an empty gameobject with boxcollider placed in front of curtains
         {
             return true;
         }
