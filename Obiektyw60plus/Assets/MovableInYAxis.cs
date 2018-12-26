@@ -75,9 +75,8 @@ public class MovableInYAxis : MonoBehaviour {
 
         while (wandOfMove.move)
         {
-            Debug.Log("Point to go y: " + wandOfMove.PointToGo.y);
+
             Vector3 DirectionToGo = new Vector3(transform.position.x, wandOfMove.PointToGo.y - transform.position.y,transform.position.z);
-            Debug.Log("Point to go y - light switch y position: " +(wandOfMove.PointToGo.y - transform.position.y));
 
             rigidbody.MovePosition(transform.position + DirectionToGo * Time.deltaTime);
 
