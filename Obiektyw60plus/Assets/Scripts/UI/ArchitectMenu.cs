@@ -23,12 +23,10 @@ public class ArchitectMenu : MonoBehaviour {
         if (wheelchairToggle.isOn)
         {
             wheelchairMesh.SetActive(true);
-            eyesCamera.transform.Translate(new Vector3(0f, -0.5f, 0f));
         }
         else
         {
             wheelchairMesh.SetActive(false);
-            eyesCamera.transform.Translate(new Vector3(0f, 0.5f, 0f));
         }
     }
 
