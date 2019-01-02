@@ -23,6 +23,7 @@
 {"key":"label_pause","value":"Paused"},
 {"key":"depth_toggle","value":"Depth of field"},
 {"key":"cataract_toggle","value":"Cataract"},
-{"key":"glaucoma_toggle","value":"Glaucoma"}
+{"key":"glaucoma_toggle","value":"Glaucoma"},
+{"key":"button_resume","value":"Resume"}
 
 ]}
