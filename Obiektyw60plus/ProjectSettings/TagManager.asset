@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Lang
   - Button
+  - MoveMagicSpawn
+  - ColorMagicSpawn
+  - SizeMagicSpawn
+  - CookingMagicSpawn
   layers:
   - Default
   - TransparentFX
